@@ -21,6 +21,24 @@ collections:
         name: "settings"
         file: "src/content/site/settings.json"
         fields:
+          - label: "Site"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "Site name", name: "name", widget: "string" }
+              - { label: "Site URL", name: "url", widget: "string" }
+              - { label: "Default title", name: "defaultTitle", widget: "string" }
+              - { label: "Default description", name: "defaultDescription", widget: "text" }
+              - { label: "Open Graph image", name: "ogImage", widget: "image", required: false }
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            fields:
+              - { label: "Light logo", name: "logoLight", widget: "image" }
+              - { label: "Default logo", name: "logoDefault", widget: "image" }
+              - { label: "Favicon", name: "favicon", widget: "image" }
+              - { label: "Watermark", name: "watermark", widget: "image", required: false }
+              - { label: "Hero image alt", name: "heroAlt", widget: "string" }
           - label: "Navigation"
             name: "navigation"
             widget: "list"
@@ -125,6 +143,77 @@ collections:
         name: "pages"
         file: "src/content/site/pages.json"
         fields:
+          - label: "Blog"
+            name: "blog"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Back label", name: "backLabel", widget: "string" }
+              - { label: "Article eyebrow", name: "articleEyebrow", widget: "string" }
+              - { label: "Article CTA title", name: "articleCtaTitle", widget: "string" }
+          - label: "API Docs"
+            name: "docs"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Primary action"
+                name: "primaryAction"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }
+              - label: "Secondary action"
+                name: "secondaryAction"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }
+              - { label: "Surfaces title", name: "surfacesTitle", widget: "string" }
+              - label: "Surfaces"
+                name: "surfaces"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "string" }
+              - { label: "Section eyebrow", name: "sectionEyebrow", widget: "string" }
+              - { label: "Section title", name: "sectionTitle", widget: "string" }
+              - { label: "Section text", name: "sectionText", widget: "text" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - label: "Developers"
+            name: "developers"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Repositories"
+                name: "repositories"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - { label: "Governance eyebrow", name: "governanceEyebrow", widget: "string" }
+              - { label: "Governance title", name: "governanceTitle", widget: "string" }
+              - { label: "Governance text", name: "governanceText", widget: "text" }
+              - { label: "Boundary title", name: "boundaryTitle", widget: "string" }
+              - { label: "Boundary text", name: "boundaryText", widget: "text" }
+              - { label: "CTA title", name: "ctaTitle", widget: "string" }
           - label: "Security"
             name: "security"
             widget: "object"
@@ -149,6 +238,39 @@ collections:
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Lead", name: "lead", widget: "text" }
               - { label: "Form action", name: "formAction", widget: "string" }
+              - label: "Fields"
+                name: "fields"
+                widget: "object"
+                fields:
+                  - { label: "Name label", name: "nameLabel", widget: "string" }
+                  - { label: "Name placeholder", name: "namePlaceholder", widget: "string" }
+                  - { label: "Email label", name: "emailLabel", widget: "string" }
+                  - { label: "Email placeholder", name: "emailPlaceholder", widget: "string" }
+                  - { label: "Message label", name: "messageLabel", widget: "string" }
+                  - { label: "Message placeholder", name: "messagePlaceholder", widget: "string" }
+                  - { label: "Submit label", name: "submitLabel", widget: "string" }
+      - label: "Module Detail Pages"
+        name: "modulePages"
+        file: "src/content/site/modulePages.json"
+        fields:
+          - label: "VoIP"
+            name: "voip"
+            widget: "object"
+            fields: &module_page_fields
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Card title", name: "cardTitle", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - { label: "Hosting", name: "hosting", widget: "object", fields: *module_page_fields }
+          - { label: "Monitoring", name: "monitoring", widget: "object", fields: *module_page_fields }
+          - { label: "Cyber Security", name: "cyberSecurity", widget: "object", fields: *module_page_fields }
+          - { label: "Support", name: "support", widget: "object", fields: *module_page_fields }
   - name: "blog"
     label: "Blog"
     label_singular: "Blog Post"

@@ -3,33 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTA from '../../components/CTA.astro';
+import modulePages from '../../content/site/modulePages.json';
+
+const page = modulePages.voip;
 ---
 
-<BaseLayout title="VoIP Platform - MNSCloud">
+<BaseLayout title={page.title}>
   <Header />
   <main class="module-page">
     <section class="section">
       <div class="container detail-grid">
         <div>
-          <span class="eyebrow">Telecom Core</span>
-          <h1>VoIP Platform</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p class="lead">
-            Manage PABX, Softswitch, DID inventory, routing, recordings, media files, and WebRTC
-            readiness through a multi-tenant API-first architecture.
+            {page.lead}
           </p>
         </div>
         <div class="card detail-card">
-          <h2>Primary Areas</h2>
+          <h2>{page.cardTitle}</h2>
           <ul>
-            <li>PABX servers, accounts, trunks, routing, queues, IVR, and media files.</li>
-            <li>Softswitch providers, resources, subscribers, DID, and routing.</li>
-            <li>SBC and WebRTC edge architecture for secure registration.</li>
-            <li>Storage-backed recordings and public client integrations.</li>
+            {page.items.map((item) => <li>{item}</li>)}
           </ul>
         </div>
       </div>
     </section>
-    <CTA title="Enable voice operations without exposing private control-plane logic." />
+    <CTA title={page.ctaTitle} />
   </main>
   <Footer />
 </BaseLayout>

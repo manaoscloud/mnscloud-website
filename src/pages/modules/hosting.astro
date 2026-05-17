@@ -3,33 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTA from '../../components/CTA.astro';
+import modulePages from '../../content/site/modulePages.json';
+
+const page = modulePages.hosting;
 ---
 
-<BaseLayout title="Hosting Automation - MNSCloud">
+<BaseLayout title={page.title}>
   <Header />
   <main class="module-page">
     <section class="section">
       <div class="container detail-grid">
         <div>
-          <span class="eyebrow">Infrastructure</span>
-          <h1>Hosting Automation</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p class="lead">
-            Provision and manage VPS, VPS Container, DNS, storage, SMTP, and web hosting services
-            with provider catalogs and tenant-aware operational workflows.
+            {page.lead}
           </p>
         </div>
         <div class="card detail-card">
-          <h2>Coverage</h2>
+          <h2>{page.cardTitle}</h2>
           <ul>
-            <li>VPS providers, plans, images, regions, and instances.</li>
-            <li>VPS Container providers, plans, and Incus-first instances.</li>
-            <li>DNS, storage accounts, SMTP providers, routes, and web hosting.</li>
-            <li>Provider APIs stay server-side; public clients only consume safe API contracts.</li>
+            {page.items.map((item) => <li>{item}</li>)}
           </ul>
         </div>
       </div>
     </section>
-    <CTA title="Automate infrastructure without leaking provider authority." />
+    <CTA title={page.ctaTitle} />
   </main>
   <Footer />
 </BaseLayout>

@@ -4,8 +4,8 @@ import settings from '../content/site/settings.json';
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="MNSCloud home">
-      <img src="/brand/mnscloud-logo-light.png" alt="" />
+    <a class="brand" href="/" aria-label={`${settings.site.name} home`}>
+      <img src={settings.brand.logoLight} alt="" />
     </a>
     <nav aria-label="Main navigation">
       {settings.navigation.map((item) => <a href={item.href}>{item.label}</a>)}

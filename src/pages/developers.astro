@@ -3,79 +3,51 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTA from '../components/CTA.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.developers;
 ---
 
-<BaseLayout title="Developers - MNSCloud">
+<BaseLayout title={page.title}>
   <Header />
   <main>
     <section class="section">
       <div class="container dev-grid">
         <div>
-          <span class="eyebrow">Developer Ecosystem</span>
-          <h1>Public repositories, governed contributions.</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p class="lead">
-            MNSCloud publishes selected clients, agents, installers, and edge connectors so customers,
-            partners, and contributors can inspect and improve the ecosystem.
+            {page.lead}
           </p>
         </div>
         <div class="card repo-list">
-          <a href="https://github.com/manaoscloud/mnscloud-app">
-            <strong>mnscloud-app</strong>
-            <span>Public Angular client for operators and customers.</span>
-          </a>
-          <a href="https://github.com/manaoscloud/mnscloud-website">
-            <strong>mnscloud-website</strong>
-            <span>Public website, product pages, and documentation surface.</span>
-          </a>
-          <a href="https://github.com/manaoscloud/mnscloud-agent">
-            <strong>mnscloud-agent</strong>
-            <span>Outbound Linux agent for remote operations and security jobs.</span>
-          </a>
-          <a href="https://github.com/manaoscloud/mnscloud-freeswitch">
-            <strong>mnscloud-freeswitch</strong>
-            <span>Standalone FreeSWITCH installer and runtime assets.</span>
-          </a>
-          <a href="https://github.com/manaoscloud/mnscloud-asterisk">
-            <strong>mnscloud-asterisk</strong>
-            <span>Standalone Asterisk installer and runtime assets.</span>
-          </a>
-          <a href="https://github.com/manaoscloud/mnscloud-kamailio">
-            <strong>mnscloud-kamailio</strong>
-            <span>Standalone Kamailio installer and runtime assets.</span>
-          </a>
-          <a href="https://github.com/manaoscloud/mnscloud-opensips">
-            <strong>mnscloud-opensips</strong>
-            <span>Standalone OpenSIPS installer and runtime assets.</span>
-          </a>
-          <a href="https://github.com/manaoscloud/mnscloud-kamailio-webrtc">
-            <strong>mnscloud-kamailio-webrtc</strong>
-            <span>Kamailio WebRTC edge SBC for secure multi-tenant WebRTC access.</span>
-          </a>
+          {page.repositories.map((repo) => (
+            <a href={repo.url}>
+              <strong>{repo.name}</strong>
+              <span>{repo.description}</span>
+            </a>
+          ))}
         </div>
       </div>
     </section>
     <section class="section governance">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Contribution Model</span>
-          <h2>Open collaboration with company-grade review.</h2>
+          <span class="eyebrow">{page.governanceEyebrow}</span>
+          <h2>{page.governanceTitle}</h2>
           <p>
-            Contributions enter through Pull Requests, with security checks, code ownership, and CI.
-            MNSCloud may sponsor, pay, contract, or hire contributors when their work shows strong
-            value, but paid work requires explicit written agreement.
+            {page.governanceText}
           </p>
         </div>
         <div class="card boundary-card">
-          <h3>Public code, private control plane.</h3>
+          <h3>{page.boundaryTitle}</h3>
           <p>
-            Public repositories contain clients, agents, installers, website code, and edge connectors.
-            The core API, database schema, tenant policy, billing logic, routing authority, and secret
-            resolution remain in the private control plane.
+            {page.boundaryText}
           </p>
         </div>
       </div>
     </section>
-    <CTA title="Build with us without weakening the platform boundary." />
+    <CTA title={page.ctaTitle} />
   </main>
   <Footer />
 </BaseLayout>

@@ -1,0 +1,72 @@
+{
+  "voip": {
+    "title": "VoIP Platform - MNSCloud",
+    "eyebrow": "Telecom Core",
+    "heading": "VoIP Platform",
+    "lead": "Manage PABX, Softswitch, DID inventory, routing, recordings, media files, and WebRTC readiness through a multi-tenant API-first architecture.",
+    "cardTitle": "Primary Areas",
+    "items": [
+      "PABX servers, accounts, trunks, routing, queues, IVR, and media files.",
+      "Softswitch providers, resources, subscribers, DID, and routing.",
+      "SBC and WebRTC edge architecture for secure registration.",
+      "Storage-backed recordings and public client integrations."
+    ],
+    "ctaTitle": "Enable voice operations without exposing private control-plane logic."
+  },
+  "hosting": {
+    "title": "Hosting Automation - MNSCloud",
+    "eyebrow": "Infrastructure",
+    "heading": "Hosting Automation",
+    "lead": "Provision and manage VPS, VPS Container, DNS, storage, SMTP, and web hosting services with provider catalogs and tenant-aware operational workflows.",
+    "cardTitle": "Coverage",
+    "items": [
+      "VPS providers, plans, images, regions, and instances.",
+      "VPS Container providers, plans, and Incus-first instances.",
+      "DNS, storage accounts, SMTP providers, routes, and web hosting.",
+      "Provider APIs stay server-side; public clients only consume safe API contracts."
+    ],
+    "ctaTitle": "Automate infrastructure without leaking provider authority."
+  },
+  "monitoring": {
+    "title": "Monitoring And Agents - MNSCloud",
+    "eyebrow": "Operations",
+    "heading": "Monitoring And Agents",
+    "lead": "Track server health, agent heartbeat, capabilities, assignments, job history, and operational activity through outbound-only Linux agents.",
+    "cardTitle": "Agent Model",
+    "items": [
+      "Communication is initiated from the server to the API.",
+      "No external inbound agent port is required by default.",
+      "Capabilities declare what the server can do; the API decides what it may do.",
+      "Job execution and status are auditable in the control plane."
+    ],
+    "ctaTitle": "Operate remote servers through controlled, auditable jobs."
+  },
+  "cyberSecurity": {
+    "title": "Cyber Security - MNSCloud",
+    "eyebrow": "Security Operations",
+    "heading": "Cyber Security",
+    "lead": "Service-based protection profiles, CrowdSec intelligence, nftables enforcement, alerts, decisions, allowlists, blocklists, and agent-driven installation.",
+    "cardTitle": "Security Principles",
+    "items": [
+      "Profiles are based on services such as SSH, Nginx, Asterisk, Kamailio, and MariaDB.",
+      "Firewall enforcement uses nftables with CrowdSec decisions.",
+      "Agents report status and job history back to the platform.",
+      "Public installers do not hold customer secrets or private policy authority."
+    ],
+    "ctaTitle": "Build security posture from services, not from fragile server labels."
+  },
+  "support": {
+    "title": "Support And CRM - MNSCloud",
+    "eyebrow": "Customer Care",
+    "heading": "Support And CRM",
+    "lead": "Connect support, CRM, sales, and customer context so operational teams can move from ticket handling to commercial follow-up without losing visibility.",
+    "cardTitle": "Business Workflows",
+    "items": [
+      "Tickets, channels, teams, and service queues.",
+      "CRM leads, opportunities, and pipeline tracking.",
+      "Sales catalog, products, brands, stock, quotations, and categories.",
+      "Tenant-aware customer data controlled by the API."
+    ],
+    "ctaTitle": "Keep customer operations close to the infrastructure that serves them."
+  }
+}

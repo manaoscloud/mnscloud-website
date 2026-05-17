@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import settings from '../content/site/settings.json';
 
 type Props = {
   title?: string;
@@ -7,8 +8,8 @@ type Props = {
 };
 
 const {
-  title = 'MNSCloud - Cloud, Telecom, Security, And Automation Platform',
-  description = 'MNSCloud is a modular platform for telecom, hosting, monitoring, cyber security, support, CRM, and infrastructure automation.',
+  title = settings.site.defaultTitle,
+  description = settings.site.defaultDescription,
 } = Astro.props;
 ---
 
@@ -21,8 +22,9 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/brand/mnscloud-logo.png" />
-    <link rel="icon" type="image/png" href="/brand/favicon.png" />
+    <meta property="og:image" content={settings.site.ogImage} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, settings.site.url).toString()} />
+    <link rel="icon" type="image/png" href={settings.brand.favicon} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

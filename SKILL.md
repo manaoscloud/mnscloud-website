@@ -29,6 +29,17 @@ Use this repository for the public MNSCloud website.
 - Blog and marketing content should be stored as Markdown/frontmatter, not in a database.
 - Marketing-editable site copy must live in `src/content/site/*.json` or `src/content/blog/*.md`;
   avoid hardcoding editable business copy directly inside Astro pages.
+- Partner deployments must be able to set their own public domain with
+  `src/content/site/settings.json`; `PUBLIC_SITE_URL` is an optional deployment override.
+- Keep white-label content editable through `/admin`: brand metadata, support/API URLs, navigation,
+  footer, CTAs, home sections, module cards, module detail pages, core pages, blog posts, and public
+  media.
+- Keep CMS boot/deployment concerns outside CMS-managed content: Decap `backend.repo`, `site_url`,
+  `display_url`, OAuth/Git Gateway configuration, CI/CD secrets, and hosting credentials are changed
+  per repository/deployment before the admin loads.
+- When a new page or section is meant for partners to customize, add the source fields under
+  `src/content/site/*.json` or `src/content/blog/*.md` and expose them in
+  `public/admin/config.yml`; do not hardcode partner-editable copy in Astro pages.
 - The admin surface is git-based Decap CMS under `/admin`; do not introduce permanent secrets or
   private infrastructure data into CMS-managed content.
 - Uploaded public website media belongs in `public/uploads/` and must be safe for public CDN

@@ -21,18 +21,18 @@ const page = pages.contact;
         </div>
         <form class="card contact-form" method="get" action={page.formAction}>
           <label>
-            Name
-            <input name="name" placeholder="Your name" />
+            {page.fields.nameLabel}
+            <input name="name" placeholder={page.fields.namePlaceholder} />
           </label>
           <label>
-            Work email
-            <input name="email" type="email" placeholder="you@example.com" />
+            {page.fields.emailLabel}
+            <input name="email" type="email" placeholder={page.fields.emailPlaceholder} />
           </label>
           <label>
-            What do you want to discuss?
-            <textarea name="message" rows="5" placeholder="Tell us about your deployment, module, or integration."></textarea>
+            {page.fields.messageLabel}
+            <textarea name="message" rows="5" placeholder={page.fields.messagePlaceholder}></textarea>
           </label>
-          <button class="button primary" type="submit">Send request</button>
+          <button class="button primary" type="submit">{page.fields.submitLabel}</button>
         </form>
       </div>
     </section>

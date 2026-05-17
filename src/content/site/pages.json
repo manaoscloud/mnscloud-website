@@ -1,4 +1,61 @@
 {
+  "blog": {
+    "title": "Blog - MNSCloud",
+    "description": "MNSCloud articles about cloud infrastructure, VoIP, cyber security, WebRTC, automation, and API-first operations.",
+    "eyebrow": "MNSCloud Blog",
+    "heading": "Ideas for secure cloud, telecom, and automation operations.",
+    "lead": "Technical articles and product thinking for teams building public infrastructure around a secure API control plane.",
+    "backLabel": "Back to blog",
+    "articleEyebrow": "MNSCloud Blog",
+    "articleCtaTitle": "Build with a platform designed for public infrastructure."
+  },
+  "docs": {
+    "title": "API Docs - MNSCloud",
+    "description": "MNSCloud API documentation, OpenAPI contract, public clients, and integration boundaries.",
+    "eyebrow": "API Documentation",
+    "heading": "One contract for public clients, agents, and edge services.",
+    "lead": "MNSCloud is built around an API-first control plane. Public repositories consume the API contract, while authorization, tenant scope, billing, routing ownership, policy decisions, and secret resolution stay server-side.",
+    "primaryAction": { "label": "Open Swagger UI", "href": "/api/v1/docs" },
+    "secondaryAction": { "label": "Download OpenAPI YAML", "href": "/api/v1/openapi.yaml" },
+    "surfacesTitle": "Documentation surfaces",
+    "surfaces": [
+      { "title": "Swagger UI", "text": "/api/v1/docs" },
+      { "title": "OpenAPI YAML", "text": "/api/v1/openapi.yaml" },
+      { "title": "Public repositories", "text": "github.com/manaoscloud" },
+      { "title": "Contribution model", "text": "Pull Requests, CI, and maintainer review" }
+    ],
+    "sectionEyebrow": "Integration Boundary",
+    "sectionTitle": "What public clients can rely on.",
+    "sectionText": "Public integrations should depend on documented API behavior, request/response examples, authentication requirements, and tenant-aware headers. They must not duplicate private control-plane decisions outside the API.",
+    "cards": [
+      { "title": "OpenAPI-first", "text": "Endpoints are organized by product hierarchy so developers can find VoIP, Hosting, Monitoring, Cyber Security, and other modules consistently." },
+      { "title": "Safe examples", "text": "Public examples use placeholders and documented fields only. Secrets, customer data, production topology, and provider credentials stay out of public repositories." },
+      { "title": "Governed changes", "text": "API-facing changes are reviewed before merge. Public clients follow the API contract; the control plane remains the source of truth for authority and policy." }
+    ],
+    "ctaTitle": "Build integrations on the contract, not on private assumptions."
+  },
+  "developers": {
+    "title": "Developers - MNSCloud",
+    "eyebrow": "Developer Ecosystem",
+    "heading": "Public repositories, governed contributions.",
+    "lead": "MNSCloud publishes selected clients, agents, installers, and edge connectors so customers, partners, and contributors can inspect and improve the ecosystem.",
+    "repositories": [
+      { "name": "mnscloud-app", "description": "Public Angular client for operators and customers.", "url": "https://github.com/manaoscloud/mnscloud-app" },
+      { "name": "mnscloud-website", "description": "Public website, product pages, and documentation surface.", "url": "https://github.com/manaoscloud/mnscloud-website" },
+      { "name": "mnscloud-agent", "description": "Outbound Linux agent for remote operations and security jobs.", "url": "https://github.com/manaoscloud/mnscloud-agent" },
+      { "name": "mnscloud-freeswitch", "description": "Standalone FreeSWITCH installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-freeswitch" },
+      { "name": "mnscloud-asterisk", "description": "Standalone Asterisk installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-asterisk" },
+      { "name": "mnscloud-kamailio", "description": "Standalone Kamailio installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-kamailio" },
+      { "name": "mnscloud-opensips", "description": "Standalone OpenSIPS installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-opensips" },
+      { "name": "mnscloud-kamailio-webrtc", "description": "Kamailio WebRTC edge SBC for secure multi-tenant WebRTC access.", "url": "https://github.com/manaoscloud/mnscloud-kamailio-webrtc" }
+    ],
+    "governanceEyebrow": "Contribution Model",
+    "governanceTitle": "Open collaboration with company-grade review.",
+    "governanceText": "Contributions enter through Pull Requests, with security checks, code ownership, and CI. MNSCloud may sponsor, pay, contract, or hire contributors when their work shows strong value, but paid work requires explicit written agreement.",
+    "boundaryTitle": "Public code, private control plane.",
+    "boundaryText": "Public repositories contain clients, agents, installers, website code, and edge connectors. The core API, database schema, tenant policy, billing logic, routing authority, and secret resolution remain in the private control plane.",
+    "ctaTitle": "Build with us without weakening the platform boundary."
+  },
   "security": {
     "title": "Security - MNSCloud",
     "eyebrow": "Trust Model",
@@ -16,6 +73,15 @@
     "eyebrow": "Contact",
     "heading": "Talk to MNSCloud.",
     "lead": "Use this page as the public contact entry point. The production version can later submit demo requests to a safe public API endpoint.",
-    "formAction": "mailto:contact@example.com"
+    "formAction": "mailto:contact@example.com",
+    "fields": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Work email",
+      "emailPlaceholder": "you@example.com",
+      "messageLabel": "What do you want to discuss?",
+      "messagePlaceholder": "Tell us about your deployment, module, or integration.",
+      "submitLabel": "Send request"
+    }
   }
 }

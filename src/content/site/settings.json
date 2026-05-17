@@ -1,4 +1,18 @@
 {
+  "site": {
+    "name": "MNSCloud",
+    "url": "https://manaos.cloud",
+    "defaultTitle": "MNSCloud - Cloud, Telecom, Security, And Automation Platform",
+    "defaultDescription": "MNSCloud is a modular platform for telecom, hosting, monitoring, cyber security, support, CRM, and infrastructure automation.",
+    "ogImage": "/brand/mnscloud-logo.png"
+  },
+  "brand": {
+    "logoLight": "/brand/mnscloud-logo-light.png",
+    "logoDefault": "/brand/mnscloud-logo.png",
+    "favicon": "/brand/favicon.png",
+    "watermark": "/brand/mnscloud-watermark.png",
+    "heroAlt": "MNSCloud"
+  },
   "navigation": [
     { "label": "Modules", "href": "/#modules" },
     { "label": "Security", "href": "/security" },

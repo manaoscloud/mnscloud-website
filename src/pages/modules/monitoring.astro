@@ -3,33 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTA from '../../components/CTA.astro';
+import modulePages from '../../content/site/modulePages.json';
+
+const page = modulePages.monitoring;
 ---
 
-<BaseLayout title="Monitoring And Agents - MNSCloud">
+<BaseLayout title={page.title}>
   <Header />
   <main class="module-page">
     <section class="section">
       <div class="container detail-grid">
         <div>
-          <span class="eyebrow">Operations</span>
-          <h1>Monitoring And Agents</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p class="lead">
-            Track server health, agent heartbeat, capabilities, assignments, job history, and
-            operational activity through outbound-only Linux agents.
+            {page.lead}
           </p>
         </div>
         <div class="card detail-card">
-          <h2>Agent Model</h2>
+          <h2>{page.cardTitle}</h2>
           <ul>
-            <li>Communication is initiated from the server to the API.</li>
-            <li>No external inbound agent port is required by default.</li>
-            <li>Capabilities declare what the server can do; the API decides what it may do.</li>
-            <li>Job execution and status are auditable in the control plane.</li>
+            {page.items.map((item) => <li>{item}</li>)}
           </ul>
         </div>
       </div>
     </section>
-    <CTA title="Operate remote servers through controlled, auditable jobs." />
+    <CTA title={page.ctaTitle} />
   </main>
   <Footer />
 </BaseLayout>

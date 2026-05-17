@@ -4,24 +4,25 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTA from '../../components/CTA.astro';
 import { formatPostDate, getBlogPosts } from '../../lib/blog';
+import pages from '../../content/site/pages.json';
 
 const posts = getBlogPosts();
+const page = pages.blog;
 ---
 
 <BaseLayout
-  title="Blog - MNSCloud"
-  description="MNSCloud articles about cloud infrastructure, VoIP, cyber security, WebRTC, automation, and API-first operations."
+  title={page.title}
+  description={page.description}
 >
   <Header />
   <main>
     <section class="section">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">MNSCloud Blog</span>
-          <h1>Ideas for secure cloud, telecom, and automation operations.</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p>
-            Technical articles and product thinking for teams building public infrastructure around a
-            secure API control plane.
+            {page.lead}
           </p>
         </div>
         <div class="post-grid">

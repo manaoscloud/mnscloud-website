@@ -7,6 +7,7 @@ import CTA from '../components/CTA.astro';
 import { productModules } from '../data/modules';
 import { formatPostDate, getBlogPosts } from '../lib/blog';
 import home from '../content/site/home.json';
+import settings from '../content/site/settings.json';
 
 const latestPosts = getBlogPosts().slice(0, 2);
 ---
@@ -15,11 +16,11 @@ const latestPosts = getBlogPosts().slice(0, 2);
   <Header />
   <main>
     <section class="hero">
-      <img class="brand-watermark" src="/brand/mnscloud-watermark.png" alt="" />
+      <img class="brand-watermark" src={settings.brand.watermark} alt="" />
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">{home.hero.eyebrow}</span>
-          <img class="hero-logo" src="/brand/mnscloud-logo-light.png" alt="MNSCloud" />
+          <img class="hero-logo" src={settings.brand.logoLight} alt={settings.brand.heroAlt} />
           <p>
             {home.hero.text}
           </p>

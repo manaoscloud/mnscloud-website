@@ -3,33 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTA from '../../components/CTA.astro';
+import modulePages from '../../content/site/modulePages.json';
+
+const page = modulePages.cyberSecurity;
 ---
 
-<BaseLayout title="Cyber Security - MNSCloud">
+<BaseLayout title={page.title}>
   <Header />
   <main class="module-page">
     <section class="section">
       <div class="container detail-grid">
         <div>
-          <span class="eyebrow">Security Operations</span>
-          <h1>Cyber Security</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p class="lead">
-            Service-based protection profiles, CrowdSec intelligence, nftables enforcement, alerts,
-            decisions, allowlists, blocklists, and agent-driven installation.
+            {page.lead}
           </p>
         </div>
         <div class="card detail-card">
-          <h2>Security Principles</h2>
+          <h2>{page.cardTitle}</h2>
           <ul>
-            <li>Profiles are based on services such as SSH, Nginx, Asterisk, Kamailio, and MariaDB.</li>
-            <li>Firewall enforcement uses nftables with CrowdSec decisions.</li>
-            <li>Agents report status and job history back to the platform.</li>
-            <li>Public installers do not hold customer secrets or private policy authority.</li>
+            {page.items.map((item) => <li>{item}</li>)}
           </ul>
         </div>
       </div>
     </section>
-    <CTA title="Build security posture from services, not from fragile server labels." />
+    <CTA title={page.ctaTitle} />
   </main>
   <Footer />
 </BaseLayout>
