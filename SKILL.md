@@ -11,7 +11,11 @@ Use this repository for the public MNSCloud website.
 ## Design Rules
 
 - Use approved brand assets from `public/brand/`.
-- If official assets are missing, use placeholders and document what must be replaced.
+- Follow `brand_manual.pdf` when choosing logo variants, colors, typography, and clear space.
+- Use Safety Orange `#F5832E` and Hunter Green `#1D5B31`.
+- Use Montserrat for subtitles/body text and Oswald for titles.
+- Do not rotate, distort, recolor, add shadows, add textures, alter letter spacing, or change the
+  CLOUD tag position.
 - The first viewport must communicate MNSCloud as the main brand.
 - Keep pages direct and product-focused, not generic marketing filler.
 - Avoid private customer data, internal topology, private domains, production IPs, or credentials.

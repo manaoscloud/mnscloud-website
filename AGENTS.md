@@ -20,8 +20,13 @@ This repository contains the standalone public MNSCloud website.
 
 - Place approved assets in `public/brand/`.
 - Do not commit unreleased partner/customer branding or private metadata.
-- Use `mnscloud-logo-light.svg` on dark backgrounds, `mnscloud-logo.svg` on light backgrounds, and
-  `mnscloud-watermark.svg` only as low-emphasis decorative media.
+- Follow `brand_manual.pdf`.
+- Use Safety Orange `#F5832E` and Hunter Green `#1D5B31`.
+- Use Montserrat for body/subtitle text and Oswald for titles.
+- Use `mnscloud-logo-light.png` on dark backgrounds, `mnscloud-logo.png` on light backgrounds, and
+  `mnscloud-watermark.png` only as low-emphasis decorative media.
+- Do not rotate, distort, recolor, add shadows, add textures, alter letter spacing, or change the
+  CLOUD tag position.
 
 ## Contribution Workflow
 

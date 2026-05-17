@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 180" role="img" aria-labelledby="title desc">
-  <title id="title">MNSCloud logo</title>
-  <desc id="desc">MANAOS CLOUD wordmark in green and orange.</desc>
-  <rect width="680" height="180" fill="none"/>
-  <g fill="#176b3a">
-    <text x="36" y="102" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="78" font-weight="900" letter-spacing="-5">MANAOS</text>
-  </g>
-  <text x="505" y="133" fill="#ff7a2b" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="24" font-weight="900" letter-spacing="3">CLOUD</text>
-</svg>

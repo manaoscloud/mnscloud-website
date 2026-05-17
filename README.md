@@ -37,14 +37,17 @@ public/brand/
 
 Current working assets:
 
-- `mnscloud-logo.svg`
-- `mnscloud-logo-light.svg`
-- `mnscloud-wordmark.svg`
-- `mnscloud-wordmark-orange.svg`
-- `mnscloud-watermark.svg`
+- `mnscloud-logo.png`
+- `mnscloud-logo-light.png`
+- `mnscloud-wordmark-orange.png`
+- `mnscloud-wordmark-green.png`
+- `mnscloud-wordmark-stacked-green.png`
+- `mnscloud-watermark.png`
+- `favicon.png`
 
-When official vector exports or the brand manual are provided, update the assets in this folder and
-preserve public-safe metadata only.
+The current implementation follows `brand_manual.pdf`: Safety Orange `#F5832E`, Hunter Green
+`#1D5B31`, Montserrat for body text, Oswald for titles, and clear-space/proportion rules for logo
+usage. Preserve public-safe metadata only.
 
 ## Public Boundary
 

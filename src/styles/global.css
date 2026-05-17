@@ -1,21 +1,21 @@
 :root {
-  --bg: #07110f;
-  --bg-soft: #0b1715;
-  --surface: #0f1d1a;
-  --surface-2: #142622;
+  --bg: #09100c;
+  --bg-soft: #101812;
+  --surface: #111d16;
+  --surface-2: #17271d;
   --line: rgba(222, 239, 235, 0.16);
   --text: #ecf5f2;
   --muted: #a9bbb5;
-  --accent: #2df5e0;
-  --brand-green: #176b3a;
-  --brand-orange: #ff7a2b;
-  --accent-soft: rgba(45, 245, 224, 0.14);
+  --accent: #f5832e;
+  --brand-green: #1d5b31;
+  --brand-orange: #f5832e;
+  --accent-soft: rgba(245, 131, 46, 0.16);
   --success: #7be0a4;
   --warning: #e4c66d;
   --max: 1180px;
   color-scheme: dark;
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -31,14 +31,22 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 20% 0%, rgba(45, 245, 224, 0.09), transparent 34rem),
-    linear-gradient(180deg, #07110f 0%, #0a1412 44%, #08100f 100%);
+    radial-gradient(circle at 20% 0%, rgba(245, 131, 46, 0.08), transparent 34rem),
+    radial-gradient(circle at 92% 14%, rgba(29, 91, 49, 0.42), transparent 30rem),
+    linear-gradient(180deg, #09100c 0%, #101812 44%, #090f0c 100%);
   color: var(--text);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Oswald, Montserrat, sans-serif;
+  font-weight: 700;
 }
 
 img {
@@ -95,13 +103,13 @@ img {
 }
 
 .button.primary {
-  border-color: rgba(45, 245, 224, 0.7);
+  border-color: rgba(245, 131, 46, 0.7);
   background: var(--accent);
-  color: #001816;
+  color: #170a02;
 }
 
 .button:hover {
-  border-color: rgba(45, 245, 224, 0.7);
+  border-color: rgba(245, 131, 46, 0.7);
 }
 
 .grid {
@@ -124,9 +132,8 @@ img {
   position: absolute;
   inset: auto 0 0 auto;
   width: min(52vw, 780px);
-  opacity: 0.16;
+  opacity: 0.09;
   pointer-events: none;
-  filter: saturate(0.86);
 }
 
 @media (max-width: 860px) {

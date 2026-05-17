@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" role="img" aria-labelledby="title desc">
-  <title id="title">MNSCloud watermark</title>
-  <desc id="desc">Large low contrast MANAOS CLOUD watermark.</desc>
-  <rect width="900" height="240" fill="none"/>
-  <text x="22" y="150" fill="#2df5e0" fill-opacity=".34" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="126" font-weight="900" letter-spacing="-7">MANAOS</text>
-  <text x="690" y="198" fill="#ff7a2b" fill-opacity=".7" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="34" font-weight="900" letter-spacing="4">CLOUD</text>
-</svg>
