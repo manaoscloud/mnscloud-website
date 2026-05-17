@@ -63,6 +63,30 @@ This avoids shipping password hashes, user tables, reset flows, or permanent cre
 public website repository. If MNSCloud later needs local username/password accounts, that should be a
 separate private identity service or API-backed admin, not static website code.
 
+### Partner/self-hosted deployments
+
+A partner may build the website and host the generated `dist/` files on their own server, CDN, or
+static hosting provider. The public pages will work as static HTML/CSS/JS.
+
+The `/admin` screen is different: it is only the editor UI. To save content changes, it still needs a
+writable Git backend and authentication provider.
+
+Recommended partner flow:
+
+1. Fork or clone `manaoscloud/mnscloud-website` into the partner's GitHub organization.
+2. Update `public/admin/config.yml` so `backend.repo` points to the partner repository.
+3. Configure the Decap CMS GitHub OAuth/Git Gateway provider for the partner domain.
+4. Add marketing users as GitHub collaborators or members of a GitHub team with the minimum required
+   repository permission.
+5. Editors access `/admin`, authenticate through GitHub/OAuth, and create content through the
+   editorial workflow.
+6. A build/deploy pipeline publishes the updated static `dist/` output to the partner server/CDN.
+
+If a partner requires standalone username/password accounts managed outside GitHub, that is no
+longer a purely static git-based CMS. It should be implemented as an API-backed private admin or a
+self-hosted headless CMS with database-backed users, roles, sessions, password reset, audit logs,
+and deployment webhooks.
+
 ## Build
 
 ```bash
