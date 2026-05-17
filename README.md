@@ -47,6 +47,22 @@ Production authentication is handled by the configured GitHub backend/OAuth prov
 GitHub tokens, OAuth secrets, customer data, private domains, or infrastructure details to this
 repository.
 
+### Admin access model
+
+There is no default username/password. That is intentional.
+
+The admin writes to Git, so production access is controlled by GitHub:
+
+1. Invite the maintainer to the `manaoscloud/mnscloud-website` repository or to the correct GitHub
+   team.
+2. Give the minimum permission needed for the role.
+3. The maintainer signs in through the configured GitHub OAuth/Git Gateway flow.
+4. Content changes are committed through the CMS/editorial workflow and remain reviewable in Git.
+
+This avoids shipping password hashes, user tables, reset flows, or permanent credentials in the
+public website repository. If MNSCloud later needs local username/password accounts, that should be a
+separate private identity service or API-backed admin, not static website code.
+
 ## Build
 
 ```bash
