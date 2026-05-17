@@ -38,9 +38,11 @@ Use this repository for the public MNSCloud website.
 - Keep white-label content editable through `/admin`: brand metadata, support/API URLs, navigation,
   footer, CTAs, home sections, module cards, module detail pages, core pages, blog posts, and public
   media.
-- Keep CMS boot/deployment concerns outside CMS-managed content: Decap `backend.repo`, `site_url`,
-  `display_url`, OAuth/Git Gateway configuration, CI/CD secrets, and hosting credentials are changed
-  per repository/deployment before the admin loads.
+- Keep CMS boot/deployment concerns outside CMS-managed content: Decap `backend.repo`, OAuth/Git
+  Gateway configuration, CI/CD secrets, and hosting credentials are changed per
+  repository/deployment before the admin loads.
+- Keep Decap `site_url` and `display_url` relative as `/` by default so admin navigation returns to
+  the current deployed domain instead of the official Manaos domain.
 - When a new page or section is meant for partners to customize, add the source fields under
   `src/content/site/*.json` or `src/content/blog/*.md` and expose them in
   `public/admin/config.yml`; do not hardcode partner-editable copy in Astro pages.

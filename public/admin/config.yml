@@ -9,8 +9,8 @@ publish_mode: editorial_workflow
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-site_url: "https://manaos.cloud"
-display_url: "https://manaos.cloud"
+site_url: "/"
+display_url: "/"
 logo_url: "/brand/mnscloud-logo.png"
 
 collections:

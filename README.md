@@ -115,7 +115,9 @@ Recommended partner flow:
 
 1. Fork or clone `manaoscloud/mnscloud-website` into the partner's GitHub organization.
 2. Update `public/admin/config.yml` so `backend.repo` points to the partner repository.
-3. Update `site_url` and `display_url` in `public/admin/config.yml` to the partner's public domain.
+3. Keep `site_url` and `display_url` in `public/admin/config.yml` as `/` unless the deployment has a
+   very specific reason to force an absolute external URL. This keeps "Go back to site" on the
+   current domain.
 4. Configure the Decap CMS GitHub OAuth/Git Gateway provider for the partner domain.
 5. Add marketing users as GitHub collaborators or members of a GitHub team with the minimum required
    repository permission.
@@ -142,8 +144,8 @@ The following values are intentionally not managed by CMS content because they a
 repository concerns that the CMS must know before it can load:
 
 - `public/admin/config.yml` `backend.repo`
-- `public/admin/config.yml` `site_url`
-- `public/admin/config.yml` `display_url`
+- `public/admin/config.yml` `site_url` and `display_url` when a deployment intentionally needs an
+  absolute external URL instead of the default `/`
 - OAuth/Git Gateway provider configuration
 - CI/CD deployment secrets and hosting credentials
 
