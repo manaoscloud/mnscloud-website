@@ -182,6 +182,36 @@ npm run check:responsive
 The check currently validates the primary public pages at `320px`, `390px`, `768px`, and `1440px`.
 If a new public page is added, include it in `scripts/responsive-check.mjs`.
 
+## Domain Boundary Validation
+
+The website is the official Manaos Cloud site by default, but partner/fork deployments must not
+inherit hardcoded navigation back to the official domain.
+
+Official domains are allowed only in:
+
+- `src/content/site/settings.json` as the official site content/configuration.
+- `astro.config.mjs` as the final fallback when no site URL is configured.
+- Documentation examples.
+
+Decap CMS must keep these values relative:
+
+```yaml
+site_url: "/"
+display_url: "/"
+```
+
+Run:
+
+```bash
+npm run check:domains
+```
+
+For the full release validation:
+
+```bash
+npm run check
+```
+
 ## Blog
 
 Blog posts are static Markdown content:

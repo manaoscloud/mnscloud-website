@@ -35,6 +35,11 @@ Use this repository for the public MNSCloud website.
   avoid hardcoding editable business copy directly inside Astro pages.
 - Partner deployments must be able to set their own public domain with
   `src/content/site/settings.json`; `PUBLIC_SITE_URL` is an optional deployment override.
+- Canonical and Open Graph URLs must use `PUBLIC_SITE_URL` when provided and fall back to
+  `src/content/site/settings.json`.
+- Do not hardcode official Manaos domains in components, pages, admin config, navigation, or public
+  scripts. Use relative URLs for internal navigation and content/admin settings for configurable
+  public URLs.
 - Keep white-label content editable through `/admin`: brand metadata, support/API URLs, navigation,
   footer, CTAs, home sections, module cards, module detail pages, core pages, blog posts, and public
   media.
@@ -57,11 +62,14 @@ Use this repository for the public MNSCloud website.
 
 ```bash
 npm run build
+npm run check:domains
 npm run check:responsive
 ```
 
 Run `npm run check:responsive` with the Astro dev server available at
 `RESPONSIVE_CHECK_BASE_URL` or `http://localhost:4321`.
+
+Use `npm run check` for the complete website release validation.
 
 ## Contribution Governance
 

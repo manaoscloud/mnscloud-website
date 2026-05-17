@@ -11,6 +11,10 @@ const {
   title = settings.site.defaultTitle,
   description = settings.site.defaultDescription,
 } = Astro.props;
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? settings.site.url;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL(settings.site.ogImage, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -22,8 +26,8 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={settings.site.ogImage} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, settings.site.url).toString()} />
+    <meta property="og:image" content={ogImageUrl} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/png" href={settings.brand.favicon} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
