@@ -1,0 +1,92 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <a class="brand" href="/">
+        <img src="/brand/mnscloud-placeholder-mark.svg" alt="" />
+        <span>MNSCloud</span>
+      </a>
+      <p>
+        Modular cloud, telecom, security, and automation platform built around a secure API control
+        plane.
+      </p>
+    </div>
+    <div class="footer-links">
+      <a href="/#modules">Modules</a>
+      <a href="/developers">Developers</a>
+      <a href="/security">Security</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+  <div class="container fine-print">
+    <span>© 2026 MNSCloud. All rights reserved.</span>
+    <span>Public website. No private control-plane logic is shipped here.</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    background: #07100f;
+    padding: 44px 0 28px;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+  }
+
+  .brand img {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+  }
+
+  p {
+    max-width: 520px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .footer-links {
+    display: grid;
+    gap: 12px;
+    min-width: 160px;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  .fine-print {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 34px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: rgba(236, 245, 242, 0.58);
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 760px) {
+    .footer-inner,
+    .fine-print {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+    }
+  }
+</style>

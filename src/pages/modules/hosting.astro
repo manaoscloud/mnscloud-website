@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<BaseLayout title="Hosting Automation - MNSCloud">
+  <Header />
+  <main class="module-page">
+    <section class="section">
+      <div class="container detail-grid">
+        <div>
+          <span class="eyebrow">Infrastructure</span>
+          <h1>Hosting Automation</h1>
+          <p class="lead">
+            Provision and manage VPS, VPS Container, DNS, storage, SMTP, and web hosting services
+            with provider catalogs and tenant-aware operational workflows.
+          </p>
+        </div>
+        <div class="card detail-card">
+          <h2>Coverage</h2>
+          <ul>
+            <li>VPS providers, plans, images, regions, and instances.</li>
+            <li>VPS Container providers, plans, and Incus-first instances.</li>
+            <li>DNS, storage accounts, SMTP providers, routes, and web hosting.</li>
+            <li>Provider APIs stay server-side; public clients only consume safe API contracts.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <CTA title="Automate infrastructure without leaking provider authority." />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .detail-card {
+    padding: 28px;
+  }
+
+  li {
+    margin-bottom: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 860px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

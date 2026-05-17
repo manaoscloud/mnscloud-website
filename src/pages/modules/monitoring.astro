@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<BaseLayout title="Monitoring And Agents - MNSCloud">
+  <Header />
+  <main class="module-page">
+    <section class="section">
+      <div class="container detail-grid">
+        <div>
+          <span class="eyebrow">Operations</span>
+          <h1>Monitoring And Agents</h1>
+          <p class="lead">
+            Track server health, agent heartbeat, capabilities, assignments, job history, and
+            operational activity through outbound-only Linux agents.
+          </p>
+        </div>
+        <div class="card detail-card">
+          <h2>Agent Model</h2>
+          <ul>
+            <li>Communication is initiated from the server to the API.</li>
+            <li>No external inbound agent port is required by default.</li>
+            <li>Capabilities declare what the server can do; the API decides what it may do.</li>
+            <li>Job execution and status are auditable in the control plane.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <CTA title="Operate remote servers through controlled, auditable jobs." />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .detail-card {
+    padding: 28px;
+  }
+
+  li {
+    margin-bottom: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 860px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

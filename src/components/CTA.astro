@@ -1,0 +1,57 @@
+---
+type Props = {
+  title?: string;
+  text?: string;
+};
+
+const {
+  title = 'Build on a platform designed for operators.',
+  text = 'Talk to MNSCloud about deployments, integrations, public connectors, and enterprise security requirements.',
+} = Astro.props;
+---
+
+<section class="cta-section">
+  <div class="container cta card">
+    <div>
+      <span class="eyebrow">Next Step</span>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <a class="button primary" href="/contact">Start the conversation</a>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 40px 0 90px;
+  }
+
+  .cta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 34px;
+    background:
+      linear-gradient(135deg, rgba(45, 245, 224, 0.12), transparent 46%),
+      rgba(15, 29, 26, 0.9);
+  }
+
+  h2 {
+    margin: 10px 0 10px;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1;
+  }
+
+  p {
+    max-width: 760px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 780px) {
+    .cta {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

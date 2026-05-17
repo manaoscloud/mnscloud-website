@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<BaseLayout title="Developers - MNSCloud">
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container dev-grid">
+        <div>
+          <span class="eyebrow">Developer Ecosystem</span>
+          <h1>Public repositories, governed contributions.</h1>
+          <p class="lead">
+            MNSCloud publishes selected clients, agents, installers, and edge connectors so customers,
+            partners, and contributors can inspect and improve the ecosystem.
+          </p>
+        </div>
+        <div class="card repo-list">
+          <a href="https://github.com/manaoscloud/mnscloud-app">mnscloud-app</a>
+          <a href="https://github.com/manaoscloud/mnscloud-agent">mnscloud-agent</a>
+          <a href="https://github.com/manaoscloud/mnscloud-freeswitch">mnscloud-freeswitch</a>
+          <a href="https://github.com/manaoscloud/mnscloud-asterisk">mnscloud-asterisk</a>
+          <a href="https://github.com/manaoscloud/mnscloud-kamailio-webrtc">mnscloud-kamailio-webrtc</a>
+        </div>
+      </div>
+    </section>
+    <section class="section governance">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Contribution Model</span>
+          <h2>Open collaboration with company-grade review.</h2>
+          <p>
+            Contributions enter through Pull Requests, with security checks, code ownership, and CI.
+            MNSCloud may sponsor, pay, contract, or hire contributors when their work shows strong
+            value, but paid work requires explicit written agreement.
+          </p>
+        </div>
+      </div>
+    </section>
+    <CTA title="Build with us without weakening the platform boundary." />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .dev-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .repo-list {
+    display: grid;
+    padding: 20px;
+  }
+
+  .repo-list a {
+    padding: 15px 12px;
+    border-bottom: 1px solid var(--line);
+    color: var(--accent);
+    font-weight: 850;
+  }
+
+  .repo-list a:last-child {
+    border-bottom: 0;
+  }
+
+  .governance {
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 860px) {
+    .dev-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

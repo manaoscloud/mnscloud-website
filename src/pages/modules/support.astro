@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<BaseLayout title="Support And CRM - MNSCloud">
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container detail-grid">
+        <div>
+          <span class="eyebrow">Customer Care</span>
+          <h1>Support And CRM</h1>
+          <p class="lead">
+            Connect support, CRM, sales, and customer context so operational teams can move from
+            ticket handling to commercial follow-up without losing visibility.
+          </p>
+        </div>
+        <div class="card detail-card">
+          <h2>Business Workflows</h2>
+          <ul>
+            <li>Tickets, channels, teams, and service queues.</li>
+            <li>CRM leads, opportunities, and pipeline tracking.</li>
+            <li>Sales catalog, products, brands, stock, quotations, and categories.</li>
+            <li>Tenant-aware customer data controlled by the API.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <CTA title="Keep customer operations close to the infrastructure that serves them." />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .detail-card {
+    padding: 28px;
+  }
+
+  li {
+    margin-bottom: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 860px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

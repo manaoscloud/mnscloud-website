@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Contact - MNSCloud">
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h1>Talk to MNSCloud.</h1>
+          <p class="lead">
+            Use this page as the public contact entry point. The production version can later submit
+            demo requests to a safe public API endpoint.
+          </p>
+        </div>
+        <form class="card contact-form" method="get" action="mailto:contact@example.com">
+          <label>
+            Name
+            <input name="name" placeholder="Your name" />
+          </label>
+          <label>
+            Work email
+            <input name="email" type="email" placeholder="you@example.com" />
+          </label>
+          <label>
+            What do you want to discuss?
+            <textarea name="message" rows="5" placeholder="Tell us about your deployment, module, or integration."></textarea>
+          </label>
+          <button class="button primary" type="submit">Send request</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 18px;
+    padding: 26px;
+  }
+
+  label {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-weight: 800;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    font: inherit;
+    padding: 13px 14px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

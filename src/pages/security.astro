@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<BaseLayout title="Security - MNSCloud">
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Trust Model</span>
+          <h1>Security is a control-plane responsibility.</h1>
+          <p>
+            MNSCloud public clients and connectors are designed to be auditable. They do not carry
+            server-side secrets, permanent provider credentials, database credentials, or hidden
+            authorization bypasses.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card trust-card">
+            <h2>API authority</h2>
+            <p>Authorization, tenant scope, billing, policy, routing ownership, and secrets remain API-side.</p>
+          </article>
+          <article class="card trust-card">
+            <h2>Outbound agents</h2>
+            <p>Remote management flows are initiated by agents to the API, reducing exposed management ports.</p>
+          </article>
+          <article class="card trust-card">
+            <h2>Public boundary</h2>
+            <p>Public repositories use placeholders and documented contracts, not customer data or private topology.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <CTA title="Review security posture before exposing infrastructure." />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+  }
+
+  .trust-card {
+    padding: 26px;
+  }
+
+  .trust-card p {
+    color: var(--muted);
+    line-height: 1.7;
+  }
+</style>

@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+import CTA from '../components/CTA.astro';
+import { productModules } from '../data/modules';
+---
+
+<BaseLayout>
+  <Header />
+  <main>
+    <section class="hero">
+      <img class="brand-watermark" src="/brand/mnscloud-placeholder-mark.svg" alt="" />
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Cloud, Telecom, Security, Automation</span>
+          <h1>MNSCloud</h1>
+          <p>
+            A modular platform for operators, service providers, partners, and enterprises that need
+            telecom, hosting, monitoring, cyber security, support, and infrastructure automation from
+            a secure API control plane.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#modules">Explore modules</a>
+            <a class="button" href="/developers">Developer ecosystem</a>
+          </div>
+        </div>
+        <div class="hero-panel card" aria-label="Platform overview">
+          <div class="panel-row">
+            <span>Control plane</span>
+            <strong>API-first</strong>
+          </div>
+          <div class="panel-row">
+            <span>Deployments</span>
+            <strong>Multi-tenant</strong>
+          </div>
+          <div class="panel-row">
+            <span>Security posture</span>
+            <strong>CrowdSec + nftables</strong>
+          </div>
+          <div class="panel-row">
+            <span>Public connectors</span>
+            <strong>Agent, VoIP, WebRTC</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="modules" class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Product Modules</span>
+          <h2>One platform, multiple operational domains.</h2>
+          <p>
+            MNSCloud is structured by modules so teams can operate voice, hosting, security,
+            monitoring, support, CRM, and public integrations without scattering business logic
+            across disconnected tools.
+          </p>
+        </div>
+        <div class="grid three">
+          {productModules.map((module) => <ModuleCard module={module} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section platform-band">
+      <div class="container band-grid">
+        <div>
+          <span class="eyebrow">Architecture</span>
+          <h2>Public clients, private authority.</h2>
+        </div>
+        <p>
+          Apps, agents, installers, and edge connectors can be public and auditable. Authorization,
+          tenant scope, billing, routing ownership, policy decisions, and secret resolution stay
+          inside the MNSCloud API/control plane.
+        </p>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 720px;
+    display: grid;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: 36px;
+    align-items: center;
+    padding: 80px 0;
+  }
+
+  h1 {
+    margin: 14px 0 18px;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: 0;
+  }
+
+  .hero-copy p {
+    max-width: 780px;
+    color: var(--muted);
+    font-size: clamp(1.08rem, 2vw, 1.35rem);
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .hero-panel {
+    padding: 16px;
+  }
+
+  .panel-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .panel-row:last-child {
+    border-bottom: 0;
+  }
+
+  .panel-row span {
+    color: var(--muted);
+  }
+
+  .panel-row strong {
+    text-align: right;
+  }
+
+  .platform-band {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(45, 245, 224, 0.04);
+  }
+
+  .band-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .band-grid h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1;
+  }
+
+  .band-grid p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.12rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-grid,
+    .band-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+      padding: 54px 0;
+    }
+  }
+</style>
