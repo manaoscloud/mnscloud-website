@@ -23,7 +23,7 @@ const { module } = Astro.props;
 <style>
   .module-card {
     display: grid;
-    min-height: 330px;
+    min-height: 310px;
     padding: 26px;
     align-content: space-between;
     transition:
@@ -69,5 +69,16 @@ const { module } = Astro.props;
   .module-link {
     color: var(--accent);
     font-weight: 900;
+  }
+
+  @media (max-width: 520px) {
+    .module-card {
+      min-height: auto;
+      padding: 20px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+    }
   }
 </style>

@@ -95,4 +95,22 @@ const page = pages.blog;
     color: var(--accent);
     font-weight: 800;
   }
+
+  .article-body :global(pre) {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .article-body :global(img) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 520px) {
+    .article-body {
+      margin-top: 32px;
+      padding-top: 26px;
+      font-size: 1rem;
+    }
+  }
 </style>

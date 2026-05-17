@@ -164,6 +164,22 @@ npm run build
 
 Static output is generated in `dist/`.
 
+## Responsive Validation
+
+The public website must be fully responsive before release. The header, CTAs, cards, module pages,
+blog, docs, and contact pages must work without horizontal document overflow at mobile, tablet, and
+desktop widths.
+
+Run the automated viewport check with the Astro dev server running:
+
+```bash
+npm run dev
+npm run check:responsive
+```
+
+The check currently validates the primary public pages at `320px`, `390px`, `768px`, and `1440px`.
+If a new public page is added, include it in `scripts/responsive-check.mjs`.
+
 ## Blog
 
 Blog posts are static Markdown content:

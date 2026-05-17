@@ -25,6 +25,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overflow-x: clip;
 }
 
 body {
@@ -35,6 +36,7 @@ body {
     radial-gradient(circle at 92% 14%, rgba(29, 91, 49, 0.42), transparent 30rem),
     linear-gradient(180deg, #09100c 0%, #101812 44%, #090f0c 100%);
   color: var(--text);
+  overflow-x: clip;
 }
 
 a {
@@ -47,6 +49,19 @@ h2,
 h3 {
   font-family: Oswald, Montserrat, sans-serif;
   font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+p,
+li,
+span,
+strong,
+a,
+label,
+input,
+textarea,
+button {
+  overflow-wrap: anywhere;
 }
 
 img {
@@ -100,6 +115,7 @@ img {
   background: rgba(255, 255, 255, 0.03);
   color: var(--text);
   font-weight: 800;
+  text-align: center;
 }
 
 .button.primary {
@@ -118,7 +134,7 @@ img {
 }
 
 .grid.three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
 }
 
 .card {
@@ -147,5 +163,20 @@ img {
 
   .container {
     width: min(var(--max), calc(100% - 28px));
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: min(var(--max), calc(100% - 24px));
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .section-title p,
+  .lead {
+    font-size: 1rem;
   }
 }

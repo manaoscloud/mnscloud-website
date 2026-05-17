@@ -24,6 +24,10 @@ Use this repository for the public MNSCloud website.
 
 - Use Astro components and static pages by default.
 - Keep JavaScript minimal unless a workflow needs interactivity.
+- Public pages must be fully responsive at small mobile, large mobile, tablet, and desktop widths.
+- Do not solve mobile navigation with horizontal page overflow. Use responsive layouts, wrapping,
+  or an explicit mobile menu.
+- When adding public pages, include them in `scripts/responsive-check.mjs`.
 - Future forms must submit only to public API endpoints with server-side validation.
 - Keep documentation and public text in English unless a localized route is explicitly being added.
 - Blog and marketing content should be stored as Markdown/frontmatter, not in a database.
@@ -51,7 +55,11 @@ Use this repository for the public MNSCloud website.
 
 ```bash
 npm run build
+npm run check:responsive
 ```
+
+Run `npm run check:responsive` with the Astro dev server available at
+`RESPONSIVE_CHECK_BASE_URL` or `http://localhost:4321`.
 
 ## Contribution Governance
 

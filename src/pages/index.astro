@@ -242,4 +242,34 @@ const latestPosts = getBlogPosts().slice(0, 2);
       padding: 54px 0;
     }
   }
+
+  @media (max-width: 520px) {
+    .hero-grid {
+      gap: 24px;
+      padding: 42px 0;
+    }
+
+    .hero-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .hero-panel {
+      padding: 8px;
+    }
+
+    .panel-row {
+      display: grid;
+      gap: 6px;
+      padding: 14px;
+    }
+
+    .panel-row strong {
+      text-align: left;
+    }
+
+    .latest-card {
+      padding: 20px;
+    }
+  }
 </style>
