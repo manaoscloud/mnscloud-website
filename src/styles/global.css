@@ -7,6 +7,8 @@
   --text: #ecf5f2;
   --muted: #a9bbb5;
   --accent: #2df5e0;
+  --brand-green: #176b3a;
+  --brand-orange: #ff7a2b;
   --accent-soft: rgba(45, 245, 224, 0.14);
   --success: #7be0a4;
   --warning: #e4c66d;
@@ -121,10 +123,10 @@ img {
 .brand-watermark {
   position: absolute;
   inset: auto 0 0 auto;
-  width: min(46vw, 680px);
-  opacity: 0.13;
+  width: min(52vw, 780px);
+  opacity: 0.16;
   pointer-events: none;
-  filter: saturate(0.7);
+  filter: saturate(0.86);
 }
 
 @media (max-width: 860px) {

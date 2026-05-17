@@ -10,8 +10,7 @@ const nav = [
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="MNSCloud home">
-      <img src="/brand/mnscloud-placeholder-mark.svg" alt="" />
-      <span>MNSCloud</span>
+      <img src="/brand/mnscloud-logo-light.svg" alt="" />
     </a>
     <nav aria-label="Main navigation">
       {nav.map((item) => <a href={item.href}>{item.label}</a>)}
@@ -41,15 +40,12 @@ const nav = [
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 900;
-    font-size: 1.08rem;
+    flex: 0 0 auto;
   }
 
   .brand img {
-    width: 34px;
-    height: 34px;
-    border-radius: 6px;
+    width: 168px;
+    height: auto;
   }
 
   nav {
@@ -87,6 +83,10 @@ const nav = [
 
     .header-cta {
       min-height: 38px;
+    }
+
+    .brand img {
+      width: 142px;
     }
   }
 </style>

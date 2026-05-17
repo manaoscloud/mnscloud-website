@@ -20,7 +20,8 @@ This repository contains the standalone public MNSCloud website.
 
 - Place approved assets in `public/brand/`.
 - Do not commit unreleased partner/customer branding or private metadata.
-- Replace placeholder assets only after approved logo/watermark files are provided.
+- Use `mnscloud-logo-light.svg` on dark backgrounds, `mnscloud-logo.svg` on light backgrounds, and
+  `mnscloud-watermark.svg` only as low-emphasis decorative media.
 
 ## Contribution Workflow
 

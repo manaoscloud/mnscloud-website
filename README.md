@@ -35,16 +35,16 @@ Approved brand files belong in:
 public/brand/
 ```
 
-Recommended files:
+Current working assets:
 
-- `logo.svg` or `logo.png`
-- `watermark.png`
-- `favicon.ico`
-- `og-image.png`
-- `brand-manual.pdf`
+- `mnscloud-logo.svg`
+- `mnscloud-logo-light.svg`
+- `mnscloud-wordmark.svg`
+- `mnscloud-wordmark-orange.svg`
+- `mnscloud-watermark.svg`
 
-Until the official files are provided, the website uses `mnscloud-placeholder-mark.svg` as a safe
-placeholder.
+When official vector exports or the brand manual are provided, update the assets in this folder and
+preserve public-safe metadata only.
 
 ## Public Boundary
 
