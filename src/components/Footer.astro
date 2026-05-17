@@ -1,3 +1,7 @@
+---
+import settings from '../content/site/settings.json';
+---
+
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
@@ -5,22 +9,16 @@
         <img src="/brand/mnscloud-logo-light.png" alt="" />
       </a>
       <p>
-        Modular cloud, telecom, security, and automation platform built around a secure API control
-        plane.
+        {settings.footer.description}
       </p>
     </div>
     <div class="footer-links">
-      <a href="/#modules">Modules</a>
-      <a href="/blog">Blog</a>
-      <a href="/docs">API Docs</a>
-      <a href="/developers">Developers</a>
-      <a href="/security">Security</a>
-      <a href="/contact">Contact</a>
+      {settings.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
     </div>
   </div>
   <div class="container fine-print">
-    <span>© 2026 MNSCloud. All rights reserved.</span>
-    <span>Public website. No private control-plane logic is shipped here.</span>
+    <span>{settings.footer.copyright}</span>
+    <span>{settings.footer.note}</span>
   </div>
 </footer>
 

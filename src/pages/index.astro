@@ -6,46 +6,37 @@ import ModuleCard from '../components/ModuleCard.astro';
 import CTA from '../components/CTA.astro';
 import { productModules } from '../data/modules';
 import { formatPostDate, getBlogPosts } from '../lib/blog';
+import home from '../content/site/home.json';
 
 const latestPosts = getBlogPosts().slice(0, 2);
 ---
 
-<BaseLayout>
+<BaseLayout title={home.seoTitle} description={home.seoDescription}>
   <Header />
   <main>
     <section class="hero">
       <img class="brand-watermark" src="/brand/mnscloud-watermark.png" alt="" />
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Cloud, Telecom, Security, Automation</span>
+          <span class="eyebrow">{home.hero.eyebrow}</span>
           <img class="hero-logo" src="/brand/mnscloud-logo-light.png" alt="MNSCloud" />
           <p>
-            A modular platform for operators, service providers, partners, and enterprises that need
-            telecom, hosting, monitoring, cyber security, support, and infrastructure automation from
-            a secure API control plane.
+            {home.hero.text}
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#modules">Explore modules</a>
-            <a class="button" href="/developers">Developer ecosystem</a>
+            <a class="button primary" href={home.hero.primaryAction.href}>{home.hero.primaryAction.label}</a>
+            <a class="button" href={home.hero.secondaryAction.href}>{home.hero.secondaryAction.label}</a>
           </div>
         </div>
         <div class="hero-panel card" aria-label="Platform overview">
-          <div class="panel-row">
-            <span>Control plane</span>
-            <strong>API-first</strong>
-          </div>
-          <div class="panel-row">
-            <span>Deployments</span>
-            <strong>Multi-tenant</strong>
-          </div>
-          <div class="panel-row">
-            <span>Security posture</span>
-            <strong>CrowdSec + nftables</strong>
-          </div>
-          <div class="panel-row">
-            <span>Public connectors</span>
-            <strong>Agent, VoIP, WebRTC</strong>
-          </div>
+          {
+            home.hero.panelRows.map((row) => (
+              <div class="panel-row">
+                <span>{row.label}</span>
+                <strong>{row.value}</strong>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -53,12 +44,10 @@ const latestPosts = getBlogPosts().slice(0, 2);
     <section id="modules" class="section">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Product Modules</span>
-          <h2>One platform, multiple operational domains.</h2>
+          <span class="eyebrow">{home.modulesSection.eyebrow}</span>
+          <h2>{home.modulesSection.title}</h2>
           <p>
-            MNSCloud is structured by modules so teams can operate voice, hosting, security,
-            monitoring, support, CRM, and public integrations without scattering business logic
-            across disconnected tools.
+            {home.modulesSection.text}
           </p>
         </div>
         <div class="grid three">
@@ -70,13 +59,11 @@ const latestPosts = getBlogPosts().slice(0, 2);
     <section class="section platform-band">
       <div class="container band-grid">
         <div>
-          <span class="eyebrow">Architecture</span>
-          <h2>Public clients, private authority.</h2>
+          <span class="eyebrow">{home.architectureBand.eyebrow}</span>
+          <h2>{home.architectureBand.title}</h2>
         </div>
         <p>
-          Apps, agents, installers, and edge connectors can be public and auditable. Authorization,
-          tenant scope, billing, routing ownership, policy decisions, and secret resolution stay
-          inside the MNSCloud API/control plane.
+          {home.architectureBand.text}
         </p>
       </div>
     </section>
@@ -84,11 +71,10 @@ const latestPosts = getBlogPosts().slice(0, 2);
     <section class="section">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Blog</span>
-          <h2>Technical content for search, trust, and sales enablement.</h2>
+          <span class="eyebrow">{home.blogSection.eyebrow}</span>
+          <h2>{home.blogSection.title}</h2>
           <p>
-            Articles help customers understand MNSCloud architecture, VoIP security, WebRTC,
-            automation, and API-first operations before they contact the team.
+            {home.blogSection.text}
           </p>
         </div>
         <div class="grid three latest-posts">
@@ -105,8 +91,8 @@ const latestPosts = getBlogPosts().slice(0, 2);
           }
           <a class="card latest-card all-posts" href="/blog">
             <span>Content hub</span>
-            <h3>View all articles</h3>
-            <p>Browse the MNSCloud blog and future product guides.</p>
+            <h3>{home.blogSection.allPostsTitle}</h3>
+            <p>{home.blogSection.allPostsText}</p>
           </a>
         </div>
       </div>

@@ -1,0 +1,33 @@
+{
+  "seoTitle": "MNSCloud - Cloud, Telecom, Security, And Automation Platform",
+  "seoDescription": "MNSCloud is a modular platform for telecom, hosting, monitoring, cyber security, support, CRM, and infrastructure automation.",
+  "hero": {
+    "eyebrow": "Cloud, Telecom, Security, Automation",
+    "text": "A modular platform for operators, service providers, partners, and enterprises that need telecom, hosting, monitoring, cyber security, support, and infrastructure automation from a secure API control plane.",
+    "primaryAction": { "label": "Explore modules", "href": "#modules" },
+    "secondaryAction": { "label": "Developer ecosystem", "href": "/developers" },
+    "panelRows": [
+      { "label": "Control plane", "value": "API-first" },
+      { "label": "Deployments", "value": "Multi-tenant" },
+      { "label": "Security posture", "value": "CrowdSec + nftables" },
+      { "label": "Public connectors", "value": "Agent, VoIP, WebRTC" }
+    ]
+  },
+  "modulesSection": {
+    "eyebrow": "Product Modules",
+    "title": "One platform, multiple operational domains.",
+    "text": "MNSCloud is structured by modules so teams can operate voice, hosting, security, monitoring, support, CRM, and public integrations without scattering business logic across disconnected tools."
+  },
+  "architectureBand": {
+    "eyebrow": "Architecture",
+    "title": "Public clients, private authority.",
+    "text": "Apps, agents, installers, and edge connectors can be public and auditable. Authorization, tenant scope, billing, routing ownership, policy decisions, and secret resolution stay inside the MNSCloud API/control plane."
+  },
+  "blogSection": {
+    "eyebrow": "Blog",
+    "title": "Technical content for search, trust, and sales enablement.",
+    "text": "Articles help customers understand MNSCloud architecture, VoIP security, WebRTC, automation, and API-first operations before they contact the team.",
+    "allPostsTitle": "View all articles",
+    "allPostsText": "Browse the MNSCloud blog and future product guides."
+  }
+}

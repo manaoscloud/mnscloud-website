@@ -2,22 +2,24 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.contact;
 ---
 
-<BaseLayout title="Contact - MNSCloud">
+<BaseLayout title={page.title}>
   <Header />
   <main>
     <section class="section">
       <div class="container contact-grid">
         <div>
-          <span class="eyebrow">Contact</span>
-          <h1>Talk to MNSCloud.</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p class="lead">
-            Use this page as the public contact entry point. The production version can later submit
-            demo requests to a safe public API endpoint.
+            {page.lead}
           </p>
         </div>
-        <form class="card contact-form" method="get" action="mailto:contact@example.com">
+        <form class="card contact-form" method="get" action={page.formAction}>
           <label>
             Name
             <input name="name" placeholder="Your name" />

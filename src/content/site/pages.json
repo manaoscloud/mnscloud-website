@@ -1,0 +1,21 @@
+{
+  "security": {
+    "title": "Security - MNSCloud",
+    "eyebrow": "Trust Model",
+    "heading": "Security is a control-plane responsibility.",
+    "lead": "MNSCloud public clients and connectors are designed to be auditable. They do not carry server-side secrets, permanent provider credentials, database credentials, or hidden authorization bypasses.",
+    "cards": [
+      { "title": "API authority", "text": "Authorization, tenant scope, billing, policy, routing ownership, and secrets remain API-side." },
+      { "title": "Outbound agents", "text": "Remote management flows are initiated by agents to the API, reducing exposed management ports." },
+      { "title": "Public boundary", "text": "Public repositories use placeholders and documented contracts, not customer data or private topology." }
+    ],
+    "ctaTitle": "Review security posture before exposing infrastructure."
+  },
+  "contact": {
+    "title": "Contact - MNSCloud",
+    "eyebrow": "Contact",
+    "heading": "Talk to MNSCloud.",
+    "lead": "Use this page as the public contact entry point. The production version can later submit demo requests to a safe public API endpoint.",
+    "formAction": "mailto:contact@example.com"
+  }
+}

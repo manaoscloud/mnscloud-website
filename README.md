@@ -34,6 +34,20 @@ Markdown files in `src/content/blog/`, uploaded media is stored in `public/uploa
 published change can be reviewed through Git history or Pull Requests depending on the GitHub
 backend configuration.
 
+Editable site content is stored in:
+
+```text
+src/content/site/settings.json
+src/content/site/home.json
+src/content/site/modules.json
+src/content/site/pages.json
+src/content/blog/
+```
+
+The admin exposes collections for global settings, navigation, CTAs, the home page, product modules,
+core pages, media, and blog posts. Any page or component that should be marketing-editable must read
+from these content files instead of hardcoding copy in Astro components.
+
 For local CMS testing, run Decap's local backend in one terminal and the Astro dev server in another:
 
 ```bash

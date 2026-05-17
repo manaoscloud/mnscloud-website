@@ -27,6 +27,8 @@ Use this repository for the public MNSCloud website.
 - Future forms must submit only to public API endpoints with server-side validation.
 - Keep documentation and public text in English unless a localized route is explicitly being added.
 - Blog and marketing content should be stored as Markdown/frontmatter, not in a database.
+- Marketing-editable site copy must live in `src/content/site/*.json` or `src/content/blog/*.md`;
+  avoid hardcoding editable business copy directly inside Astro pages.
 - The admin surface is git-based Decap CMS under `/admin`; do not introduce permanent secrets or
   private infrastructure data into CMS-managed content.
 - Uploaded public website media belongs in `public/uploads/` and must be safe for public CDN

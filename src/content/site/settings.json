@@ -1,0 +1,23 @@
+{
+  "navigation": [
+    { "label": "Modules", "href": "/#modules" },
+    { "label": "Security", "href": "/security" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "API Docs", "href": "/docs" },
+    { "label": "Developers", "href": "/developers" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "headerCta": { "label": "Request demo", "href": "/contact" },
+  "footer": {
+    "description": "Modular cloud, telecom, security, and automation platform built around a secure API control plane.",
+    "copyright": "© 2026 MNSCloud. All rights reserved.",
+    "note": "Public website. No private control-plane logic is shipped here."
+  },
+  "globalCta": {
+    "eyebrow": "Next Step",
+    "title": "Build on a platform designed for operators.",
+    "text": "Talk to MNSCloud about deployments, integrations, public connectors, and enterprise security requirements.",
+    "buttonLabel": "Start the conversation",
+    "buttonHref": "/contact"
+  }
+}

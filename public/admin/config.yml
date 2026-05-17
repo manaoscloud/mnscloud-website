@@ -14,6 +14,141 @@ display_url: "https://manaos.cloud"
 logo_url: "/brand/mnscloud-logo.png"
 
 collections:
+  - name: "site"
+    label: "Site Settings"
+    files:
+      - label: "Global Settings"
+        name: "settings"
+        file: "src/content/site/settings.json"
+        fields:
+          - label: "Navigation"
+            name: "navigation"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
+          - label: "Header CTA"
+            name: "headerCta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Copyright", name: "copyright", widget: "string" }
+              - { label: "Note", name: "note", widget: "string" }
+          - label: "Global CTA"
+            name: "globalCta"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - { label: "Button URL", name: "buttonHref", widget: "string" }
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/site/home.json"
+        fields:
+          - { label: "SEO title", name: "seoTitle", widget: "string" }
+          - { label: "SEO description", name: "seoDescription", widget: "text" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - label: "Primary action"
+                name: "primaryAction"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }
+              - label: "Secondary action"
+                name: "secondaryAction"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }
+              - label: "Panel rows"
+                name: "panelRows"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+          - label: "Modules section"
+            name: "modulesSection"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Architecture band"
+            name: "architectureBand"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Blog section"
+            name: "blogSection"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "All posts title", name: "allPostsTitle", widget: "string" }
+              - { label: "All posts text", name: "allPostsText", widget: "text" }
+      - label: "Product Modules"
+        name: "modules"
+        file: "src/content/site/modules.json"
+        fields:
+          - label: "Modules"
+            name: "modules"
+            widget: "list"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "URL", name: "href", widget: "string" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+      - label: "Core Pages"
+        name: "pages"
+        file: "src/content/site/pages.json"
+        fields:
+          - label: "Security"
+            name: "security"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Form action", name: "formAction", widget: "string" }
   - name: "blog"
     label: "Blog"
     label_singular: "Blog Post"

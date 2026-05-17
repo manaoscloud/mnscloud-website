@@ -1,23 +1,25 @@
 ---
+import settings from '../content/site/settings.json';
+
 type Props = {
   title?: string;
   text?: string;
 };
 
 const {
-  title = 'Build on a platform designed for operators.',
-  text = 'Talk to MNSCloud about deployments, integrations, public connectors, and enterprise security requirements.',
+  title = settings.globalCta.title,
+  text = settings.globalCta.text,
 } = Astro.props;
 ---
 
 <section class="cta-section">
   <div class="container cta card">
     <div>
-      <span class="eyebrow">Next Step</span>
+      <span class="eyebrow">{settings.globalCta.eyebrow}</span>
       <h2>{title}</h2>
       <p>{text}</p>
     </div>
-    <a class="button primary" href="/contact">Start the conversation</a>
+    <a class="button primary" href={settings.globalCta.buttonHref}>{settings.globalCta.buttonLabel}</a>
   </div>
 </section>
 

@@ -3,39 +3,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTA from '../components/CTA.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.security;
 ---
 
-<BaseLayout title="Security - MNSCloud">
+<BaseLayout title={page.title}>
   <Header />
   <main>
     <section class="section">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Trust Model</span>
-          <h1>Security is a control-plane responsibility.</h1>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
           <p>
-            MNSCloud public clients and connectors are designed to be auditable. They do not carry
-            server-side secrets, permanent provider credentials, database credentials, or hidden
-            authorization bypasses.
+            {page.lead}
           </p>
         </div>
         <div class="grid three">
-          <article class="card trust-card">
-            <h2>API authority</h2>
-            <p>Authorization, tenant scope, billing, policy, routing ownership, and secrets remain API-side.</p>
-          </article>
-          <article class="card trust-card">
-            <h2>Outbound agents</h2>
-            <p>Remote management flows are initiated by agents to the API, reducing exposed management ports.</p>
-          </article>
-          <article class="card trust-card">
-            <h2>Public boundary</h2>
-            <p>Public repositories use placeholders and documented contracts, not customer data or private topology.</p>
-          </article>
+          {page.cards.map((card) => (
+            <article class="card trust-card">
+              <h2>{card.title}</h2>
+              <p>{card.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
-    <CTA title="Review security posture before exposing infrastructure." />
+    <CTA title={page.ctaTitle} />
   </main>
   <Footer />
 </BaseLayout>
