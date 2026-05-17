@@ -19,11 +19,38 @@ import CTA from '../components/CTA.astro';
           </p>
         </div>
         <div class="card repo-list">
-          <a href="https://github.com/manaoscloud/mnscloud-app">mnscloud-app</a>
-          <a href="https://github.com/manaoscloud/mnscloud-agent">mnscloud-agent</a>
-          <a href="https://github.com/manaoscloud/mnscloud-freeswitch">mnscloud-freeswitch</a>
-          <a href="https://github.com/manaoscloud/mnscloud-asterisk">mnscloud-asterisk</a>
-          <a href="https://github.com/manaoscloud/mnscloud-kamailio-webrtc">mnscloud-kamailio-webrtc</a>
+          <a href="https://github.com/manaoscloud/mnscloud-app">
+            <strong>mnscloud-app</strong>
+            <span>Public Angular client for operators and customers.</span>
+          </a>
+          <a href="https://github.com/manaoscloud/mnscloud-website">
+            <strong>mnscloud-website</strong>
+            <span>Public website, product pages, and documentation surface.</span>
+          </a>
+          <a href="https://github.com/manaoscloud/mnscloud-agent">
+            <strong>mnscloud-agent</strong>
+            <span>Outbound Linux agent for remote operations and security jobs.</span>
+          </a>
+          <a href="https://github.com/manaoscloud/mnscloud-freeswitch">
+            <strong>mnscloud-freeswitch</strong>
+            <span>Standalone FreeSWITCH installer and runtime assets.</span>
+          </a>
+          <a href="https://github.com/manaoscloud/mnscloud-asterisk">
+            <strong>mnscloud-asterisk</strong>
+            <span>Standalone Asterisk installer and runtime assets.</span>
+          </a>
+          <a href="https://github.com/manaoscloud/mnscloud-kamailio">
+            <strong>mnscloud-kamailio</strong>
+            <span>Standalone Kamailio installer and runtime assets.</span>
+          </a>
+          <a href="https://github.com/manaoscloud/mnscloud-opensips">
+            <strong>mnscloud-opensips</strong>
+            <span>Standalone OpenSIPS installer and runtime assets.</span>
+          </a>
+          <a href="https://github.com/manaoscloud/mnscloud-kamailio-webrtc">
+            <strong>mnscloud-kamailio-webrtc</strong>
+            <span>Kamailio WebRTC edge SBC for secure multi-tenant WebRTC access.</span>
+          </a>
         </div>
       </div>
     </section>
@@ -36,6 +63,14 @@ import CTA from '../components/CTA.astro';
             Contributions enter through Pull Requests, with security checks, code ownership, and CI.
             MNSCloud may sponsor, pay, contract, or hire contributors when their work shows strong
             value, but paid work requires explicit written agreement.
+          </p>
+        </div>
+        <div class="card boundary-card">
+          <h3>Public code, private control plane.</h3>
+          <p>
+            Public repositories contain clients, agents, installers, website code, and edge connectors.
+            The core API, database schema, tenant policy, billing logic, routing authority, and secret
+            resolution remain in the private control plane.
           </p>
         </div>
       </div>
@@ -65,10 +100,19 @@ import CTA from '../components/CTA.astro';
   }
 
   .repo-list a {
+    display: grid;
+    gap: 6px;
     padding: 15px 12px;
     border-bottom: 1px solid var(--line);
     color: var(--accent);
     font-weight: 850;
+  }
+
+  .repo-list span {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.45;
   }
 
   .repo-list a:last-child {
@@ -77,6 +121,22 @@ import CTA from '../components/CTA.astro';
 
   .governance {
     border-top: 1px solid var(--line);
+  }
+
+  .boundary-card {
+    max-width: 820px;
+    padding: 22px;
+  }
+
+  .boundary-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.55rem;
+  }
+
+  .boundary-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
   }
 
   @media (max-width: 860px) {

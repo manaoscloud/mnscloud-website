@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<BaseLayout
+  title="API Docs - MNSCloud"
+  description="MNSCloud API documentation, OpenAPI contract, public clients, and integration boundaries."
+>
+  <Header />
+  <main>
+    <section class="section docs-hero">
+      <div class="container docs-grid">
+        <div>
+          <span class="eyebrow">API Documentation</span>
+          <h1>One contract for public clients, agents, and edge services.</h1>
+          <p class="lead">
+            MNSCloud is built around an API-first control plane. Public repositories consume the API
+            contract, while authorization, tenant scope, billing, routing ownership, policy decisions,
+            and secret resolution stay server-side.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="/api/v1/docs">Open Swagger UI</a>
+            <a class="button" href="/api/v1/openapi.yaml">Download OpenAPI YAML</a>
+          </div>
+        </div>
+        <div class="card contract-card">
+          <h2>Documentation surfaces</h2>
+          <ul>
+            <li><strong>Swagger UI</strong><span>/api/v1/docs</span></li>
+            <li><strong>OpenAPI YAML</strong><span>/api/v1/openapi.yaml</span></li>
+            <li><strong>Public repositories</strong><span>github.com/manaoscloud</span></li>
+            <li><strong>Contribution model</strong><span>Pull Requests, CI, and maintainer review</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Integration Boundary</span>
+          <h2>What public clients can rely on.</h2>
+          <p>
+            Public integrations should depend on documented API behavior, request/response examples,
+            authentication requirements, and tenant-aware headers. They must not duplicate private
+            control-plane decisions outside the API.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card info-card">
+            <h3>OpenAPI-first</h3>
+            <p>
+              Endpoints are organized by product hierarchy so developers can find VoIP, Hosting,
+              Monitoring, Cyber Security, and other modules consistently.
+            </p>
+          </article>
+          <article class="card info-card">
+            <h3>Safe examples</h3>
+            <p>
+              Public examples use placeholders and documented fields only. Secrets, customer data,
+              production topology, and provider credentials stay out of public repositories.
+            </p>
+          </article>
+          <article class="card info-card">
+            <h3>Governed changes</h3>
+            <p>
+              API-facing changes are reviewed before merge. Public clients follow the API contract;
+              the control plane remains the source of truth for authority and policy.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <CTA title="Build integrations on the contract, not on private assumptions." />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .docs-hero {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0.78fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .contract-card,
+  .info-card {
+    padding: 22px;
+  }
+
+  .contract-card h2,
+  .info-card h3 {
+    margin: 0 0 16px;
+    font-size: 1.55rem;
+  }
+
+  .contract-card ul {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contract-card li {
+    display: grid;
+    gap: 5px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contract-card li:last-child {
+    border-bottom: 0;
+  }
+
+  .contract-card span,
+  .info-card p {
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .info-card p {
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .docs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
