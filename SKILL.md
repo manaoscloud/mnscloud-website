@@ -26,6 +26,13 @@ Use this repository for the public MNSCloud website.
 - Keep JavaScript minimal unless a workflow needs interactivity.
 - Future forms must submit only to public API endpoints with server-side validation.
 - Keep documentation and public text in English unless a localized route is explicitly being added.
+- Blog and marketing content should be stored as Markdown/frontmatter, not in a database.
+- The admin surface is git-based Decap CMS under `/admin`; do not introduce permanent secrets or
+  private infrastructure data into CMS-managed content.
+- Uploaded public website media belongs in `public/uploads/` and must be safe for public CDN
+  distribution.
+- New blog posts must define SEO-ready `title`, `description`, `date`, `author`, `tags`, and
+  `status` frontmatter.
 
 ## Validation
 

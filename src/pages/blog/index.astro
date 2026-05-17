@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTA from '../../components/CTA.astro';
+import { formatPostDate, getBlogPosts } from '../../lib/blog';
+
+const posts = getBlogPosts();
+---
+
+<BaseLayout
+  title="Blog - MNSCloud"
+  description="MNSCloud articles about cloud infrastructure, VoIP, cyber security, WebRTC, automation, and API-first operations."
+>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">MNSCloud Blog</span>
+          <h1>Ideas for secure cloud, telecom, and automation operations.</h1>
+          <p>
+            Technical articles and product thinking for teams building public infrastructure around a
+            secure API control plane.
+          </p>
+        </div>
+        <div class="post-grid">
+          {
+            posts.map((post) => (
+              <article class="card post-card">
+                <div class="post-meta">
+                  <span>{formatPostDate(post.frontmatter.date)}</span>
+                  <span>{post.frontmatter.author}</span>
+                </div>
+                <h2>
+                  <a href={`/blog/${post.slug}`}>{post.frontmatter.title}</a>
+                </h2>
+                <p>{post.frontmatter.description}</p>
+                <div class="tag-row">
+                  {(post.frontmatter.tags ?? []).map((tag) => <span>{tag}</span>)}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <CTA title="Turn technical credibility into customer trust." />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 10px 0 12px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .post-card {
+    display: grid;
+    gap: 14px;
+    padding: 24px;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .post-card h2 {
+    margin: 0;
+    font-size: 1.85rem;
+    line-height: 1.1;
+  }
+
+  .post-card h2 a:hover {
+    color: var(--accent);
+  }
+
+  .post-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .tag-row span {
+    border: 1px solid rgba(245, 131, 46, 0.34);
+    border-radius: 999px;
+    padding: 5px 9px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 820px) {
+    .post-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

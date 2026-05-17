@@ -5,6 +5,9 @@ import Footer from '../components/Footer.astro';
 import ModuleCard from '../components/ModuleCard.astro';
 import CTA from '../components/CTA.astro';
 import { productModules } from '../data/modules';
+import { formatPostDate, getBlogPosts } from '../lib/blog';
+
+const latestPosts = getBlogPosts().slice(0, 2);
 ---
 
 <BaseLayout>
@@ -75,6 +78,37 @@ import { productModules } from '../data/modules';
           tenant scope, billing, routing ownership, policy decisions, and secret resolution stay
           inside the MNSCloud API/control plane.
         </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Blog</span>
+          <h2>Technical content for search, trust, and sales enablement.</h2>
+          <p>
+            Articles help customers understand MNSCloud architecture, VoIP security, WebRTC,
+            automation, and API-first operations before they contact the team.
+          </p>
+        </div>
+        <div class="grid three latest-posts">
+          {
+            latestPosts.map((post) => (
+              <article class="card latest-card">
+                <span>{formatPostDate(post.frontmatter.date)}</span>
+                <h3>
+                  <a href={`/blog/${post.slug}`}>{post.frontmatter.title}</a>
+                </h3>
+                <p>{post.frontmatter.description}</p>
+              </article>
+            ))
+          }
+          <a class="card latest-card all-posts" href="/blog">
+            <span>Content hub</span>
+            <h3>View all articles</h3>
+            <p>Browse the MNSCloud blog and future product guides.</p>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -171,6 +205,40 @@ import { productModules } from '../data/modules';
     color: var(--muted);
     font-size: 1.12rem;
     line-height: 1.8;
+  }
+
+  .latest-posts {
+    align-items: stretch;
+  }
+
+  .latest-card {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    padding: 22px;
+  }
+
+  .latest-card span {
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 850;
+  }
+
+  .latest-card h3 {
+    margin: 0;
+    font-size: 1.55rem;
+    line-height: 1.12;
+  }
+
+  .latest-card h3 a:hover,
+  .all-posts:hover h3 {
+    color: var(--accent);
+  }
+
+  .latest-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
   }
 
   @media (max-width: 860px) {

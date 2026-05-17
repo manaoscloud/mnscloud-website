@@ -21,11 +21,51 @@ npm run dev
 
 Open `http://localhost:4321`.
 
+## Website Admin
+
+The website includes a git-based admin surface powered by Decap CMS:
+
+```text
+/admin
+```
+
+The admin edits repository content instead of writing to a database. Blog posts are stored as
+Markdown files in `src/content/blog/`, uploaded media is stored in `public/uploads/`, and every
+published change can be reviewed through Git history or Pull Requests depending on the GitHub
+backend configuration.
+
+For local CMS testing, run Decap's local backend in one terminal and the Astro dev server in another:
+
+```bash
+npm run cms
+npm run dev
+```
+
+Then open `http://localhost:4321/admin`.
+
+Production authentication is handled by the configured GitHub backend/OAuth provider. Do not add
+GitHub tokens, OAuth secrets, customer data, private domains, or infrastructure details to this
+repository.
+
 ## Build
 
 ```bash
 npm run build
 ```
+
+Static output is generated in `dist/`.
+
+## Blog
+
+Blog posts are static Markdown content:
+
+```text
+src/content/blog/<slug>.md
+```
+
+Each post must include frontmatter with `title`, `description`, `date`, `author`, `tags`, `status`,
+and optional `featured`/`image` fields. Published posts are generated under `/blog/<slug>/` and are
+included in the static build and sitemap.
 
 ## Brand Assets
 

@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: manaoscloud/mnscloud-website
+  branch: main
+
+local_backend: true
+publish_mode: editorial_workflow
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: "https://www.manaoscloud.com"
+display_url: "https://www.manaoscloud.com"
+logo_url: "/brand/mnscloud-logo.png"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    label_singular: "Blog Post"
+    folder: "src/content/blog"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}"
+    summary: "{{title}} - {{date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Author", name: "author", widget: "string", default: "MNSCloud" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        default: "draft"
+        options:
+          - { label: "Draft", value: "draft" }
+          - { label: "Published", value: "published" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Cover image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
