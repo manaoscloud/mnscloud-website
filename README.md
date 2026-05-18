@@ -212,6 +212,34 @@ For the full release validation:
 npm run check
 ```
 
+## Trust, Privacy, And Cookies
+
+The website includes a compliance-ready trust and legal structure:
+
+- `/trust`
+- `/legal/privacy`
+- `/legal/cookies`
+- `/legal/terms`
+- `/legal/data-processing`
+- `/legal/subprocessors`
+- Cookie consent banner and preferences modal
+- Footer legal links and cookie settings entry point
+
+Legal and privacy content is editable in:
+
+```text
+src/content/site/legal.json
+src/content/site/settings.json
+```
+
+The cookie consent component stores preferences in `localStorage` under
+`mnscloud_cookie_consent`. Only necessary storage is enabled by default. Any future analytics,
+marketing, embedded third-party widgets, or functional scripts must be gated behind the matching
+consent category before loading.
+
+The legal texts are templates for product readiness. They must be reviewed and approved by qualified
+legal counsel before production use in any jurisdiction.
+
 ## Blog
 
 Blog posts are static Markdown content:

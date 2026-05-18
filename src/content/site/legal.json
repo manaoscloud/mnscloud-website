@@ -1,0 +1,108 @@
+{
+  "trust": {
+    "title": "Trust Center - MNSCloud",
+    "description": "Privacy, security, legal, and data protection information for the MNSCloud public website and platform ecosystem.",
+    "eyebrow": "Trust Center",
+    "heading": "Security, privacy, and compliance readiness.",
+    "lead": "MNSCloud is designed around a public website, public connectors, and a private API control plane. This center explains how privacy, legal notices, security posture, and data protection information are organized.",
+    "cards": [
+      { "title": "Privacy-first operations", "text": "Public pages avoid unnecessary data collection. Essential technical logs may still be processed by hosting, security, or delivery systems." },
+      { "title": "Consent-aware website", "text": "Non-essential analytics, marketing, or functional scripts should only run after explicit consent." },
+      { "title": "Public client boundary", "text": "Secrets, tenant authority, billing, routing ownership, and policy decisions remain inside the API/control plane." }
+    ],
+    "linksTitle": "Legal and trust documents",
+    "legalReviewNote": "These templates provide a compliance-ready structure. Final legal text must be reviewed and approved by qualified legal counsel before production use."
+  },
+  "cookieConsent": {
+    "title": "Privacy preferences",
+    "text": "We use necessary technologies to operate this site. Optional analytics, functional, or marketing technologies are used only with your consent.",
+    "acceptAllLabel": "Accept all",
+    "rejectLabel": "Reject non-essential",
+    "customizeLabel": "Customize",
+    "saveLabel": "Save preferences",
+    "settingsLabel": "Cookie settings",
+    "closeLabel": "Close",
+    "categories": [
+      { "key": "necessary", "label": "Necessary", "description": "Required for site security, navigation, admin operation, and consent storage.", "required": true },
+      { "key": "analytics", "label": "Analytics", "description": "Helps understand aggregate traffic and content performance when enabled.", "required": false },
+      { "key": "functional", "label": "Functional", "description": "Enables optional enhancements such as embedded tools or improved preferences.", "required": false },
+      { "key": "marketing", "label": "Marketing", "description": "Supports campaigns, remarketing, or conversion measurement when enabled.", "required": false }
+    ]
+  },
+  "pages": {
+    "privacy": {
+      "title": "Privacy Policy - MNSCloud",
+      "description": "How MNSCloud handles personal data, privacy rights, international transfers, retention, and contact channels.",
+      "eyebrow": "Privacy",
+      "heading": "Privacy Policy",
+      "effectiveDate": "Effective date: 2026-05-17",
+      "lead": "This policy explains how the MNSCloud public website and related contact flows may process personal data. It is designed to support LGPD, GDPR, CCPA/CPRA, and other privacy expectations, subject to final legal review.",
+      "sections": [
+        { "title": "Data we may process", "body": "We may process contact information submitted through forms, technical logs such as IP address and user agent, consent preferences, and communication metadata needed to respond to requests." },
+        { "title": "Purposes and legal bases", "body": "Processing may be based on consent, legitimate interests, contractual steps requested by the visitor, legal obligations, or security requirements depending on the context and region." },
+        { "title": "Privacy rights", "body": "Visitors may request access, correction, deletion, portability, objection, restriction, or consent withdrawal where applicable by contacting the privacy channel listed by MNSCloud." },
+        { "title": "International transfers", "body": "Some providers or infrastructure may operate outside the visitor's country. Appropriate safeguards should be reviewed before production publication." },
+        { "title": "Retention", "body": "Personal data should be retained only for the period necessary for the purpose collected, security obligations, legal requirements, or legitimate business records." },
+        { "title": "Contact", "body": "Privacy requests should be directed to the privacy contact configured for the official MNSCloud site or partner deployment." }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy - MNSCloud",
+      "description": "Cookie categories, consent preferences, and how MNSCloud handles necessary and optional website technologies.",
+      "eyebrow": "Cookies",
+      "heading": "Cookie Policy",
+      "effectiveDate": "Effective date: 2026-05-17",
+      "lead": "This policy explains how cookies and similar technologies should be handled by the MNSCloud website.",
+      "sections": [
+        { "title": "Necessary technologies", "body": "Necessary storage supports site operation, security, admin workflows, and remembering consent choices. These are not optional because the site cannot operate correctly without them." },
+        { "title": "Analytics technologies", "body": "Analytics must remain disabled until the visitor consents. Any analytics provider added later must be documented here and gated by consent." },
+        { "title": "Functional technologies", "body": "Functional technologies may improve optional website behavior but should not be required for basic access to public content." },
+        { "title": "Marketing technologies", "body": "Marketing or remarketing tags must remain disabled unless the visitor explicitly accepts them." },
+        { "title": "Changing preferences", "body": "Visitors can reopen cookie preferences from the footer and update consent choices at any time." }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Use - MNSCloud",
+      "description": "Website terms covering acceptable use, intellectual property, disclaimers, and public content boundaries.",
+      "eyebrow": "Legal",
+      "heading": "Terms of Use",
+      "effectiveDate": "Effective date: 2026-05-17",
+      "lead": "These terms provide a baseline for using the public MNSCloud website and published materials, subject to final legal review.",
+      "sections": [
+        { "title": "Website content", "body": "The website presents MNSCloud products, architecture, public connectors, documentation, and educational content. It does not grant access to private control-plane authority or customer environments." },
+        { "title": "Acceptable use", "body": "Visitors must not attempt unauthorized access, disrupt the website, scrape private systems, misuse forms, or use content in a misleading way." },
+        { "title": "Intellectual property", "body": "MNSCloud brand assets, content, and product names belong to MNSCloud unless otherwise stated. Third-party marks belong to their respective owners." },
+        { "title": "No implied endorsement", "body": "References to technologies, providers, or open-source projects indicate compatibility, integration, or ecosystem context and do not imply endorsement unless explicitly stated." },
+        { "title": "Changes", "body": "MNSCloud may update public website content, product positioning, and legal notices as the platform evolves." }
+      ]
+    },
+    "dataProcessing": {
+      "title": "Data Processing - MNSCloud",
+      "description": "Data processing roles, subprocessors, security expectations, and enterprise privacy readiness for MNSCloud customers.",
+      "eyebrow": "Data Protection",
+      "heading": "Data Processing",
+      "effectiveDate": "Effective date: 2026-05-17",
+      "lead": "This page outlines the intended data processing structure for enterprise customers and partners. Contract-specific terms should be handled through signed agreements.",
+      "sections": [
+        { "title": "Roles", "body": "Depending on the service and contract, MNSCloud may act as controller, processor, or service provider. The final role must be defined in the applicable agreement." },
+        { "title": "Processing instructions", "body": "Customer data should be processed only according to contract, documented instructions, legal obligations, security requirements, or platform operation needs." },
+        { "title": "Security controls", "body": "The platform is designed around tenant isolation, authenticated APIs, public/private boundary separation, host agents, logs, monitoring, and security automation." },
+        { "title": "Incident handling", "body": "Security or privacy incidents should be handled through documented response procedures, customer communication, and legal timelines where applicable." },
+        { "title": "Subprocessors", "body": "Infrastructure, delivery, security, support, and communications providers may support service delivery. They should be listed in the subprocessors notice when used in production." }
+      ]
+    },
+    "subprocessors": {
+      "title": "Subprocessors - MNSCloud",
+      "description": "Categories of third-party providers that may support MNSCloud website or platform delivery.",
+      "eyebrow": "Subprocessors",
+      "heading": "Subprocessors",
+      "effectiveDate": "Effective date: 2026-05-17",
+      "lead": "This page provides a public structure for listing providers that may support website, platform, security, communications, or infrastructure operations.",
+      "sections": [
+        { "title": "Current status", "body": "Production subprocessors must be confirmed and reviewed before publication. This template is intentionally conservative until official provider lists are approved." },
+        { "title": "Provider categories", "body": "Potential categories include hosting, CDN, email delivery, security intelligence, observability, payment processing, customer support, and cloud infrastructure." },
+        { "title": "Change notice", "body": "Material changes to subprocessors should be communicated through this page or customer channels according to contract terms." }
+      ]
+    }
+  }
+}

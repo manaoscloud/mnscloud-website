@@ -67,21 +67,23 @@ const latestPosts = getBlogPosts().slice(0, 2);
           <p>{home.ecosystemSection.text}</p>
         </div>
       </div>
-      <div class="ecosystem-marquees" aria-label="Technology ecosystem">
-        {
-          home.ecosystemSection.rows.map((row) => (
-            <div class={`ecosystem-row ${row.direction === 'right' ? 'reverse' : ''}`} aria-label={row.label}>
-              <div class="ecosystem-track">
-                {[...row.items, ...row.items].map((item) => (
-                  <span class="ecosystem-mark">
-                    <strong>{item.name}</strong>
-                    <small>{item.category}</small>
-                  </span>
-                ))}
+      <div class="container ecosystem-shell">
+        <div class="ecosystem-marquees" aria-label="Technology ecosystem">
+          {
+            home.ecosystemSection.rows.map((row) => (
+              <div class={`ecosystem-row ${row.direction === 'right' ? 'reverse' : ''}`} aria-label={row.label}>
+                <div class="ecosystem-track">
+                  {[...row.items, ...row.items].map((item) => (
+                    <span class="ecosystem-mark">
+                      <strong>{item.name}</strong>
+                      <small>{item.category}</small>
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
       </div>
       <div class="container">
         <p class="ecosystem-disclaimer">{home.ecosystemSection.disclaimer}</p>
@@ -232,6 +234,12 @@ const latestPosts = getBlogPosts().slice(0, 2);
     color: var(--muted);
     font-size: 1.08rem;
     line-height: 1.75;
+  }
+
+  :global(.ecosystem-shell) {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
   }
 
   :global(.ecosystem-marquees) {

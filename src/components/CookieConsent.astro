@@ -1,0 +1,307 @@
+---
+import legal from '../content/site/legal.json';
+
+const consent = legal.cookieConsent;
+---
+
+<div class="cookie-consent" data-cookie-consent hidden>
+  <div class="cookie-panel" role="dialog" aria-live="polite" aria-label={consent.title}>
+    <div>
+      <h2>{consent.title}</h2>
+      <p>{consent.text}</p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="button" data-cookie-customize>{consent.customizeLabel}</button>
+      <button type="button" class="button" data-cookie-reject>{consent.rejectLabel}</button>
+      <button type="button" class="button primary" data-cookie-accept>{consent.acceptAllLabel}</button>
+    </div>
+  </div>
+</div>
+
+<div class="cookie-modal" data-cookie-modal hidden>
+  <div class="cookie-modal-backdrop" data-cookie-close></div>
+  <section class="cookie-modal-card" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="cookie-modal-header">
+      <div>
+        <span class="eyebrow">Consent</span>
+        <h2 id="cookie-modal-title">{consent.title}</h2>
+      </div>
+      <button type="button" class="cookie-icon-button" data-cookie-close aria-label={consent.closeLabel}>×</button>
+    </div>
+    <p>{consent.text}</p>
+    <form class="cookie-options" data-cookie-form>
+      {
+        consent.categories.map((category) => (
+          <label class="cookie-option">
+            <span>
+              <strong>{category.label}</strong>
+              <small>{category.description}</small>
+            </span>
+            <input
+              type="checkbox"
+              name={category.key}
+              value="true"
+              checked={category.required}
+              disabled={category.required}
+              data-cookie-category={category.key}
+            />
+          </label>
+        ))
+      }
+    </form>
+    <div class="cookie-actions modal-actions">
+      <button type="button" class="button" data-cookie-reject>{consent.rejectLabel}</button>
+      <button type="button" class="button primary" data-cookie-save>{consent.saveLabel}</button>
+    </div>
+  </section>
+</div>
+
+<script>
+  const storageKey = 'mnscloud_cookie_consent';
+  const consentRoot = document.querySelector<HTMLElement>('[data-cookie-consent]');
+  const modal = document.querySelector<HTMLElement>('[data-cookie-modal]');
+  const form = document.querySelector<HTMLFormElement>('[data-cookie-form]');
+  const categories = [...document.querySelectorAll<HTMLInputElement>('[data-cookie-category]')];
+
+  const defaultConsent = () =>
+    Object.fromEntries(categories.map((input) => [input.name, input.disabled || input.checked]));
+
+  const readConsent = () => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const writeConsent = (value: Record<string, boolean>) => {
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify({
+        ...value,
+        updatedAt: new Date().toISOString(),
+      }),
+    );
+    window.dispatchEvent(new CustomEvent('mnscloud:cookie-consent', { detail: value }));
+  };
+
+  const setModalOpen = (open: boolean) => {
+    if (!modal) return;
+    modal.hidden = !open;
+    document.documentElement.toggleAttribute('data-cookie-modal-open', open);
+  };
+
+  const syncForm = (value: Record<string, boolean> | null) => {
+    for (const input of categories) {
+      input.checked = input.disabled || Boolean(value?.[input.name]);
+    }
+  };
+
+  const saveFromForm = () => {
+    const value = defaultConsent();
+    for (const input of categories) {
+      value[input.name] = input.disabled || input.checked;
+    }
+    writeConsent(value);
+    if (consentRoot) consentRoot.hidden = true;
+    setModalOpen(false);
+  };
+
+  const rejectOptional = () => {
+    const value = defaultConsent();
+    for (const input of categories) {
+      value[input.name] = input.disabled;
+    }
+    writeConsent(value);
+    syncForm(value);
+    if (consentRoot) consentRoot.hidden = true;
+    setModalOpen(false);
+  };
+
+  const acceptAll = () => {
+    const value = defaultConsent();
+    for (const input of categories) {
+      value[input.name] = true;
+    }
+    writeConsent(value);
+    syncForm(value);
+    if (consentRoot) consentRoot.hidden = true;
+    setModalOpen(false);
+  };
+
+  const existingConsent = readConsent();
+  syncForm(existingConsent);
+  if (!existingConsent && consentRoot) consentRoot.hidden = false;
+
+  document.querySelectorAll('[data-cookie-accept]').forEach((button) => {
+    button.addEventListener('click', acceptAll);
+  });
+  document.querySelectorAll('[data-cookie-reject]').forEach((button) => {
+    button.addEventListener('click', rejectOptional);
+  });
+  document.querySelectorAll('[data-cookie-save]').forEach((button) => {
+    button.addEventListener('click', saveFromForm);
+  });
+  document.querySelectorAll('[data-cookie-customize]').forEach((button) => {
+    button.addEventListener('click', () => setModalOpen(true));
+  });
+  document.querySelectorAll('[data-cookie-close]').forEach((button) => {
+    button.addEventListener('click', () => setModalOpen(false));
+  });
+  document.querySelectorAll('[data-cookie-settings-link]').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      syncForm(readConsent());
+      setModalOpen(true);
+    });
+  });
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    saveFromForm();
+  });
+</script>
+
+<style>
+  .cookie-consent {
+    position: fixed;
+    z-index: 80;
+    right: 22px;
+    bottom: 22px;
+    width: min(620px, calc(100vw - 44px));
+  }
+
+  .cookie-panel,
+  .cookie-modal-card {
+    border: 1px solid rgba(236, 245, 242, 0.2);
+    border-radius: 8px;
+    background: rgba(7, 17, 15, 0.98);
+    box-shadow: 0 22px 80px rgba(0, 0, 0, 0.42);
+  }
+
+  .cookie-panel {
+    display: grid;
+    gap: 18px;
+    padding: 22px;
+  }
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 1.45rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .cookie-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  .cookie-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+  }
+
+  .cookie-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.68);
+  }
+
+  .cookie-modal-card {
+    position: relative;
+    width: min(760px, 100%);
+    max-height: min(720px, calc(100vh - 36px));
+    overflow: auto;
+    padding: 24px;
+  }
+
+  .cookie-modal-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 14px;
+  }
+
+  .cookie-icon-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
+  .cookie-options {
+    display: grid;
+    gap: 12px;
+    margin: 22px 0;
+  }
+
+  .cookie-option {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .cookie-option span {
+    display: grid;
+    gap: 5px;
+  }
+
+  .cookie-option small {
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  .cookie-option input {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--accent);
+  }
+
+  .modal-actions {
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 560px) {
+    .cookie-consent {
+      right: 12px;
+      bottom: 12px;
+      width: calc(100vw - 24px);
+    }
+
+    .cookie-panel,
+    .cookie-modal-card {
+      padding: 18px;
+    }
+
+    .cookie-actions,
+    .modal-actions {
+      display: grid;
+      justify-content: stretch;
+    }
+
+    .cookie-option {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

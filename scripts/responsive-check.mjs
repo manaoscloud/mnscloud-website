@@ -14,6 +14,12 @@ const paths = [
   '/security/',
   '/blog/',
   '/contact/',
+  '/trust/',
+  '/legal/privacy/',
+  '/legal/cookies/',
+  '/legal/terms/',
+  '/legal/data-processing/',
+  '/legal/subprocessors/',
 ];
 
 const viewports = [

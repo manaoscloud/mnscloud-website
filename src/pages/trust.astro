@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import legal from '../content/site/legal.json';
+
+const page = legal.trust;
+const legalLinks = [
+  { label: 'Privacy Policy', href: '/legal/privacy', text: legal.pages.privacy.description },
+  { label: 'Cookie Policy', href: '/legal/cookies', text: legal.pages.cookies.description },
+  { label: 'Terms of Use', href: '/legal/terms', text: legal.pages.terms.description },
+  { label: 'Data Processing', href: '/legal/data-processing', text: legal.pages.dataProcessing.description },
+  { label: 'Subprocessors', href: '/legal/subprocessors', text: legal.pages.subprocessors.description },
+];
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section trust-hero">
+      <div class="container trust-grid">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">{page.lead}</p>
+        </div>
+        <div class="card review-card">
+          <strong>Legal review required</strong>
+          <p>{page.legalReviewNote}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid three">
+          {page.cards.map((card) => (
+            <article class="card trust-card">
+              <h2>{card.title}</h2>
+              <p>{card.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section legal-links-section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Documents</span>
+          <h2>{page.linksTitle}</h2>
+        </div>
+        <div class="legal-link-grid">
+          {legalLinks.map((link) => (
+            <a class="card legal-link-card" href={link.href}>
+              <strong>{link.label}</strong>
+              <span>{link.text}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .trust-hero {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .review-card,
+  .trust-card,
+  .legal-link-card {
+    padding: 22px;
+  }
+
+  .review-card strong,
+  .legal-link-card strong {
+    color: var(--accent);
+    font-size: 1.05rem;
+  }
+
+  .review-card p,
+  .trust-card p,
+  .legal-link-card span {
+    display: block;
+    margin: 10px 0 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .trust-card h2 {
+    margin: 0;
+    font-size: 1.45rem;
+  }
+
+  .legal-links-section {
+    border-top: 1px solid var(--line);
+  }
+
+  .legal-link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 16px;
+  }
+
+  .legal-link-card:hover {
+    border-color: rgba(245, 131, 46, 0.55);
+  }
+
+  @media (max-width: 860px) {
+    .trust-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

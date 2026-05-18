@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent.astro';
 import settings from '../content/site/settings.json';
 
 type Props = {
@@ -39,5 +40,6 @@ const ogImageUrl = new URL(settings.site.ogImage, siteUrl).toString();
   </head>
   <body>
     <slot />
+    <CookieConsent />
   </body>
 </html>

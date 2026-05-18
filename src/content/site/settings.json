@@ -14,18 +14,61 @@
     "heroAlt": "MNSCloud"
   },
   "navigation": [
-    { "label": "Modules", "href": "/#modules" },
-    { "label": "Security", "href": "/security" },
-    { "label": "Blog", "href": "/blog" },
-    { "label": "API Docs", "href": "/docs" },
-    { "label": "Developers", "href": "/developers" },
-    { "label": "Contact", "href": "/contact" }
+    {
+      "label": "Modules",
+      "href": "/#modules"
+    },
+    {
+      "label": "Security",
+      "href": "/security"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "API Docs",
+      "href": "/docs"
+    },
+    {
+      "label": "Developers",
+      "href": "/developers"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
   ],
-  "headerCta": { "label": "Request demo", "href": "/contact" },
+  "headerCta": {
+    "label": "Request demo",
+    "href": "/contact"
+  },
   "footer": {
     "description": "Modular cloud, telecom, security, and automation platform built around a secure API control plane.",
     "copyright": "© 2026 MNSCloud. All rights reserved.",
-    "note": "Public website. No private control-plane logic is shipped here."
+    "note": "Public website. No private control-plane logic is shipped here.",
+    "legalLinks": [
+      {
+        "label": "Trust Center",
+        "href": "/trust"
+      },
+      {
+        "label": "Privacy",
+        "href": "/legal/privacy"
+      },
+      {
+        "label": "Terms",
+        "href": "/legal/terms"
+      },
+      {
+        "label": "Cookies",
+        "href": "/legal/cookies"
+      },
+      {
+        "label": "Cookie Settings",
+        "href": "#cookie-settings"
+      }
+    ]
   },
   "globalCta": {
     "eyebrow": "Next Step",

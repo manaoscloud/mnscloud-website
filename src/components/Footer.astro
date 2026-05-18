@@ -16,6 +16,15 @@ import settings from '../content/site/settings.json';
       {settings.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
     </div>
   </div>
+  <div class="container legal-links">
+    {
+      settings.footer.legalLinks.map((item) => (
+        <a href={item.href} data-cookie-settings-link={item.href === '#cookie-settings' ? true : undefined}>
+          {item.label}
+        </a>
+      ))
+    }
+  </div>
   <div class="container fine-print">
     <span>{settings.footer.copyright}</span>
     <span>{settings.footer.note}</span>
@@ -76,6 +85,20 @@ import settings from '../content/site/settings.json';
     border-top: 1px solid var(--line);
     color: rgba(236, 245, 242, 0.58);
     font-size: 0.88rem;
+  }
+
+  .legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 28px;
+    color: rgba(236, 245, 242, 0.68);
+    font-size: 0.88rem;
+    font-weight: 750;
+  }
+
+  .legal-links a:hover {
+    color: var(--accent);
   }
 
   @media (max-width: 760px) {

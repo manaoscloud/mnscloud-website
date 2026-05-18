@@ -57,6 +57,12 @@ Use this repository for the public MNSCloud website.
   distribution.
 - New blog posts must define SEO-ready `title`, `description`, `date`, `author`, `tags`, and
   `status` frontmatter.
+- Trust/legal pages live in `src/content/site/legal.json` and must remain editable through Decap CMS.
+- Cookie consent must default to necessary-only behavior. Do not load analytics, marketing,
+  tracking, chat, embedded widgets, or other non-essential scripts until the relevant consent
+  category has been accepted.
+- Legal templates are not final legal advice. Production legal text must be reviewed by qualified
+  legal counsel for the target jurisdictions.
 
 ## Validation
 

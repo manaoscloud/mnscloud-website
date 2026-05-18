@@ -58,6 +58,12 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Copyright", name: "copyright", widget: "string" }
               - { label: "Note", name: "note", widget: "string" }
+              - label: "Legal links"
+                name: "legalLinks"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }
           - label: "Global CTA"
             name: "globalCta"
             widget: "object"
@@ -294,6 +300,71 @@ collections:
           - { label: "Monitoring", name: "monitoring", widget: "object", fields: *module_page_fields }
           - { label: "Cyber Security", name: "cyberSecurity", widget: "object", fields: *module_page_fields }
           - { label: "Support", name: "support", widget: "object", fields: *module_page_fields }
+      - label: "Legal And Trust"
+        name: "legal"
+        file: "src/content/site/legal.json"
+        fields:
+          - label: "Trust Center"
+            name: "trust"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "Links title", name: "linksTitle", widget: "string" }
+              - { label: "Legal review note", name: "legalReviewNote", widget: "text" }
+          - label: "Cookie Consent"
+            name: "cookieConsent"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Accept all label", name: "acceptAllLabel", widget: "string" }
+              - { label: "Reject label", name: "rejectLabel", widget: "string" }
+              - { label: "Customize label", name: "customizeLabel", widget: "string" }
+              - { label: "Save label", name: "saveLabel", widget: "string" }
+              - { label: "Settings label", name: "settingsLabel", widget: "string" }
+              - { label: "Close label", name: "closeLabel", widget: "string" }
+              - label: "Categories"
+                name: "categories"
+                widget: "list"
+                fields:
+                  - { label: "Key", name: "key", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Required", name: "required", widget: "boolean", default: false }
+          - label: "Legal Pages"
+            name: "pages"
+            widget: "object"
+            fields:
+              - label: "Privacy"
+                name: "privacy"
+                widget: "object"
+                fields: &legal_page_fields
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - { label: "Effective date", name: "effectiveDate", widget: "string" }
+                  - { label: "Lead", name: "lead", widget: "text" }
+                  - label: "Sections"
+                    name: "sections"
+                    widget: "list"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Body", name: "body", widget: "text" }
+              - { label: "Cookies", name: "cookies", widget: "object", fields: *legal_page_fields }
+              - { label: "Terms", name: "terms", widget: "object", fields: *legal_page_fields }
+              - { label: "Data Processing", name: "dataProcessing", widget: "object", fields: *legal_page_fields }
+              - { label: "Subprocessors", name: "subprocessors", widget: "object", fields: *legal_page_fields }
   - name: "blog"
     label: "Blog"
     label_singular: "Blog Post"
