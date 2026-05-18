@@ -203,7 +203,7 @@ const latestPosts = getBlogPosts().slice(0, 2);
     background: rgba(45, 245, 224, 0.04);
   }
 
-  .ecosystem-section {
+  :global(.ecosystem-section) {
     position: relative;
     overflow: hidden;
     border-top: 1px solid var(--line);
@@ -213,7 +213,7 @@ const latestPosts = getBlogPosts().slice(0, 2);
       rgba(7, 16, 15, 0.92);
   }
 
-  .ecosystem-heading {
+  :global(.ecosystem-heading) {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: 34px;
@@ -221,33 +221,33 @@ const latestPosts = getBlogPosts().slice(0, 2);
     margin-bottom: 34px;
   }
 
-  .ecosystem-heading h2 {
+  :global(.ecosystem-heading h2) {
     margin: 10px 0 0;
     font-size: clamp(2rem, 4vw, 3.2rem);
     line-height: 1;
   }
 
-  .ecosystem-heading p {
+  :global(.ecosystem-heading p) {
     margin: 0;
     color: var(--muted);
     font-size: 1.08rem;
     line-height: 1.75;
   }
 
-  .ecosystem-marquees {
+  :global(.ecosystem-marquees) {
     display: grid;
     gap: 14px;
     margin: 12px 0 24px;
     mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   }
 
-  .ecosystem-row {
+  :global(.ecosystem-row) {
     display: flex;
     width: 100%;
     overflow: hidden;
   }
 
-  .ecosystem-track {
+  :global(.ecosystem-track) {
     display: flex;
     flex: 0 0 max-content;
     gap: 14px;
@@ -255,16 +255,16 @@ const latestPosts = getBlogPosts().slice(0, 2);
     animation: ecosystem-scroll 42s linear infinite;
   }
 
-  .ecosystem-row.reverse .ecosystem-track {
+  :global(.ecosystem-row.reverse .ecosystem-track) {
     animation-direction: reverse;
     animation-duration: 48s;
   }
 
-  .ecosystem-row:hover .ecosystem-track {
+  :global(.ecosystem-row:hover .ecosystem-track) {
     animation-play-state: paused;
   }
 
-  .ecosystem-mark {
+  :global(.ecosystem-mark) {
     display: grid;
     min-width: 178px;
     gap: 5px;
@@ -276,7 +276,7 @@ const latestPosts = getBlogPosts().slice(0, 2);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
-  .ecosystem-mark strong {
+  :global(.ecosystem-mark strong) {
     font-family: Oswald, Montserrat, sans-serif;
     font-size: 1.18rem;
     letter-spacing: 0.02em;
@@ -284,7 +284,7 @@ const latestPosts = getBlogPosts().slice(0, 2);
     text-transform: uppercase;
   }
 
-  .ecosystem-mark small {
+  :global(.ecosystem-mark small) {
     color: var(--muted);
     font-size: 0.72rem;
     font-weight: 800;
@@ -292,7 +292,7 @@ const latestPosts = getBlogPosts().slice(0, 2);
     text-transform: uppercase;
   }
 
-  .ecosystem-disclaimer {
+  :global(.ecosystem-disclaimer) {
     max-width: 900px;
     margin: 20px 0 0;
     color: rgba(236, 245, 242, 0.56);
@@ -373,7 +373,7 @@ const latestPosts = getBlogPosts().slice(0, 2);
 
     .hero-grid,
     .band-grid,
-    .ecosystem-heading {
+    :global(.ecosystem-heading) {
       grid-template-columns: 1fr;
     }
 
@@ -411,31 +411,31 @@ const latestPosts = getBlogPosts().slice(0, 2);
       padding: 20px;
     }
 
-    .ecosystem-marquees {
+    :global(.ecosystem-marquees) {
       mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
     }
 
-    .ecosystem-track {
+    :global(.ecosystem-track) {
       animation-duration: 34s;
     }
 
-    .ecosystem-mark {
+    :global(.ecosystem-mark) {
       min-width: 148px;
       padding: 14px 16px;
     }
 
-    .ecosystem-mark strong {
+    :global(.ecosystem-mark strong) {
       font-size: 1rem;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .ecosystem-row {
+    :global(.ecosystem-row) {
       overflow-x: auto;
       padding-bottom: 6px;
     }
 
-    .ecosystem-track {
+    :global(.ecosystem-track) {
       animation: none;
     }
   }

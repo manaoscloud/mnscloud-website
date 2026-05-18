@@ -35,15 +35,19 @@ for (const viewport of viewports) {
     const result = await page.evaluate(() => {
       const documentWidth = document.documentElement.scrollWidth;
       const viewportWidth = document.documentElement.clientWidth;
+      const ecosystemTrack = document.querySelector('.ecosystem-track');
+      const ecosystemMark = document.querySelector('.ecosystem-mark');
       const overflowElements = [...document.querySelectorAll('body *')]
         .filter((element) => {
           const rect = element.getBoundingClientRect();
           const style = window.getComputedStyle(element);
           const allowsInternalScroll = ['auto', 'scroll'].includes(style.overflowX);
+          const isInsideIntentionalMarquee = element.closest('.ecosystem-row');
 
           return (
             rect.width > 0 &&
             !allowsInternalScroll &&
+            !isInsideIntentionalMarquee &&
             (rect.right > window.innerWidth + 2 || rect.left < -2)
           );
         })
@@ -59,10 +63,17 @@ for (const viewport of viewports) {
         viewportWidth,
         overflow: documentWidth - viewportWidth,
         overflowElements,
+        ecosystemTrackDisplay: ecosystemTrack ? window.getComputedStyle(ecosystemTrack).display : null,
+        ecosystemMarkDisplay: ecosystemMark ? window.getComputedStyle(ecosystemMark).display : null,
       };
     });
 
-    if (result.overflow > 2 || result.overflowElements.length > 0) {
+    if (
+      result.overflow > 2 ||
+      result.overflowElements.length > 0 ||
+      (path === '/' &&
+        (result.ecosystemTrackDisplay !== 'flex' || result.ecosystemMarkDisplay !== 'grid'))
+    ) {
       problems.push({ viewport: viewport.name, path, ...result });
     }
   }
