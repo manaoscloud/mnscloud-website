@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTA from '../components/CTA.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.useCases;
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p>{page.lead}</p>
+        </div>
+
+        <div class="use-case-list">
+          {page.cases.map((item) => (
+            <article class="card use-case">
+              <div>
+                <h2>{item.title}</h2>
+                <p><strong>Challenge:</strong> {item.problem}</p>
+                <p><strong>Platform answer:</strong> {item.solution}</p>
+              </div>
+              <div class="module-tags" aria-label={`${item.title} modules`}>
+                {item.modules.map((module) => <span>{module}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTA title={page.ctaTitle} />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .use-case-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .use-case {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 0.32fr);
+    gap: 24px;
+    align-items: start;
+    padding: 24px;
+  }
+
+  .use-case h2 {
+    margin: 0 0 12px;
+    font-size: 1.7rem;
+  }
+
+  .use-case p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    line-height: 1.68;
+  }
+
+  .use-case strong {
+    color: var(--text);
+  }
+
+  .module-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .module-tags span {
+    padding: 8px 11px;
+    border: 1px solid rgba(245, 131, 46, 0.45);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+  }
+
+  @media (max-width: 760px) {
+    .use-case {
+      grid-template-columns: 1fr;
+    }
+
+    .module-tags {
+      justify-content: flex-start;
+    }
+  }
+</style>

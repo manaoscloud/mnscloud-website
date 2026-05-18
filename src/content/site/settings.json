@@ -19,20 +19,20 @@
       "href": "/#modules"
     },
     {
+      "label": "Architecture",
+      "href": "/architecture"
+    },
+    {
       "label": "Security",
       "href": "/security"
     },
     {
-      "label": "Blog",
-      "href": "/blog"
-    },
-    {
-      "label": "API Docs",
-      "href": "/docs"
-    },
-    {
       "label": "Developers",
       "href": "/developers"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
     },
     {
       "label": "Contact",
@@ -51,6 +51,30 @@
       {
         "label": "Trust Center",
         "href": "/trust"
+      },
+      {
+        "label": "Architecture",
+        "href": "/architecture"
+      },
+      {
+        "label": "Company",
+        "href": "/company"
+      },
+      {
+        "label": "Use Cases",
+        "href": "/use-cases"
+      },
+      {
+        "label": "Status",
+        "href": "/status"
+      },
+      {
+        "label": "Changelog",
+        "href": "/changelog"
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq"
       },
       {
         "label": "Privacy",

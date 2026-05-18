@@ -15,22 +15,49 @@
     "eyebrow": "API Documentation",
     "heading": "One contract for public clients, agents, and edge services.",
     "lead": "MNSCloud is built around an API-first control plane. Public repositories consume the API contract, while authorization, tenant scope, billing, routing ownership, policy decisions, and secret resolution stay server-side.",
-    "primaryAction": { "label": "Open Swagger UI", "href": "/api/v1/docs" },
-    "secondaryAction": { "label": "Download OpenAPI YAML", "href": "/api/v1/openapi.yaml" },
+    "primaryAction": {
+      "label": "Open Swagger UI",
+      "href": "/api/v1/docs"
+    },
+    "secondaryAction": {
+      "label": "Download OpenAPI YAML",
+      "href": "/api/v1/openapi.yaml"
+    },
     "surfacesTitle": "Documentation surfaces",
     "surfaces": [
-      { "title": "Swagger UI", "text": "/api/v1/docs" },
-      { "title": "OpenAPI YAML", "text": "/api/v1/openapi.yaml" },
-      { "title": "Public repositories", "text": "github.com/manaoscloud" },
-      { "title": "Contribution model", "text": "Pull Requests, CI, and maintainer review" }
+      {
+        "title": "Swagger UI",
+        "text": "/api/v1/docs"
+      },
+      {
+        "title": "OpenAPI YAML",
+        "text": "/api/v1/openapi.yaml"
+      },
+      {
+        "title": "Public repositories",
+        "text": "github.com/manaoscloud"
+      },
+      {
+        "title": "Contribution model",
+        "text": "Pull Requests, CI, and maintainer review"
+      }
     ],
     "sectionEyebrow": "Integration Boundary",
     "sectionTitle": "What public clients can rely on.",
     "sectionText": "Public integrations should depend on documented API behavior, request/response examples, authentication requirements, and tenant-aware headers. They must not duplicate private control-plane decisions outside the API.",
     "cards": [
-      { "title": "OpenAPI-first", "text": "Endpoints are organized by product hierarchy so developers can find VoIP, Hosting, Monitoring, Cyber Security, and other modules consistently." },
-      { "title": "Safe examples", "text": "Public examples use placeholders and documented fields only. Secrets, customer data, production topology, and provider credentials stay out of public repositories." },
-      { "title": "Governed changes", "text": "API-facing changes are reviewed before merge. Public clients follow the API contract; the control plane remains the source of truth for authority and policy." }
+      {
+        "title": "OpenAPI-first",
+        "text": "Endpoints are organized by product hierarchy so developers can find VoIP, Hosting, Monitoring, Cyber Security, and other modules consistently."
+      },
+      {
+        "title": "Safe examples",
+        "text": "Public examples use placeholders and documented fields only. Secrets, customer data, production topology, and provider credentials stay out of public repositories."
+      },
+      {
+        "title": "Governed changes",
+        "text": "API-facing changes are reviewed before merge. Public clients follow the API contract; the control plane remains the source of truth for authority and policy."
+      }
     ],
     "ctaTitle": "Build integrations on the contract, not on private assumptions."
   },
@@ -40,14 +67,46 @@
     "heading": "Public repositories, governed contributions.",
     "lead": "MNSCloud publishes selected clients, agents, installers, and edge connectors so customers, partners, and contributors can inspect and improve the ecosystem.",
     "repositories": [
-      { "name": "mnscloud-app", "description": "Public Angular client for operators and customers.", "url": "https://github.com/manaoscloud/mnscloud-app" },
-      { "name": "mnscloud-website", "description": "Public website, product pages, and documentation surface.", "url": "https://github.com/manaoscloud/mnscloud-website" },
-      { "name": "mnscloud-agent", "description": "Outbound Linux agent for remote operations and security jobs.", "url": "https://github.com/manaoscloud/mnscloud-agent" },
-      { "name": "mnscloud-freeswitch", "description": "Standalone FreeSWITCH installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-freeswitch" },
-      { "name": "mnscloud-asterisk", "description": "Standalone Asterisk installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-asterisk" },
-      { "name": "mnscloud-kamailio", "description": "Standalone Kamailio installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-kamailio" },
-      { "name": "mnscloud-opensips", "description": "Standalone OpenSIPS installer and runtime assets.", "url": "https://github.com/manaoscloud/mnscloud-opensips" },
-      { "name": "mnscloud-kamailio-webrtc", "description": "Kamailio WebRTC edge SBC for secure multi-tenant WebRTC access.", "url": "https://github.com/manaoscloud/mnscloud-kamailio-webrtc" }
+      {
+        "name": "mnscloud-app",
+        "description": "Public Angular client for operators and customers.",
+        "url": "https://github.com/manaoscloud/mnscloud-app"
+      },
+      {
+        "name": "mnscloud-website",
+        "description": "Public website, product pages, and documentation surface.",
+        "url": "https://github.com/manaoscloud/mnscloud-website"
+      },
+      {
+        "name": "mnscloud-agent",
+        "description": "Outbound Linux agent for remote operations and security jobs.",
+        "url": "https://github.com/manaoscloud/mnscloud-agent"
+      },
+      {
+        "name": "mnscloud-freeswitch",
+        "description": "Standalone FreeSWITCH installer and runtime assets.",
+        "url": "https://github.com/manaoscloud/mnscloud-freeswitch"
+      },
+      {
+        "name": "mnscloud-asterisk",
+        "description": "Standalone Asterisk installer and runtime assets.",
+        "url": "https://github.com/manaoscloud/mnscloud-asterisk"
+      },
+      {
+        "name": "mnscloud-kamailio",
+        "description": "Standalone Kamailio installer and runtime assets.",
+        "url": "https://github.com/manaoscloud/mnscloud-kamailio"
+      },
+      {
+        "name": "mnscloud-opensips",
+        "description": "Standalone OpenSIPS installer and runtime assets.",
+        "url": "https://github.com/manaoscloud/mnscloud-opensips"
+      },
+      {
+        "name": "mnscloud-kamailio-webrtc",
+        "description": "Kamailio WebRTC edge SBC for secure multi-tenant WebRTC access.",
+        "url": "https://github.com/manaoscloud/mnscloud-kamailio-webrtc"
+      }
     ],
     "governanceEyebrow": "Contribution Model",
     "governanceTitle": "Open collaboration with company-grade review.",
@@ -62,9 +121,18 @@
     "heading": "Security is a control-plane responsibility.",
     "lead": "MNSCloud public clients and connectors are designed to be auditable. They do not carry server-side secrets, permanent provider credentials, database credentials, or hidden authorization bypasses.",
     "cards": [
-      { "title": "API authority", "text": "Authorization, tenant scope, billing, policy, routing ownership, and secrets remain API-side." },
-      { "title": "Outbound agents", "text": "Remote management flows are initiated by agents to the API, reducing exposed management ports." },
-      { "title": "Public boundary", "text": "Public repositories use placeholders and documented contracts, not customer data or private topology." }
+      {
+        "title": "API authority",
+        "text": "Authorization, tenant scope, billing, policy, routing ownership, and secrets remain API-side."
+      },
+      {
+        "title": "Outbound agents",
+        "text": "Remote management flows are initiated by agents to the API, reducing exposed management ports."
+      },
+      {
+        "title": "Public boundary",
+        "text": "Public repositories use placeholders and documented contracts, not customer data or private topology."
+      }
     ],
     "ctaTitle": "Review security posture before exposing infrastructure."
   },
@@ -83,5 +151,277 @@
       "messagePlaceholder": "Tell us about your deployment, module, or integration.",
       "submitLabel": "Send request"
     }
+  },
+  "architecture": {
+    "title": "Architecture - MNSCloud",
+    "description": "MNSCloud platform architecture, public client boundaries, API control plane, workers, agents, and customer infrastructure model.",
+    "eyebrow": "Architecture",
+    "heading": "A public ecosystem built around a private control plane.",
+    "lead": "MNSCloud separates public clients and edge connectors from the authority layer that owns tenant scope, billing, routing decisions, policy, and secret resolution.",
+    "principles": [
+      {
+        "title": "Public clients, private authority",
+        "text": "Apps, websites, agents, and service installers consume the API contract. They do not become the source of truth for authorization, billing, tenant policy, or provider secrets."
+      },
+      {
+        "title": "Outbound operational model",
+        "text": "Agents initiate communication from inside customer infrastructure to the MNSCloud API. This reduces exposed management surfaces and keeps remote execution auditable."
+      },
+      {
+        "title": "Queue-backed automation",
+        "text": "Long-running infrastructure jobs move through workers and job history instead of blocking operators inside a browser session."
+      },
+      {
+        "title": "Service-oriented infrastructure",
+        "text": "Profiles are organized around services such as SSH, FreeSWITCH, Asterisk, Kamailio, OpenSIPS, Nginx, MariaDB, and storage rather than rigid server labels."
+      }
+    ],
+    "layersTitle": "Platform layers",
+    "layers": [
+      {
+        "label": "Public website and app",
+        "text": "Static public website, Angular operations app, documentation, and developer entry points."
+      },
+      {
+        "label": "API control plane",
+        "text": "The private authority surface for tenants, contracts, policy, billing, orchestration, secrets, and audited business decisions."
+      },
+      {
+        "label": "Workers and queues",
+        "text": "RabbitMQ-backed execution for storage, themes, VPS, security, and future automation handlers."
+      },
+      {
+        "label": "Agents and connectors",
+        "text": "Outbound Linux agent and standalone service repositories for telecom, WebRTC, monitoring, and security operations."
+      },
+      {
+        "label": "Customer infrastructure",
+        "text": "Customer-owned or partner-owned servers, PBXs, containers, VPS providers, storage accounts, and edge nodes."
+      }
+    ],
+    "ctaTitle": "Design customer infrastructure around a control plane that stays authoritative."
+  },
+  "company": {
+    "title": "Company - MNSCloud",
+    "description": "MNSCloud company profile, operating principles, platform focus, and long-term product direction.",
+    "eyebrow": "Company",
+    "heading": "A product company for operators, providers, and infrastructure teams.",
+    "lead": "MNSCloud is building a unified platform for telecom, hosting, cyber security, monitoring, support, and automation. The goal is to help operators launch and run complex services without rebuilding the same control plane from scratch.",
+    "values": [
+      {
+        "title": "Operator-grade engineering",
+        "text": "We design for repeated operational workflows, auditability, tenant isolation, automation, and practical reliability rather than one-off demos."
+      },
+      {
+        "title": "Open ecosystem, protected core",
+        "text": "Selected clients and connectors are public so partners can inspect and contribute, while sensitive control-plane decisions remain private and enforceable."
+      },
+      {
+        "title": "API-first business model",
+        "text": "Partners may build their own interfaces or use MNSCloud public clients, but the API contract remains the product boundary."
+      },
+      {
+        "title": "Security as a product surface",
+        "text": "Cyber Security, monitoring, agents, profiles, firewall enforcement, and decision history are treated as first-class platform capabilities."
+      }
+    ],
+    "operatingModelTitle": "How MNSCloud builds",
+    "operatingModel": [
+      {
+        "title": "Documented patterns",
+        "text": "Database, API, frontend, website, workers, and public repositories follow written project skills and contribution rules."
+      },
+      {
+        "title": "Professional contribution path",
+        "text": "External changes enter through Pull Requests, CI, and maintainer review. Strong contributors may be sponsored, contracted, or hired by explicit agreement."
+      },
+      {
+        "title": "Public-ready modules",
+        "text": "Agents, service installers, WebRTC edge components, and website code can live as independent public repositories that consume the private API."
+      }
+    ],
+    "ctaTitle": "Work with a platform company that understands infrastructure operations."
+  },
+  "useCases": {
+    "title": "Use Cases - MNSCloud",
+    "description": "MNSCloud use cases for VoIP operators, hosting providers, MSPs, partners, clinics, and infrastructure teams.",
+    "eyebrow": "Use Cases",
+    "heading": "Built for operators that need more than isolated tools.",
+    "lead": "MNSCloud connects commercial, operational, telecom, security, and infrastructure workflows into a single API-driven platform.",
+    "cases": [
+      {
+        "title": "VoIP operators",
+        "problem": "PBX servers, domains, trunks, recordings, WebRTC access, fraud attempts, and tenant separation usually live across disconnected tools.",
+        "solution": "Operate Asterisk, FreeSWITCH, Kamailio, OpenSIPS, WebRTC edges, recordings, media files, and security profiles through the same control plane.",
+        "modules": [
+          "VoIP",
+          "Monitoring",
+          "Cyber Security",
+          "Agent"
+        ]
+      },
+      {
+        "title": "Hosting and VPS providers",
+        "problem": "Cloud accounts, storage, VPS providers, containers, DNS, customers, and support workflows can become fragmented as the provider grows.",
+        "solution": "Use Hosting, VPS, VPS Container, storage, support, and commercial modules to provide a unified customer-facing operation.",
+        "modules": [
+          "Hosting",
+          "VPS",
+          "Containers",
+          "Storage"
+        ]
+      },
+      {
+        "title": "Managed service providers",
+        "problem": "Customer servers require monitoring, remote tasks, security hardening, and clean execution history without opening unnecessary management ports.",
+        "solution": "Deploy the outbound agent and apply service-based security, monitoring, and automation profiles across customer Linux servers.",
+        "modules": [
+          "Agent",
+          "Monitoring",
+          "Cyber Security"
+        ]
+      },
+      {
+        "title": "White-label partners",
+        "problem": "Partners need a fast path to launch a professional website, app, service installers, and API-backed workflows under their own commercial strategy.",
+        "solution": "Use public MNSCloud repositories as a starting point while consuming the MNSCloud API contract for the real platform capabilities.",
+        "modules": [
+          "Website",
+          "App",
+          "API",
+          "Public Repositories"
+        ]
+      },
+      {
+        "title": "Clinics and business operations",
+        "problem": "Operational systems often need CRM, support, communication, hosting, and service history connected instead of isolated by department.",
+        "solution": "Use modular platform areas for CRM, support, VoIP, hosting, monitoring, and customer operations as the product expands.",
+        "modules": [
+          "CRM",
+          "Support",
+          "VoIP",
+          "Hosting"
+        ]
+      }
+    ],
+    "ctaTitle": "Map your operation to the modules that matter first."
+  },
+  "status": {
+    "title": "Status - MNSCloud",
+    "description": "MNSCloud public status overview and operational readiness surface.",
+    "eyebrow": "Status",
+    "heading": "A transparent operational posture surface.",
+    "lead": "This page is prepared as the public status entry point. It currently presents service posture categories and can be connected to live status automation when production telemetry is exposed publicly.",
+    "updatedLabel": "Static readiness view",
+    "services": [
+      {
+        "name": "Website",
+        "status": "Operational",
+        "text": "Static public website, blog, legal pages, and CMS-managed content."
+      },
+      {
+        "name": "API Control Plane",
+        "status": "Prepared",
+        "text": "Customer-specific availability should be monitored through authenticated platform channels."
+      },
+      {
+        "name": "Public Repositories",
+        "status": "Operational",
+        "text": "Public clients, agents, and service connectors are maintained through GitHub repositories."
+      },
+      {
+        "name": "Agent Operations",
+        "status": "Prepared",
+        "text": "Outbound agent execution is designed around job history, status collection, and audited automation."
+      },
+      {
+        "name": "Cyber Security",
+        "status": "Prepared",
+        "text": "Security status, alerts, decisions, and service profiles are managed through the platform control plane."
+      }
+    ],
+    "note": "For production incidents, support cases, contract-specific SLAs, and private environment details, use the official authenticated support channels."
+  },
+  "changelog": {
+    "title": "Changelog - MNSCloud",
+    "description": "MNSCloud public product changelog for platform, website, agents, security, and infrastructure modules.",
+    "eyebrow": "Changelog",
+    "heading": "Product evolution, visible and reviewable.",
+    "lead": "MNSCloud uses public repositories, documented patterns, and release notes so partners can understand how the ecosystem is evolving.",
+    "entries": [
+      {
+        "date": "2026-05-18",
+        "title": "Website trust and proof surfaces",
+        "items": [
+          "Added architecture, company, use case, status, changelog, and FAQ pages.",
+          "Expanded the website CMS so marketing and partner teams can edit public proof content.",
+          "Added responsive coverage for the new public pages."
+        ]
+      },
+      {
+        "date": "2026-05-17",
+        "title": "Public website foundation",
+        "items": [
+          "Created the static MNSCloud website with Astro.",
+          "Added Decap CMS for git-based content editing.",
+          "Added blog, legal pages, cookie consent, developer repositories, and domain boundary validation."
+        ]
+      },
+      {
+        "date": "2026-05-16",
+        "title": "Security and public repository strategy",
+        "items": [
+          "Documented public client boundaries for agents and service connectors.",
+          "Established contribution governance, repository files, and CI expectations.",
+          "Defined service-based Cyber Security profiles around CrowdSec and nftables."
+        ]
+      },
+      {
+        "date": "2026-05-15",
+        "title": "Infrastructure connector direction",
+        "items": [
+          "Separated agent, Asterisk, FreeSWITCH, Kamailio, OpenSIPS, and WebRTC edge work into standalone public repository models.",
+          "Defined outbound agent behavior and API-driven execution patterns.",
+          "Expanded hosting provider direction for VPS, containers, storage, and future provider APIs."
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "title": "FAQ - MNSCloud",
+    "description": "Frequently asked questions about MNSCloud architecture, API model, public repositories, agents, security, and partner deployments.",
+    "eyebrow": "FAQ",
+    "heading": "Answers for technical buyers and partners.",
+    "lead": "Use this page to understand the platform boundary, partner model, public code strategy, and operational assumptions before starting a deployment.",
+    "items": [
+      {
+        "question": "What is MNSCloud?",
+        "answer": "MNSCloud is a modular API-driven platform for telecom, hosting, monitoring, cyber security, support, CRM, and infrastructure automation."
+      },
+      {
+        "question": "Can a partner use this website under their own domain?",
+        "answer": "Yes. The website is static-first, CMS-managed, and can be built for another domain by changing site settings and deployment configuration. The public content remains focused on MNSCloud unless a partner customizes it."
+      },
+      {
+        "question": "Does the agent require inbound ports?",
+        "answer": "The agent model is outbound: it connects from the server to the MNSCloud API to receive jobs and report status. This avoids opening management ports only for remote automation."
+      },
+      {
+        "question": "Can customers use both SIP and WebRTC extensions?",
+        "answer": "Yes. The proposed WebRTC edge model lets selected extensions register through WebRTC while the same tenant/domain model continues to protect multi-tenant SIP identity."
+      },
+      {
+        "question": "Why are some repositories public?",
+        "answer": "Public repositories make clients, installers, agents, website code, and edge connectors auditable and easier to improve. The private API/control plane remains responsible for authority, policy, billing, routing ownership, and secrets."
+      },
+      {
+        "question": "Can external developers contribute?",
+        "answer": "Yes. Contributions go through Pull Requests, CI, security review, and maintainer approval. MNSCloud may sponsor, contract, or hire contributors by explicit written agreement."
+      },
+      {
+        "question": "Is this website legal advice?",
+        "answer": "No. Trust, privacy, cookie, and legal templates provide a professional structure, but production legal text must be reviewed for the target jurisdictions."
+      }
+    ]
   }
 }

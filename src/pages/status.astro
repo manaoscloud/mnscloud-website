@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.status;
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container status-hero">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">{page.lead}</p>
+        </div>
+        <div class="card status-summary">
+          <span>{page.updatedLabel}</span>
+          <strong>Public status surface</strong>
+          <p>{page.note}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section status-section">
+      <div class="container status-list">
+        {page.services.map((service) => (
+          <article class="card status-row">
+            <div>
+              <h2>{service.name}</h2>
+              <p>{service.text}</p>
+            </div>
+            <span class="status-pill">{service.status}</span>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .status-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+    gap: 34px;
+    align-items: start;
+  }
+
+  .status-summary {
+    display: grid;
+    gap: 10px;
+    padding: 24px;
+  }
+
+  .status-summary span,
+  .status-pill {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .status-summary strong {
+    font-family: Oswald, Montserrat, sans-serif;
+    font-size: 1.65rem;
+  }
+
+  .status-summary p,
+  .status-row p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .status-section {
+    border-top: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .status-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .status-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: center;
+    padding: 22px;
+  }
+
+  .status-row h2 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+  }
+
+  .status-pill {
+    padding: 8px 12px;
+    border: 1px solid rgba(123, 224, 164, 0.42);
+    border-radius: 999px;
+    color: var(--success);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 760px) {
+    .status-hero,
+    .status-row {
+      grid-template-columns: 1fr;
+    }
+
+    .status-pill {
+      width: fit-content;
+    }
+  }
+</style>

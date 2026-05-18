@@ -258,6 +258,125 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Text", name: "text", widget: "text" }
               - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - label: "Architecture"
+            name: "architecture"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Principles"
+                name: "principles"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "Layers title", name: "layersTitle", widget: "string" }
+              - label: "Layers"
+                name: "layers"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - label: "Company"
+            name: "company"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Values"
+                name: "values"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "Operating model title", name: "operatingModelTitle", widget: "string" }
+              - label: "Operating model"
+                name: "operatingModel"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - label: "Use Cases"
+            name: "useCases"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Cases"
+                name: "cases"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Challenge", name: "problem", widget: "text" }
+                  - { label: "Platform answer", name: "solution", widget: "text" }
+                  - label: "Modules"
+                    name: "modules"
+                    widget: "list"
+                    field: { label: "Module", name: "module", widget: "string" }
+              - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - label: "Status"
+            name: "status"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Updated label", name: "updatedLabel", widget: "string" }
+              - label: "Services"
+                name: "services"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Status", name: "status", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - { label: "Note", name: "note", widget: "text" }
+          - label: "Changelog"
+            name: "changelog"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Entries"
+                name: "entries"
+                widget: "list"
+                fields:
+                  - { label: "Date", name: "date", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
           - label: "Contact"
             name: "contact"
             widget: "object"

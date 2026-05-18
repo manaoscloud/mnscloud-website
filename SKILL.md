@@ -41,8 +41,8 @@ Use this repository for the public MNSCloud website.
   scripts. Use relative URLs for internal navigation and content/admin settings for configurable
   public URLs.
 - Keep white-label content editable through `/admin`: brand metadata, support/API URLs, navigation,
-  footer, CTAs, home sections, module cards, module detail pages, core pages, blog posts, and public
-  media.
+  footer, CTAs, home sections, module cards, module detail pages, proof/trust pages, core pages,
+  blog posts, and public media.
 - Keep CMS boot/deployment concerns outside CMS-managed content: Decap `backend.repo`, OAuth/Git
   Gateway configuration, CI/CD secrets, and hosting credentials are changed per
   repository/deployment before the admin loads.
@@ -58,6 +58,8 @@ Use this repository for the public MNSCloud website.
 - New blog posts must define SEO-ready `title`, `description`, `date`, `author`, `tags`, and
   `status` frontmatter.
 - Trust/legal pages live in `src/content/site/legal.json` and must remain editable through Decap CMS.
+- Public proof pages such as architecture, company, use cases, status, changelog, and FAQ live in
+  `src/content/site/pages.json` and must remain editable through Decap CMS.
 - Cookie consent must default to necessary-only behavior. Do not load analytics, marketing,
   tracking, chat, embedded widgets, or other non-essential scripts until the relevant consent
   category has been accepted.

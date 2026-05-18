@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTA from '../components/CTA.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.faq;
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container faq-grid">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">{page.lead}</p>
+        </div>
+        <div class="faq-list">
+          {page.items.map((item) => (
+            <details class="card faq-item">
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <CTA />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.72fr) minmax(320px, 1fr);
+    gap: 36px;
+    align-items: start;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .faq-item {
+    padding: 20px 22px;
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    color: var(--text);
+    font-weight: 900;
+    list-style-position: outside;
+  }
+
+  .faq-item p {
+    margin: 14px 0 0;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 860px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

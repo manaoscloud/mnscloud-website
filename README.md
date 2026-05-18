@@ -137,7 +137,8 @@ remain editable from `/admin`:
 - Home page: hero, trust signals, module cards, architecture section, blog section, and final CTA.
 - Product structure: module cards and module detail pages for VoIP, Hosting, Monitoring,
   Cyber Security, and Support.
-- Core pages: API docs, developers, security, contact, and blog landing copy.
+- Core pages: API docs, developers, security, contact, architecture, company, use cases, status,
+  changelog, FAQ, and blog landing copy.
 - Blog posts and uploaded public media.
 
 The following values are intentionally not managed by CMS content because they are deployment or
@@ -181,6 +182,22 @@ npm run check:responsive
 
 The check currently validates the primary public pages at `320px`, `390px`, `768px`, and `1440px`.
 If a new public page is added, include it in `scripts/responsive-check.mjs`.
+
+## Proof And Trust Pages
+
+The website includes public pages designed to make the company and platform easier to evaluate:
+
+- `/architecture`
+- `/company`
+- `/use-cases`
+- `/status`
+- `/changelog`
+- `/faq`
+
+These pages are intentionally CMS-managed through `src/content/site/pages.json` and
+`public/admin/config.yml`. They should communicate real operating posture, architecture boundaries,
+public repository strategy, and customer-facing trust signals without exposing private control-plane
+logic, customer data, credentials, or internal topology.
 
 ## Domain Boundary Validation
 

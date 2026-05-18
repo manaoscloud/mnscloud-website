@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.changelog;
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container changelog-grid">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">{page.lead}</p>
+        </div>
+        <div class="timeline">
+          {page.entries.map((entry) => (
+            <article class="card timeline-entry">
+              <time>{entry.date}</time>
+              <h2>{entry.title}</h2>
+              <ul>
+                {entry.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .changelog-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.72fr) minmax(320px, 1fr);
+    gap: 36px;
+    align-items: start;
+  }
+
+  .timeline {
+    display: grid;
+    gap: 16px;
+    position: relative;
+  }
+
+  .timeline-entry {
+    padding: 24px;
+  }
+
+  .timeline-entry time {
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 900;
+  }
+
+  .timeline-entry h2 {
+    margin: 10px 0 14px;
+    font-size: 1.55rem;
+  }
+
+  .timeline-entry ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .timeline-entry li + li {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 860px) {
+    .changelog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

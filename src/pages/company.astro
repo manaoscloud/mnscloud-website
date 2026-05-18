@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTA from '../components/CTA.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.company;
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container company-hero">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+        </div>
+        <p class="lead">{page.lead}</p>
+      </div>
+    </section>
+
+    <section class="section company-values">
+      <div class="container">
+        <div class="grid three">
+          {page.values.map((value) => (
+            <article class="card value-card">
+              <h2>{value.title}</h2>
+              <p>{value.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container operating-grid">
+        <div class="section-title">
+          <span class="eyebrow">Operating Model</span>
+          <h2>{page.operatingModelTitle}</h2>
+        </div>
+        <div class="card operating-list">
+          {page.operatingModel.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTA title={page.ctaTitle} />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 0;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .company-hero,
+  .operating-grid {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .company-values {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(29, 91, 49, 0.12);
+  }
+
+  .value-card,
+  .operating-list {
+    padding: 24px;
+  }
+
+  .value-card h2 {
+    margin: 0 0 12px;
+    font-size: 1.6rem;
+  }
+
+  .value-card p,
+  .operating-list p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .operating-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .operating-list article {
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .operating-list article:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .operating-list article:last-child {
+    padding-bottom: 0;
+  }
+
+  .operating-list h3 {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+  }
+
+  @media (max-width: 860px) {
+    .company-hero,
+    .operating-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

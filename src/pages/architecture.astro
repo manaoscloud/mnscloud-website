@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTA from '../components/CTA.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.architecture;
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section architecture-hero">
+      <div class="container architecture-grid">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">{page.lead}</p>
+        </div>
+        <div class="card layer-stack" aria-label={page.layersTitle}>
+          <h2>{page.layersTitle}</h2>
+          {page.layers.map((layer, index) => (
+            <article class="layer-row">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{layer.label}</h3>
+                <p>{layer.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section architecture-principles">
+      <div class="container">
+        <div class="grid three">
+          {page.principles.map((principle) => (
+            <article class="card principle-card">
+              <h2>{principle.title}</h2>
+              <p>{principle.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTA title={page.ctaTitle} />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .architecture-hero {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .architecture-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+    gap: 34px;
+    align-items: start;
+  }
+
+  .layer-stack {
+    padding: 22px;
+  }
+
+  .layer-stack h2 {
+    margin: 0 0 18px;
+    font-size: 1.65rem;
+  }
+
+  .layer-row {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .layer-row span {
+    color: var(--accent);
+    font-weight: 900;
+  }
+
+  .layer-row h3 {
+    margin: 0 0 7px;
+    font-size: 1.25rem;
+  }
+
+  .layer-row p,
+  .principle-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.68;
+  }
+
+  .architecture-principles {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .principle-card {
+    padding: 24px;
+  }
+
+  .principle-card h2 {
+    margin: 0 0 12px;
+    font-size: 1.55rem;
+  }
+
+  @media (max-width: 860px) {
+    .architecture-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .layer-stack {
+      padding: 18px;
+    }
+
+    .layer-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>
