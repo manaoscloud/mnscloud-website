@@ -171,6 +171,11 @@ const consent = legal.cookieConsent;
     width: min(620px, calc(100vw - 44px));
   }
 
+  .cookie-consent[hidden],
+  .cookie-modal[hidden] {
+    display: none !important;
+  }
+
   .cookie-panel,
   .cookie-modal-card {
     border: 1px solid rgba(236, 245, 242, 0.2);

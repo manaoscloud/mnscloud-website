@@ -11,7 +11,8 @@
     "preview": "astro preview --host 0.0.0.0 --port 4321",
     "check:responsive": "node scripts/responsive-check.mjs",
     "check:domains": "node scripts/domain-boundary-check.mjs",
-    "check": "npm run build && npm run check:domains && npm run check:responsive"
+    "check": "npm run build && npm run check:domains && npm run check:responsive && npm run check:cookies",
+    "check:cookies": "node scripts/cookie-consent-check.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
