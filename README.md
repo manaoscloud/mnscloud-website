@@ -167,6 +167,26 @@ npm run build
 
 Static output is generated in `dist/`.
 
+## Downloadable GitHub Build
+
+The repository includes a manual GitHub Actions workflow that builds the static website and exposes
+the generated `dist/` folder as a downloadable artifact.
+
+Use it when you want GitHub to generate the package and then upload the files manually to your
+hosting provider:
+
+1. Open the repository on GitHub.
+2. Click `Actions`.
+3. Select `Build Website Artifact`.
+4. Click `Run workflow`.
+5. Optionally enter `PUBLIC_SITE_URL`, for example `https://manaos.cloud`.
+6. Wait for the workflow to finish.
+7. Open the completed run and download the artifact named `mnscloud-website-dist-<run-number>`.
+8. Extract it and upload the generated files to the web root of the hosting server.
+
+The artifact is generated from `dist/`; it is the same output created locally by `npm run build`.
+The workflow does not deploy automatically and does not require production hosting credentials.
+
 ## Responsive Validation
 
 The public website must be fully responsive before release. The header, CTAs, cards, module pages,

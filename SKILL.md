@@ -28,6 +28,8 @@ Use this repository for the public MNSCloud website.
 - Do not solve mobile navigation with horizontal page overflow. Use responsive layouts, wrapping,
   or an explicit mobile menu.
 - When adding public pages, include them in `scripts/responsive-check.mjs`.
+- Keep `.github/workflows/build-artifact.yml` available for manual static package generation. It
+  must build `dist/` and upload it as a GitHub artifact without requiring hosting credentials.
 - Future forms must submit only to public API endpoints with server-side validation.
 - Keep documentation and public text in English unless a localized route is explicitly being added.
 - Blog and marketing content should be stored as Markdown/frontmatter, not in a database.
