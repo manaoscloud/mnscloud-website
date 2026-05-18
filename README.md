@@ -186,6 +186,8 @@ hosting provider:
 
 The artifact is generated from `dist/`; it is the same output created locally by `npm run build`.
 The workflow does not deploy automatically and does not require production hosting credentials.
+The workflow uses GitHub official actions that run on the Node.js 24 action runtime to avoid
+GitHub Actions Node.js 20 deprecation warnings.
 
 ## Responsive Validation
 
