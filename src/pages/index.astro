@@ -57,6 +57,37 @@ const latestPosts = getBlogPosts().slice(0, 2);
       </div>
     </section>
 
+    <section class="section ecosystem-section" aria-labelledby="ecosystem-title">
+      <div class="container">
+        <div class="ecosystem-heading">
+          <div>
+            <span class="eyebrow">{home.ecosystemSection.eyebrow}</span>
+            <h2 id="ecosystem-title">{home.ecosystemSection.title}</h2>
+          </div>
+          <p>{home.ecosystemSection.text}</p>
+        </div>
+      </div>
+      <div class="ecosystem-marquees" aria-label="Technology ecosystem">
+        {
+          home.ecosystemSection.rows.map((row) => (
+            <div class={`ecosystem-row ${row.direction === 'right' ? 'reverse' : ''}`} aria-label={row.label}>
+              <div class="ecosystem-track">
+                {[...row.items, ...row.items].map((item) => (
+                  <span class="ecosystem-mark">
+                    <strong>{item.name}</strong>
+                    <small>{item.category}</small>
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="container">
+        <p class="ecosystem-disclaimer">{home.ecosystemSection.disclaimer}</p>
+      </div>
+    </section>
+
     <section class="section platform-band">
       <div class="container band-grid">
         <div>
@@ -172,6 +203,113 @@ const latestPosts = getBlogPosts().slice(0, 2);
     background: rgba(45, 245, 224, 0.04);
   }
 
+  .ecosystem-section {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background:
+      linear-gradient(90deg, rgba(9, 16, 12, 0.96), rgba(9, 16, 12, 0.62), rgba(9, 16, 12, 0.96)),
+      radial-gradient(circle at 50% 0%, rgba(245, 131, 46, 0.1), transparent 28rem),
+      rgba(7, 16, 15, 0.92);
+  }
+
+  .ecosystem-heading {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 34px;
+    align-items: end;
+    margin-bottom: 34px;
+  }
+
+  .ecosystem-heading h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1;
+  }
+
+  .ecosystem-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .ecosystem-marquees {
+    display: grid;
+    gap: 14px;
+    margin: 12px 0 24px;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .ecosystem-row {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ecosystem-track {
+    display: flex;
+    flex: 0 0 max-content;
+    gap: 14px;
+    min-width: max-content;
+    animation: ecosystem-scroll 42s linear infinite;
+  }
+
+  .ecosystem-row.reverse .ecosystem-track {
+    animation-direction: reverse;
+    animation-duration: 48s;
+  }
+
+  .ecosystem-row:hover .ecosystem-track {
+    animation-play-state: paused;
+  }
+
+  .ecosystem-mark {
+    display: grid;
+    min-width: 178px;
+    gap: 5px;
+    padding: 16px 22px;
+    border: 1px solid rgba(236, 245, 242, 0.13);
+    border-radius: 8px;
+    background: rgba(236, 245, 242, 0.055);
+    color: var(--text);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .ecosystem-mark strong {
+    font-family: Oswald, Montserrat, sans-serif;
+    font-size: 1.18rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .ecosystem-mark small {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ecosystem-disclaimer {
+    max-width: 900px;
+    margin: 20px 0 0;
+    color: rgba(236, 245, 242, 0.56);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  @keyframes ecosystem-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 7px));
+    }
+  }
+
   .band-grid {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
@@ -234,7 +372,8 @@ const latestPosts = getBlogPosts().slice(0, 2);
     }
 
     .hero-grid,
-    .band-grid {
+    .band-grid,
+    .ecosystem-heading {
       grid-template-columns: 1fr;
     }
 
@@ -270,6 +409,34 @@ const latestPosts = getBlogPosts().slice(0, 2);
 
     .latest-card {
       padding: 20px;
+    }
+
+    .ecosystem-marquees {
+      mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+
+    .ecosystem-track {
+      animation-duration: 34s;
+    }
+
+    .ecosystem-mark {
+      min-width: 148px;
+      padding: 14px 16px;
+    }
+
+    .ecosystem-mark strong {
+      font-size: 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ecosystem-row {
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .ecosystem-track {
+      animation: none;
     }
   }
 </style>

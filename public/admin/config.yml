@@ -104,6 +104,29 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
+          - label: "Technology ecosystem section"
+            name: "ecosystemSection"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Trademark disclaimer", name: "disclaimer", widget: "text" }
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - { label: "Row label", name: "label", widget: "string" }
+                  - label: "Direction"
+                    name: "direction"
+                    widget: "select"
+                    options: ["left", "right"]
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - { label: "Name", name: "name", widget: "string" }
+                      - { label: "Category", name: "category", widget: "string" }
           - label: "Architecture band"
             name: "architectureBand"
             widget: "object"

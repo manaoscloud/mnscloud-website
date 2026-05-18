@@ -4,13 +4,31 @@
   "hero": {
     "eyebrow": "Cloud, Telecom, Security, Automation",
     "text": "A modular platform for operators, service providers, partners, and enterprises that need telecom, hosting, monitoring, cyber security, support, and infrastructure automation from a secure API control plane.",
-    "primaryAction": { "label": "Explore modules", "href": "#modules" },
-    "secondaryAction": { "label": "Developer ecosystem", "href": "/developers" },
+    "primaryAction": {
+      "label": "Explore modules",
+      "href": "#modules"
+    },
+    "secondaryAction": {
+      "label": "Developer ecosystem",
+      "href": "/developers"
+    },
     "panelRows": [
-      { "label": "Control plane", "value": "API-first" },
-      { "label": "Deployments", "value": "Multi-tenant" },
-      { "label": "Security posture", "value": "CrowdSec + nftables" },
-      { "label": "Public connectors", "value": "Agent, VoIP, WebRTC" }
+      {
+        "label": "Control plane",
+        "value": "API-first"
+      },
+      {
+        "label": "Deployments",
+        "value": "Multi-tenant"
+      },
+      {
+        "label": "Security posture",
+        "value": "CrowdSec + nftables"
+      },
+      {
+        "label": "Public connectors",
+        "value": "Agent, VoIP, WebRTC"
+      }
     ]
   },
   "modulesSection": {
@@ -29,5 +47,97 @@
     "text": "Articles help customers understand MNSCloud architecture, VoIP security, WebRTC, automation, and API-first operations before they contact the team.",
     "allPostsTitle": "View all articles",
     "allPostsText": "Browse the MNSCloud blog and future product guides."
+  },
+  "ecosystemSection": {
+    "eyebrow": "Technology Ecosystem",
+    "title": "Powered by a proven ecosystem.",
+    "text": "MNSCloud orchestrates telecom, cloud, security, and infrastructure technologies through a secure API control plane.",
+    "disclaimer": "Names and marks belong to their respective owners. Compatibility, support, or integration does not imply endorsement unless explicitly stated.",
+    "rows": [
+      {
+        "label": "Cloud & Infrastructure",
+        "direction": "left",
+        "items": [
+          {
+            "name": "AWS",
+            "category": "Cloud"
+          },
+          {
+            "name": "Google Cloud",
+            "category": "Cloud"
+          },
+          {
+            "name": "Microsoft Azure",
+            "category": "Cloud"
+          },
+          {
+            "name": "DigitalOcean",
+            "category": "Cloud"
+          },
+          {
+            "name": "Proxmox",
+            "category": "Virtualization"
+          },
+          {
+            "name": "VMware vCenter",
+            "category": "Virtualization"
+          },
+          {
+            "name": "Incus",
+            "category": "Containers"
+          },
+          {
+            "name": "Docker",
+            "category": "Containers"
+          }
+        ]
+      },
+      {
+        "label": "Telecom, Security & Platform",
+        "direction": "right",
+        "items": [
+          {
+            "name": "Asterisk",
+            "category": "VoIP"
+          },
+          {
+            "name": "FreeSWITCH",
+            "category": "VoIP"
+          },
+          {
+            "name": "Kamailio",
+            "category": "SIP Routing"
+          },
+          {
+            "name": "OpenSIPS",
+            "category": "SIP Routing"
+          },
+          {
+            "name": "RTPengine",
+            "category": "Media"
+          },
+          {
+            "name": "CrowdSec",
+            "category": "Security"
+          },
+          {
+            "name": "nftables",
+            "category": "Firewall"
+          },
+          {
+            "name": "Nginx",
+            "category": "Edge"
+          },
+          {
+            "name": "MariaDB",
+            "category": "Database"
+          },
+          {
+            "name": "RabbitMQ",
+            "category": "Messaging"
+          }
+        ]
+      }
+    ]
   }
 }
