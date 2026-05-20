@@ -12,6 +12,22 @@ and commercial contact flows.
 - TypeScript
 - Static output by default
 
+## Repository Access
+
+Install GitHub CLI if needed, authenticate, and clone the private repository. If
+`gh` is not installed yet, follow the official installation guide:
+[cli/cli installation](https://github.com/cli/cli#installation).
+
+```bash
+gh auth login
+gh auth status
+
+sudo install -d -m 0755 /opt/mnscloud
+cd /opt/mnscloud
+gh repo clone manaoscloud/mnscloud-website
+cd /opt/mnscloud/mnscloud-website
+```
+
 ## Development
 
 ```bash
