@@ -12,6 +12,24 @@ and commercial contact flows.
 - TypeScript
 - Static output by default
 
+## Contract
+
+- Product/runtime: `mnscloud-website`
+- Project directory: `/opt/mnscloud/mnscloud-website`
+- Framework: Astro
+- Local development command: `npm run dev`
+- Build command: `npm run build`
+- Preview command: `npm run preview`
+- Static build output: `dist/`
+- Public assets directory: `public/`
+- CMS route: `/admin`
+- CMS configuration: `public/admin/config.yml`
+- Editable site content: `src/content/site/*.json`
+- Blog content: `src/content/blog/`
+- Uploaded media directory: `public/uploads/`
+- Site URL override: `PUBLIC_SITE_URL`
+- GitHub artifact: `mnscloud-website-dist-<run-number>`
+
 ## Repository Access
 
 Install GitHub CLI if needed:
