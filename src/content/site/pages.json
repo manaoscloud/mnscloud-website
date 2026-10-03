@@ -423,5 +423,29 @@
         "answer": "No. Trust, privacy, cookie, and legal templates provide a professional structure, but production legal text must be reviewed for the target jurisdictions."
       }
     ]
+  },
+  "notFound": {
+    "title": "Page not found - MNSCloud",
+    "eyebrow": "404",
+    "heading": "This page does not exist.",
+    "lead": "The address may be mistyped, or the page was moved. Use one of the links below to keep exploring.",
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Modules",
+        "href": "/#modules"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
   }
 }

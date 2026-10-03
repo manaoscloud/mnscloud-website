@@ -185,7 +185,7 @@ remain editable from `/admin`:
 - Product structure: module cards and module detail pages for VoIP, Hosting, Monitoring,
   Cyber Security, and Support.
 - Core pages: API docs, developers, security, contact, architecture, company, use cases, status,
-  changelog, FAQ, and blog landing copy.
+  changelog, FAQ, blog landing copy, and the "page not found" (404) page.
 - Blog posts and uploaded public media.
 
 The following values are intentionally not managed by CMS content because they are deployment or

@@ -243,6 +243,20 @@ collections:
               - { label: "Boundary title", name: "boundaryTitle", widget: "string" }
               - { label: "Boundary text", name: "boundaryText", widget: "text" }
               - { label: "CTA title", name: "ctaTitle", widget: "string" }
+          - label: "Page not found (404)"
+            name: "notFound"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }
           - label: "Security"
             name: "security"
             widget: "object"

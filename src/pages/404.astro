@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import pages from '../content/site/pages.json';
+
+const page = pages.notFound;
+---
+
+<BaseLayout title={page.title}>
+  <Header />
+  <main>
+    <section class="section not-found">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p>{page.lead}</p>
+        </div>
+        <nav class="not-found-links" aria-label="Suggested pages">
+          {page.links.map((link) => <a class="button" href={link.href}>{link.label}</a>)}
+        </nav>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 60vh;
+    display: grid;
+    align-items: center;
+  }
+
+  h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+  }
+
+  .not-found-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+</style>
