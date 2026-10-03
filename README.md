@@ -6,6 +6,11 @@ This repository is intentionally separate from the administrative Angular app. I
 static-first website focused on product positioning, modules, security posture, developer ecosystem,
 and commercial contact flows.
 
+The repository is public on purpose. Anyone can clone or fork it, customize the content and brand,
+and host the generated static files on their own server, CDN, or static hosting provider without
+any MNSCloud infrastructure (no MNSCloud API, Agent, runtime kit, database, or private network is
+required to build or serve it).
+
 ## Stack
 
 - Astro
@@ -15,7 +20,7 @@ and commercial contact flows.
 ## Contract
 
 - Product/runtime: `mnscloud-website`
-- Project directory: `/opt/mnscloud/mnscloud-website`
+- Project directory: any local checkout (no fixed install path)
 - Framework: Astro
 - Local development command: `npm run dev`
 - Build command: `npm run build`
@@ -32,23 +37,27 @@ and commercial contact flows.
 
 ## Repository Access
 
-Install GitHub CLI if needed:
-[cli/cli installation](https://github.com/cli/cli#installation).
-
-Authenticate GitHub CLI:
+The repository is public. No GitHub account or authentication is needed to clone it:
 
 ```bash
-gh auth login
+git clone https://github.com/manaoscloud/mnscloud-website.git
+cd mnscloud-website
 ```
 
-Clone the private repository:
+To customize it for your own brand, fork it on GitHub (or push the clone to your own Git host)
+and follow [Partner/self-hosted deployments](#partnerself-hosted-deployments).
 
-```bash
-sudo install -d -m 0755 /opt/mnscloud
-cd /opt/mnscloud
-gh repo clone manaoscloud/mnscloud-website
-cd /opt/mnscloud/mnscloud-website
-```
+## Self-Hosting Independence
+
+The website must stay buildable and servable by third parties on their own infrastructure:
+
+- Building needs only Node.js and `npm`; serving needs only a static file server for `dist/`.
+- Do not add build or runtime dependencies on the MNSCloud API, Agent, runtime kit, private
+  registries, private networks, or MNSCloud-only secrets.
+- Optional integrations with a public API (for example a future contact form) must be
+  configurable and must degrade gracefully when the deployment does not provide that API.
+- MNSCloud-operated hosting consumes this repository like any other deployer: build the static
+  output from a released tag and serve it, without hosting-specific code in this repository.
 
 ## Development
 
