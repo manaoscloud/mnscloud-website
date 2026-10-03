@@ -214,6 +214,28 @@ npm run build
 
 Static output is generated in `dist/`.
 
+## Prebuilt Release Bundle
+
+Every GitHub Release of this repository includes the built site as release assets:
+
+```text
+mnscloud-website-web-v<version>.tar.gz
+mnscloud-website-web-v<version>.tar.gz.sha256
+```
+
+The archive holds the contents of `dist/` at its root. It is built from the release tag with the
+committed `src/content/site/settings.json` (no `PUBLIC_SITE_URL` override), so canonical URLs and
+the sitemap use the configured site URL. To self-host it, verify the checksum and extract it into
+any static web root:
+
+```bash
+sha256sum -c mnscloud-website-web-v<version>.tar.gz.sha256
+mkdir -p /var/www/website && tar -xzf mnscloud-website-web-v<version>.tar.gz -C /var/www/website
+```
+
+Forks with their own domain or content should build their own copy (`npm run build`, optionally
+with `PUBLIC_SITE_URL`) or publish their own releases.
+
 ## Downloadable GitHub Build
 
 The repository includes a manual GitHub Actions workflow that builds the static website and exposes
