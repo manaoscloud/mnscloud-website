@@ -26,6 +26,7 @@ const paths = [
   '/legal/terms/',
   '/legal/data-processing/',
   '/legal/subprocessors/',
+  '/404.html',
 ];
 
 const viewports = [
