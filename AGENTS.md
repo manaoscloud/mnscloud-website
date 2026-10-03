@@ -11,6 +11,10 @@ This repository contains the standalone public MNSCloud website.
 
 ## Public Boundary
 
+- The repository is intentionally public so third parties can fork it and self-host the static
+  build without MNSCloud infrastructure. Keep it buildable with Node.js/npm alone and servable by any
+  static file server; do not add dependencies on the MNSCloud API, Agent, runtime kit, or private
+  networks.
 - This website is public and must not contain secrets, customer data, private domains/IPs, provider
   credentials, database credentials, master keys, or private business rules.
 - API-side authorization, tenant scope, billing, routing ownership, policy, and secret resolution

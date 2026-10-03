@@ -7,6 +7,8 @@ Use this repository for the public MNSCloud website.
 - Present MNSCloud modules, architecture, security posture, and developer ecosystem.
 - Stay separate from the Angular administrative app.
 - Be safe for public repositories and external contributors.
+- Stay public and self-hostable: anyone can fork it, customize it, and host the static `dist/` on
+  their own infrastructure without depending on MNSCloud services.
 
 ## Design Rules
 
@@ -23,6 +25,9 @@ Use this repository for the public MNSCloud website.
 ## Engineering Rules
 
 - Use Astro components and static pages by default.
+- Never make the build or the served site depend on the MNSCloud API, Agent, runtime kit, private
+  registries, private networks, or MNSCloud-only secrets. Optional public API integrations must be
+  configurable and degrade gracefully when absent.
 - Keep JavaScript minimal unless a workflow needs interactivity.
 - Public pages must be fully responsive at small mobile, large mobile, tablet, and desktop widths.
 - Do not solve mobile navigation with horizontal page overflow. Use responsive layouts, wrapping,
