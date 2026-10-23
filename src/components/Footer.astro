@@ -1,25 +1,29 @@
 ---
-import settings from '../content/site/settings.json';
+import { localeFromUrl, localizePath } from '../i18n';
+import { getContent, siteShared } from '../lib/content';
+
+const locale = localeFromUrl(Astro.url);
+const { settings } = getContent(locale);
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
-      <a class="brand" href="/">
-        <img src={settings.brand.logoLight} alt="" />
+      <a class="brand" href={localizePath(locale, '/')}>
+        <img src={siteShared.brand.logoLight} alt="" />
       </a>
       <p>
         {settings.footer.description}
       </p>
     </div>
     <div class="footer-links">
-      {settings.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      {settings.navigation.map((item) => <a href={localizePath(locale, item.href)}>{item.label}</a>)}
     </div>
   </div>
   <div class="container legal-links">
     {
       settings.footer.legalLinks.map((item) => (
-        <a href={item.href} data-cookie-settings-link={item.href === '#cookie-settings' ? true : undefined}>
+        <a href={localizePath(locale, item.href)} data-cookie-settings-link={item.href === '#cookie-settings' ? true : undefined}>
           {item.label}
         </a>
       ))

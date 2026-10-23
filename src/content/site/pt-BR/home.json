@@ -1,0 +1,72 @@
+{
+  "seoTitle": "MNSCloud - Plataforma de Cloud, Telecom, Segurança e Automação",
+  "seoDescription": "A MNSCloud é uma plataforma modular para telecom, hospedagem, monitoramento, cibersegurança, suporte, CRM e automação de infraestrutura.",
+  "hero": {
+    "eyebrow": "Cloud, Telecom, Segurança, Automação",
+    "text": "Uma plataforma modular para operadoras, provedores de serviço, parceiros e empresas que precisam de telecom, hospedagem, monitoramento, cibersegurança, suporte e automação de infraestrutura a partir de um plano de controle seguro baseado em API.",
+    "primaryAction": { "label": "Conhecer os módulos", "href": "#modules" },
+    "secondaryAction": { "label": "Ecossistema para desenvolvedores", "href": "/developers" },
+    "panelRows": [
+      { "label": "Plano de controle", "value": "API-first" },
+      { "label": "Implantações", "value": "Multiambiente" },
+      { "label": "Postura de segurança", "value": "CrowdSec + nftables" },
+      { "label": "Conectores públicos", "value": "Agente, VoIP, WebRTC" }
+    ]
+  },
+  "modulesSection": {
+    "eyebrow": "Módulos do produto",
+    "title": "Uma plataforma, vários domínios operacionais.",
+    "text": "A MNSCloud é organizada em módulos para que as equipes operem voz, hospedagem, segurança, monitoramento, suporte, CRM e integrações públicas sem espalhar regras de negócio por ferramentas desconectadas."
+  },
+  "architectureBand": {
+    "eyebrow": "Arquitetura",
+    "title": "Clientes públicos, autoridade privada.",
+    "text": "Apps, agentes, instaladores e conectores de borda podem ser públicos e auditáveis. Autorização, escopo do ambiente, cobrança, titularidade de rotas, decisões de política e resolução de segredos permanecem dentro da API/plano de controle da MNSCloud."
+  },
+  "blogSection": {
+    "eyebrow": "Blog",
+    "title": "Conteúdo técnico para busca, confiança e apoio a vendas.",
+    "text": "Os artigos ajudam os clientes a entender a arquitetura da MNSCloud, segurança VoIP, WebRTC, automação e operações API-first antes de falar com a equipe.",
+    "allPostsEyebrow": "Central de conteúdo",
+    "allPostsTitle": "Ver todos os artigos",
+    "allPostsText": "Explore o blog da MNSCloud e os futuros guias de produto."
+  },
+  "ecosystemSection": {
+    "eyebrow": "Ecossistema de tecnologia",
+    "title": "Movida por um ecossistema comprovado.",
+    "text": "A MNSCloud orquestra tecnologias de telecom, cloud, segurança e infraestrutura por meio de um plano de controle seguro baseado em API.",
+    "disclaimer": "Nomes e marcas pertencem aos seus respectivos proprietários. Compatibilidade, suporte ou integração não implicam endosso, salvo indicação expressa.",
+    "rows": [
+      {
+        "label": "Cloud e infraestrutura",
+        "direction": "left",
+        "items": [
+          { "name": "AWS", "category": "Cloud" },
+          { "name": "Google Cloud", "category": "Cloud" },
+          { "name": "Microsoft Azure", "category": "Cloud" },
+          { "name": "DigitalOcean", "category": "Cloud" },
+          { "name": "Proxmox", "category": "Virtualização" },
+          { "name": "VMware vCenter", "category": "Virtualização" },
+          { "name": "Incus", "category": "Contêineres" },
+          { "name": "Docker", "category": "Contêineres" }
+        ]
+      },
+      {
+        "label": "Telecom, segurança e plataforma",
+        "direction": "right",
+        "items": [
+          { "name": "Asterisk", "category": "VoIP" },
+          { "name": "FreeSWITCH", "category": "VoIP" },
+          { "name": "Kamailio", "category": "Roteamento SIP" },
+          { "name": "OpenSIPS", "category": "Roteamento SIP" },
+          { "name": "RTPengine", "category": "Mídia" },
+          { "name": "CrowdSec", "category": "Segurança" },
+          { "name": "nftables", "category": "Firewall" },
+          { "name": "Nginx", "category": "Borda" },
+          { "name": "MariaDB", "category": "Banco de dados" },
+          { "name": "RabbitMQ", "category": "Mensageria" }
+        ]
+      }
+    ]
+  }
+}

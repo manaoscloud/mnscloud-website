@@ -1,0 +1,108 @@
+---
+import { alternates, localeFromUrl, t } from '../i18n';
+
+type Props = {
+  class?: string;
+};
+
+const { class: className = '' } = Astro.props;
+const locale = localeFromUrl(Astro.url);
+const options = alternates(Astro.url.pathname);
+---
+
+<nav class:list={['language-switcher', className]} aria-label={t(locale, 'language.label')}>
+  <ul>
+    {
+      options.map((option) => (
+        <li>
+          <a
+            href={option.href}
+            hreflang={option.locale}
+            lang={option.locale}
+            data-language-switch={option.locale}
+            aria-current={option.locale === locale ? 'true' : undefined}
+            aria-label={
+              option.locale === locale
+                ? t(option.locale, 'language.names.' + option.locale)
+                : t(option.locale, 'language.switchTo', { language: t(option.locale, 'language.names.' + option.locale) })
+            }
+            title={t(option.locale, 'language.names.' + option.locale)}
+          >
+            <span class="short" aria-hidden="true">{t(locale, 'language.short.' + option.locale)}</span>
+            <span class="full" aria-hidden="true">{t(locale, 'language.names.' + option.locale)}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  // Same storage contract as the MNSCloud App: the manual choice wins over browser detection.
+  document.querySelectorAll<HTMLAnchorElement>('[data-language-switch]').forEach((link) => {
+    link.addEventListener('click', () => {
+      try {
+        localStorage.setItem('mc_language', link.dataset.languageSwitch ?? '');
+        localStorage.setItem('mc_language_mode', 'manual');
+      } catch {
+        // Storage unavailable: the link still navigates to the chosen locale.
+      }
+    });
+  });
+</script>
+
+<style>
+  .language-switcher ul {
+    display: flex;
+    gap: 2px;
+    margin: 0;
+    padding: 2px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    list-style: none;
+  }
+
+  .language-switcher a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 34px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 850;
+  }
+
+  .language-switcher a:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .language-switcher a[aria-current='true'] {
+    color: var(--bg);
+    background: var(--accent);
+  }
+
+  .language-switcher .full {
+    display: none;
+  }
+
+  .language-switcher.expanded ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .language-switcher.expanded a {
+    width: 100%;
+  }
+
+  .language-switcher.expanded .short {
+    display: none;
+  }
+
+  .language-switcher.expanded .full {
+    display: inline;
+  }
+</style>

@@ -29,8 +29,11 @@ required to build or serve it).
 - Public assets directory: `public/`
 - CMS route: `/admin`
 - CMS configuration: `public/admin/config.yml`
-- Editable site content: `src/content/site/*.json`
-- Blog content: `src/content/blog/`
+- Languages: `pt-BR` (default, `/`), `en-US` (`/en/`), `es-ES` (`/es/`); see [Languages (i18n)](#languages-i18n)
+- Shared site identity: `src/content/site/settings.json`
+- Editable site content: `src/content/site/<locale>/*.json`
+- UI strings: `src/i18n/<locale>.json`
+- Blog content: `src/content/blog/<locale>/`
 - Uploaded media directory: `public/uploads/`
 - Site URL override: `PUBLIC_SITE_URL`
 - GitHub artifact: `mnscloud-website-dist-<run-number>`
@@ -77,22 +80,27 @@ The website includes a git-based admin surface powered by Decap CMS:
 ```
 
 The admin edits repository content instead of writing to a database. Blog posts are stored as
-Markdown files in `src/content/blog/`, uploaded media is stored in `public/uploads/`, and every
+Markdown files in `src/content/blog/<locale>/`, uploaded media is stored in `public/uploads/`, and every
 published change can be reviewed through Git history or Pull Requests depending on the GitHub
 backend configuration.
 
 Editable site content is stored in:
 
 ```text
-src/content/site/settings.json
-src/content/site/home.json
-src/content/site/modules.json
-src/content/site/pages.json
-src/content/site/modulePages.json
-src/content/blog/
+src/content/site/settings.json              (shared identity: site name, URL, OG image, brand assets)
+src/content/site/<locale>/settings.json     (default metadata, navigation, CTAs, footer)
+src/content/site/<locale>/home.json
+src/content/site/<locale>/modules.json
+src/content/site/<locale>/pages.json
+src/content/site/<locale>/modulePages.json
+src/content/site/<locale>/legal.json
+src/content/blog/<locale>/<slug>.md
 ```
 
-The admin exposes collections for global settings, navigation, CTAs, the home page, product modules,
+`<locale>` is `pt-BR`, `en-US`, or `es-ES` (see [Languages (i18n)](#languages-i18n)).
+
+The admin exposes a "Site Identity" collection, one "Site Content" collection per language, and a
+translatable Blog collection. Together they cover global settings, navigation, CTAs, the home page, product modules,
 module detail pages, core pages, media, and blog posts. Any page or component that should be
 marketing-editable must read from these content files instead of hardcoding copy in Astro
 components.
@@ -133,8 +141,8 @@ static hosting provider. The public pages will work as static HTML/CSS/JS.
 
 The public site URL can be configured in two places:
 
-- `src/content/site/settings.json`, used by rendered pages, metadata, and as the default Astro site
-  URL.
+- `src/content/site/settings.json` (shared by every language), used by rendered pages, metadata,
+  and as the default Astro site URL.
 - `PUBLIC_SITE_URL` at build time, used as an explicit deployment override for sitemap/canonical
   generation.
 
@@ -197,14 +205,81 @@ repository concerns that the CMS must know before it can load:
 - OAuth/Git Gateway provider configuration
 - CI/CD deployment secrets and hosting credentials
 
-When adding new marketing pages, add their copy to `src/content/site/*.json` or blog Markdown and
-then expose the fields in `public/admin/config.yml`. Do not hardcode partner-editable text directly
+When adding new marketing pages, add their copy to `src/content/site/<locale>/*.json` (all three
+languages) or blog Markdown and then expose the fields in `public/admin/config.yml`. Do not hardcode partner-editable text directly
 inside Astro pages.
 
 If a partner requires standalone username/password accounts managed outside GitHub, that is no
 longer a purely static git-based CMS. It should be implemented as an API-backed private admin or a
 self-hosted headless CMS with database-backed users, roles, sessions, password reset, audit logs,
 and deployment webhooks.
+
+## Languages (i18n)
+
+The website follows the same translation contract as the MNSCloud App (Transloco there, plain Astro
+here):
+
+| Locale | URL prefix | Notes |
+|---|---|---|
+| `pt-BR` | `/` (no prefix) | Default locale and `x-default` |
+| `en-US` | `/en/` | Fallback for any missing key |
+| `es-ES` | `/es/` | Neutral Spanish |
+
+Every page exists in all three locales (home, modules, core and proof pages, trust/legal pages, blog
+index and posts). Localized not-found pages are emitted as `/404.html`, `/en/404.html`, and
+`/es/404.html`; configure the static server to serve the matching file per prefix where it supports
+it (otherwise `/404.html`, in pt-BR, is used).
+
+File layout:
+
+```text
+src/i18n/index.ts                    locales, default/fallback locale, t(), localizePath(), alternates()
+src/i18n/<locale>.json               UI strings that are not marketing copy (aria labels, switcher)
+src/content/site/settings.json       locale-neutral identity (site name/URL, OG image, brand assets)
+src/content/site/<locale>/*.json     editable copy, same structure in every locale
+src/content/blog/<locale>/<slug>.md  blog posts, same slugs in every locale
+src/pages/[...lang]/                 every page, generated once per locale by getStaticPaths
+```
+
+Rules:
+
+- Keep the same keys (and the same array lengths) in every locale; en-US fills any missing key at
+  build time, but `npm run check:i18n` fails on missing/extra keys, empty strings, or a blog slug that
+  is missing in a locale. It runs first in `npm run check`.
+- Write internal links in content as locale-neutral paths (`/architecture`, `/#modules`); pages and
+  components prefix them with `localizePath(locale, href)`. External URLs, `mailto:`, `#anchors`, and
+  `/api/`, `/admin`, `/brand/`, `/uploads/` paths are left untouched.
+- Use the official glossary of the App (`mnscloud-app/i18n-glossary.md`): one concept keeps one term
+  per language (for example Tenant → Ambiente/Entorno, Support → Suporte/Soporte). Product names
+  (MNSCloud, PABX, VoIP, WebRTC, SIP...) are not translated.
+- Every page renders `<html lang>` with the active locale, a per-locale canonical URL,
+  `<link rel="alternate" hreflang>` for the three locales plus `x-default` (pt-BR), and `og:locale`.
+  The sitemap carries the same alternates (`@astrojs/sitemap` `i18n` option).
+- The header language switcher links to the same page in the other locales and stores the choice in
+  `localStorage` as `mc_language` (`pt-BR`/`en-US`/`es-ES`) and `mc_language_mode=manual`, the same
+  keys as the App. There is no automatic redirect by browser language (SEO).
+- Dates are formatted with the active locale (`Intl.DateTimeFormat`).
+- Decap CMS: the top-level `i18n` block uses `multiple_folders` with `pt-BR` as default. The Blog
+  collection is translatable (`i18n: true`; date, author, status, featured and image are
+  `duplicate`). Decap file collections only support the `single_file` i18n structure, so the
+  per-locale site JSON files are edited through one "Site Content" collection per language that
+  shares the same field definitions (YAML anchors).
+
+Adding a page: create `src/pages/[...lang]/<page>.astro` with
+`export function getStaticPaths() { return localeParams(); }`, read its copy with
+`getContent(locale)`, add the copy to `src/content/site/<locale>/pages.json` in all three locales,
+expose the fields in `public/admin/config.yml`, and add the route to `scripts/responsive-check.mjs`.
+
+Adding a locale: add it to `locales`/`localeSegments`/`ogLocales` in `src/i18n/index.ts`, to
+`scripts/i18n-check.mjs`, to the sitemap `i18n` map and `localizedSegments` in `astro.config.mjs`,
+and to the Decap `i18n.locales`; then create `src/i18n/<locale>.json`,
+`src/content/site/<locale>/`, `src/content/blog/<locale>/`, and a "Site Content" collection for it.
+
+Run:
+
+```bash
+npm run check:i18n
+```
 
 ## Build
 
@@ -271,8 +346,11 @@ npm run dev
 npm run check:responsive
 ```
 
-The check currently validates the primary public pages at `320px`, `390px`, `768px`, and `1440px`.
-If a new public page is added, include it in `scripts/responsive-check.mjs`.
+The check currently validates the primary public pages (plus the `/en/` and `/es/` home and a few
+inner pages) at `320px`, `390px`, `768px`, and `1440px`. If a new public page is added, include it
+in `scripts/responsive-check.mjs`. To validate the built output instead of the dev server, run
+`npm run preview` and point `RESPONSIVE_CHECK_BASE_URL` at it. `CHROMIUM_EXECUTABLE_PATH` optionally
+points the browser checks at a locally cached Chromium build.
 
 ## Proof And Trust Pages
 
@@ -285,7 +363,7 @@ The website includes public pages designed to make the company and platform easi
 - `/changelog`
 - `/faq`
 
-These pages are intentionally CMS-managed through `src/content/site/pages.json` and
+These pages are intentionally CMS-managed through `src/content/site/<locale>/pages.json` and
 `public/admin/config.yml`. They should communicate real operating posture, architecture boundaries,
 public repository strategy, and customer-facing trust signals without exposing private control-plane
 logic, customer data, credentials, or internal topology.
@@ -297,7 +375,8 @@ inherit hardcoded navigation back to the official domain.
 
 Official domains are allowed only in:
 
-- `src/content/site/settings.json` as the official site content/configuration.
+- `src/content/site/settings.json` as the official site identity/configuration (never in the
+  per-locale content files).
 - `astro.config.mjs` as the final fallback when no site URL is configured.
 - Documentation examples.
 
@@ -336,8 +415,8 @@ The website includes a compliance-ready trust and legal structure:
 Legal and privacy content is editable in:
 
 ```text
-src/content/site/legal.json
-src/content/site/settings.json
+src/content/site/<locale>/legal.json
+src/content/site/<locale>/settings.json
 ```
 
 The cookie consent component stores preferences in `localStorage` under
@@ -353,12 +432,13 @@ legal counsel before production use in any jurisdiction.
 Blog posts are static Markdown content:
 
 ```text
-src/content/blog/<slug>.md
+src/content/blog/<locale>/<slug>.md
 ```
 
-Each post must include frontmatter with `title`, `description`, `date`, `author`, `tags`, `status`,
-and optional `featured`/`image` fields. Published posts are generated under `/blog/<slug>/` and are
-included in the static build and sitemap.
+Each post must exist in every locale with the same `<slug>` and include frontmatter with `title`,
+`description`, `date`, `author`, `tags`, `status`, and optional `featured`/`image` fields. Published
+posts are generated under `/blog/<slug>/` (pt-BR), `/en/blog/<slug>/`, and `/es/blog/<slug>/`, and
+are included in the static build and sitemap.
 
 ## Brand Assets
 

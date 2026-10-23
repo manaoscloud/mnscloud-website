@@ -1,11 +1,13 @@
 ---
 import type { ProductModule } from '../data/modules';
+import { localeFromUrl, localizePath, t } from '../i18n';
 
 type Props = {
   module: ProductModule;
 };
 
 const { module } = Astro.props;
+const locale = localeFromUrl(Astro.url);
 ---
 
 <article class="module-card card">
@@ -17,7 +19,7 @@ const { module } = Astro.props;
   <ul>
     {module.features.map((feature) => <li>{feature.title}</li>)}
   </ul>
-  <a class="module-link" href={module.href}>Explore module</a>
+  <a class="module-link" href={localizePath(locale, module.href)}>{t(locale, 'module.explore')}</a>
 </article>
 
 <style>

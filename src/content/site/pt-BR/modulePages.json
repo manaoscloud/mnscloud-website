@@ -1,0 +1,72 @@
+{
+  "voip": {
+    "title": "Plataforma VoIP - MNSCloud",
+    "eyebrow": "Núcleo de telecom",
+    "heading": "Plataforma VoIP",
+    "lead": "Gerencie PABX, Softswitch, inventário de DIDs, roteamento, gravações, arquivos de mídia e preparo para WebRTC em uma arquitetura multiambiente e API-first.",
+    "cardTitle": "Áreas principais",
+    "items": [
+      "Servidores PABX, contas, troncos, roteamento, filas, URA e arquivos de mídia.",
+      "Provedores, recursos, assinantes, DIDs e roteamento do Softswitch.",
+      "Arquitetura de borda SBC e WebRTC para registro seguro.",
+      "Gravações em armazenamento e integrações com clientes públicos."
+    ],
+    "ctaTitle": "Habilite operações de voz sem expor a lógica privada do plano de controle."
+  },
+  "hosting": {
+    "title": "Automação de Hospedagem - MNSCloud",
+    "eyebrow": "Infraestrutura",
+    "heading": "Automação de Hospedagem",
+    "lead": "Provisione e gerencie VPS, VPS Container, DNS, armazenamento, SMTP e hospedagem de sites com catálogos de provedores e fluxos operacionais cientes do ambiente.",
+    "cardTitle": "Cobertura",
+    "items": [
+      "Provedores, planos, imagens, regiões e instâncias de VPS.",
+      "Provedores, planos e instâncias de VPS Container, com Incus como prioridade.",
+      "DNS, contas de armazenamento, provedores SMTP, rotas e hospedagem de sites.",
+      "As APIs dos provedores ficam no servidor; clientes públicos consomem apenas contratos de API seguros."
+    ],
+    "ctaTitle": "Automatize a infraestrutura sem vazar a autoridade dos provedores."
+  },
+  "monitoring": {
+    "title": "Monitoramento e Agentes - MNSCloud",
+    "eyebrow": "Operações",
+    "heading": "Monitoramento e Agentes",
+    "lead": "Acompanhe a saúde dos servidores, o heartbeat dos agentes, capacidades, atribuições, histórico de tarefas e atividade operacional com agentes Linux que só fazem conexões de saída.",
+    "cardTitle": "Modelo de agente",
+    "items": [
+      "A comunicação é iniciada do servidor para a API.",
+      "Por padrão, nenhuma porta externa de entrada é exigida pelo agente.",
+      "As capacidades declaram o que o servidor consegue fazer; a API decide o que ele pode fazer.",
+      "A execução e o status das tarefas são auditáveis no plano de controle."
+    ],
+    "ctaTitle": "Opere servidores remotos com tarefas controladas e auditáveis."
+  },
+  "cyberSecurity": {
+    "title": "Cibersegurança - MNSCloud",
+    "eyebrow": "Operações de segurança",
+    "heading": "Cibersegurança",
+    "lead": "Perfis de proteção baseados em serviços, inteligência do CrowdSec, aplicação com nftables, alertas, decisões, listas de permissão e de bloqueio, e instalação conduzida por agentes.",
+    "cardTitle": "Princípios de segurança",
+    "items": [
+      "Os perfis se baseiam em serviços como SSH, Nginx, Asterisk, Kamailio e MariaDB.",
+      "O firewall é aplicado com nftables a partir das decisões do CrowdSec.",
+      "Os agentes reportam status e histórico de tarefas à plataforma.",
+      "Instaladores públicos não guardam segredos de clientes nem autoridade privada sobre políticas."
+    ],
+    "ctaTitle": "Construa a postura de segurança a partir dos serviços, não de rótulos frágeis de servidor."
+  },
+  "support": {
+    "title": "Suporte e CRM - MNSCloud",
+    "eyebrow": "Atendimento ao cliente",
+    "heading": "Suporte e CRM",
+    "lead": "Conecte suporte, CRM, vendas e contexto do cliente para que as equipes operacionais passem do atendimento de chamados ao acompanhamento comercial sem perder visibilidade.",
+    "cardTitle": "Fluxos de negócio",
+    "items": [
+      "Chamados, canais, equipes e filas de atendimento.",
+      "Leads, oportunidades e acompanhamento do pipeline no CRM.",
+      "Catálogo de vendas, produtos, marcas, estoque, orçamentos e categorias.",
+      "Dados de clientes por ambiente, controlados pela API."
+    ],
+    "ctaTitle": "Mantenha a operação do cliente perto da infraestrutura que o atende."
+  }
+}

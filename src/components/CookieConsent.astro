@@ -1,7 +1,8 @@
 ---
-import legal from '../content/site/legal.json';
+import { localeFromUrl } from '../i18n';
+import { getContent } from '../lib/content';
 
-const consent = legal.cookieConsent;
+const consent = getContent(localeFromUrl(Astro.url)).legal.cookieConsent;
 ---
 
 <div class="cookie-consent" data-cookie-consent hidden>
@@ -23,7 +24,7 @@ const consent = legal.cookieConsent;
   <section class="cookie-modal-card" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
     <div class="cookie-modal-header">
       <div>
-        <span class="eyebrow">Consent</span>
+        <span class="eyebrow">{consent.eyebrow}</span>
         <h2 id="cookie-modal-title">{consent.title}</h2>
       </div>
       <button type="button" class="cookie-icon-button" data-cookie-close aria-label={consent.closeLabel}>×</button>
@@ -76,13 +77,17 @@ const consent = legal.cookieConsent;
   };
 
   const writeConsent = (value: Record<string, boolean>) => {
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify({
-        ...value,
-        updatedAt: new Date().toISOString(),
-      }),
-    );
+    try {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify({
+          ...value,
+          updatedAt: new Date().toISOString(),
+        }),
+      );
+    } catch {
+      // Storage unavailable (private mode, blocked site data): keep the choice for this page only.
+    }
     window.dispatchEvent(new CustomEvent('mnscloud:cookie-consent', { detail: value }));
   };
 

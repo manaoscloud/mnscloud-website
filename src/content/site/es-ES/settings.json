@@ -1,0 +1,46 @@
+{
+  "site": {
+    "defaultTitle": "MNSCloud - Plataforma de Cloud, Telecom, Seguridad y Automatización",
+    "defaultDescription": "MNSCloud es una plataforma modular para telecom, hosting, monitoreo, ciberseguridad, soporte, CRM y automatización de infraestructura."
+  },
+  "brand": {
+    "heroAlt": "MNSCloud"
+  },
+  "navigation": [
+    { "label": "Módulos", "href": "/#modules" },
+    { "label": "Arquitectura", "href": "/architecture" },
+    { "label": "Seguridad", "href": "/security" },
+    { "label": "Desarrolladores", "href": "/developers" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Contacto", "href": "/contact" }
+  ],
+  "headerCta": {
+    "label": "Solicitar demo",
+    "href": "/contact"
+  },
+  "footer": {
+    "description": "Plataforma modular de cloud, telecom, seguridad y automatización construida en torno a un plano de control seguro basado en API.",
+    "copyright": "© 2026 MNSCloud. Todos los derechos reservados.",
+    "note": "Sitio público. Aquí no se publica ninguna lógica privada del plano de control.",
+    "legalLinks": [
+      { "label": "Centro de Confianza", "href": "/trust" },
+      { "label": "Arquitectura", "href": "/architecture" },
+      { "label": "Empresa", "href": "/company" },
+      { "label": "Casos de uso", "href": "/use-cases" },
+      { "label": "Estado", "href": "/status" },
+      { "label": "Novedades", "href": "/changelog" },
+      { "label": "Preguntas frecuentes", "href": "/faq" },
+      { "label": "Privacidad", "href": "/legal/privacy" },
+      { "label": "Términos", "href": "/legal/terms" },
+      { "label": "Cookies", "href": "/legal/cookies" },
+      { "label": "Configuración de cookies", "href": "#cookie-settings" }
+    ]
+  },
+  "globalCta": {
+    "eyebrow": "Siguiente paso",
+    "title": "Construya sobre una plataforma diseñada para operadores.",
+    "text": "Hable con MNSCloud sobre implementaciones, integraciones, conectores públicos y requisitos de seguridad empresarial.",
+    "buttonLabel": "Iniciar la conversación",
+    "buttonHref": "/contact"
+  }
+}

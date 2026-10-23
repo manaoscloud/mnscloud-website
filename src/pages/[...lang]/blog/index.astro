@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import CTA from '../../../components/CTA.astro';
+import { formatPostDate, getBlogPosts } from '../../../lib/blog';
+import { localeParams, localizePath, type Locale } from '../../../i18n';
+import { getContent } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return localeParams();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const { pages } = getContent(locale);
+
+const posts = getBlogPosts(locale);
+const page = pages.blog;
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p>
+            {page.lead}
+          </p>
+        </div>
+        <div class="post-grid">
+          {
+            posts.map((post) => (
+              <article class="card post-card">
+                <div class="post-meta">
+                  <span>{formatPostDate(locale, post.frontmatter.date)}</span>
+                  <span>{post.frontmatter.author}</span>
+                </div>
+                <h2>
+                  <a href={localizePath(locale, `/blog/${post.slug}`)}>{post.frontmatter.title}</a>
+                </h2>
+                <p>{post.frontmatter.description}</p>
+                <div class="tag-row">
+                  {(post.frontmatter.tags ?? []).map((tag) => <span>{tag}</span>)}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <CTA title={page.indexCtaTitle} />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 10px 0 12px;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    line-height: 1;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .post-card {
+    display: grid;
+    gap: 14px;
+    padding: 24px;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .post-card h2 {
+    margin: 0;
+    font-size: 1.85rem;
+    line-height: 1.1;
+  }
+
+  .post-card h2 a:hover {
+    color: var(--accent);
+  }
+
+  .post-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .tag-row span {
+    border: 1px solid rgba(245, 131, 46, 0.34);
+    border-radius: 999px;
+    padding: 5px 9px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 820px) {
+    .post-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .post-card {
+      padding: 20px;
+    }
+
+    .post-card h2 {
+      font-size: 1.45rem;
+    }
+  }
+</style>

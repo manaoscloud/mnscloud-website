@@ -8,6 +8,17 @@ This repository contains the standalone public MNSCloud website.
 - Development: `npm run dev`
 - Build: `npm run build`
 - Preview: `npm run preview`
+- Translation check: `npm run check:i18n`
+- Full validation: `npm run check`
+
+## Languages
+
+- The site ships in `pt-BR` (default, `/`), `en-US` (`/en/`, fallback for missing keys), and `es-ES`
+  (`/es/`), following the MNSCloud App translation contract. See README "Languages (i18n)".
+- Every copy change goes to all three `src/content/site/<locale>/*.json` files (same keys); UI strings
+  go to `src/i18n/<locale>.json`; blog posts exist in every `src/content/blog/<locale>/` with the same
+  slug. Use the App glossary (`mnscloud-app/i18n-glossary.md`) for terminology.
+- Internal links stay locale-neutral in content and are prefixed with `localizePath()` in Astro code.
 
 ## Public Boundary
 

@@ -1,0 +1,111 @@
+{
+  "trust": {
+    "title": "Centro de Confianza - MNSCloud",
+    "description": "Información de privacidad, seguridad, legal y de protección de datos del sitio público y del ecosistema de la plataforma MNSCloud.",
+    "eyebrow": "Centro de Confianza",
+    "heading": "Seguridad, privacidad y preparación para el cumplimiento.",
+    "lead": "MNSCloud está diseñada en torno a un sitio público, conectores públicos y un plano de control privado basado en API. Este centro explica cómo se organizan la privacidad, los avisos legales, la postura de seguridad y la información de protección de datos.",
+    "cards": [
+      { "title": "Operación con la privacidad primero", "text": "Las páginas públicas evitan la recopilación innecesaria de datos. Los registros técnicos esenciales aún pueden ser procesados por los sistemas de hosting, seguridad o entrega." },
+      { "title": "Sitio atento al consentimiento", "text": "Los scripts no esenciales de análisis, marketing o funcionalidad solo deben ejecutarse tras un consentimiento explícito." },
+      { "title": "Límite de los clientes públicos", "text": "Los secretos, la autoridad sobre los entornos, la facturación, la titularidad de rutas y las decisiones de política permanecen dentro de la API/plano de control." }
+    ],
+    "documentsEyebrow": "Documentos",
+    "linksTitle": "Documentos legales y de confianza",
+    "reviewTitle": "Se requiere revisión legal",
+    "legalReviewNote": "Estas plantillas ofrecen una estructura preparada para el cumplimiento. El texto legal final debe ser revisado y aprobado por un asesor legal calificado antes de su uso en producción."
+  },
+  "cookieConsent": {
+    "eyebrow": "Consentimiento",
+    "title": "Preferencias de privacidad",
+    "text": "Usamos tecnologías necesarias para operar este sitio. Las tecnologías opcionales de análisis, funcionalidad o marketing solo se usan con su consentimiento.",
+    "acceptAllLabel": "Aceptar todo",
+    "rejectLabel": "Rechazar no esenciales",
+    "customizeLabel": "Personalizar",
+    "saveLabel": "Guardar preferencias",
+    "settingsLabel": "Configuración de cookies",
+    "closeLabel": "Cerrar",
+    "categories": [
+      { "key": "necessary", "label": "Necesarias", "description": "Requeridas para la seguridad del sitio, la navegación, la operación del panel de administración y el almacenamiento del consentimiento.", "required": true },
+      { "key": "analytics", "label": "Análisis", "description": "Ayudan a entender el tráfico agregado y el rendimiento del contenido cuando están habilitadas.", "required": false },
+      { "key": "functional", "label": "Funcionales", "description": "Habilitan mejoras opcionales, como herramientas integradas o preferencias mejoradas.", "required": false },
+      { "key": "marketing", "label": "Marketing", "description": "Apoyan campañas, remarketing o medición de conversiones cuando están habilitadas.", "required": false }
+    ]
+  },
+  "pages": {
+    "privacy": {
+      "title": "Política de Privacidad - MNSCloud",
+      "description": "Cómo MNSCloud trata los datos personales, los derechos de privacidad, las transferencias internacionales, la conservación y los canales de contacto.",
+      "eyebrow": "Privacidad",
+      "heading": "Política de Privacidad",
+      "effectiveDate": "Fecha de vigencia: 2026-05-17",
+      "lead": "Esta política explica cómo el sitio público de MNSCloud y los flujos de contacto relacionados pueden tratar datos personales. Está diseñada para respaldar la LGPD, el RGPD, la CCPA/CPRA y otras expectativas de privacidad, sujeta a una revisión legal final.",
+      "sections": [
+        { "title": "Datos que podemos tratar", "body": "Podemos tratar información de contacto enviada mediante formularios, registros técnicos como la dirección IP y el agente de usuario, preferencias de consentimiento y metadatos de comunicación necesarios para responder a las solicitudes." },
+        { "title": "Finalidades y bases legales", "body": "El tratamiento puede basarse en el consentimiento, el interés legítimo, las medidas contractuales solicitadas por el visitante, las obligaciones legales o los requisitos de seguridad, según el contexto y la región." },
+        { "title": "Derechos de privacidad", "body": "Los visitantes pueden solicitar acceso, rectificación, supresión, portabilidad, oposición, limitación o retiro del consentimiento, cuando corresponda, a través del canal de privacidad indicado por MNSCloud." },
+        { "title": "Transferencias internacionales", "body": "Algunos proveedores o infraestructuras pueden operar fuera del país del visitante. Las salvaguardas adecuadas deben revisarse antes de la publicación en producción." },
+        { "title": "Conservación", "body": "Los datos personales solo deben conservarse durante el periodo necesario para la finalidad de la recopilación, las obligaciones de seguridad, los requisitos legales o los registros legítimos del negocio." },
+        { "title": "Contacto", "body": "Las solicitudes de privacidad deben dirigirse al contacto de privacidad configurado para el sitio oficial de MNSCloud o para la implementación del socio." }
+      ]
+    },
+    "cookies": {
+      "title": "Política de Cookies - MNSCloud",
+      "description": "Categorías de cookies, preferencias de consentimiento y cómo MNSCloud gestiona las tecnologías necesarias y opcionales del sitio.",
+      "eyebrow": "Cookies",
+      "heading": "Política de Cookies",
+      "effectiveDate": "Fecha de vigencia: 2026-05-17",
+      "lead": "Esta política explica cómo deben gestionarse las cookies y tecnologías similares en el sitio de MNSCloud.",
+      "sections": [
+        { "title": "Tecnologías necesarias", "body": "El almacenamiento necesario respalda la operación del sitio, la seguridad, los flujos administrativos y el recuerdo de las decisiones de consentimiento. No es opcional, porque el sitio no puede funcionar correctamente sin él." },
+        { "title": "Tecnologías de análisis", "body": "El análisis debe permanecer desactivado hasta que el visitante otorgue su consentimiento. Cualquier proveedor de análisis que se agregue más adelante debe documentarse aquí y quedar condicionado al consentimiento." },
+        { "title": "Tecnologías funcionales", "body": "Las tecnologías funcionales pueden mejorar comportamientos opcionales del sitio, pero no deben ser necesarias para el acceso básico al contenido público." },
+        { "title": "Tecnologías de marketing", "body": "Las etiquetas de marketing o remarketing deben permanecer desactivadas, a menos que el visitante las acepte explícitamente." },
+        { "title": "Cambiar preferencias", "body": "Los visitantes pueden volver a abrir las preferencias de cookies desde el pie de página y actualizar sus decisiones de consentimiento en cualquier momento." }
+      ]
+    },
+    "terms": {
+      "title": "Términos de Uso - MNSCloud",
+      "description": "Términos del sitio sobre uso aceptable, propiedad intelectual, exenciones de responsabilidad y límites del contenido público.",
+      "eyebrow": "Legal",
+      "heading": "Términos de Uso",
+      "effectiveDate": "Fecha de vigencia: 2026-05-17",
+      "lead": "Estos términos ofrecen una base para el uso del sitio público de MNSCloud y de los materiales publicados, sujetos a una revisión legal final.",
+      "sections": [
+        { "title": "Contenido del sitio", "body": "El sitio presenta productos, arquitectura, conectores públicos, documentación y contenido educativo de MNSCloud. No otorga acceso a la autoridad privada del plano de control ni a los entornos de los clientes." },
+        { "title": "Uso aceptable", "body": "Los visitantes no deben intentar accesos no autorizados, interrumpir el sitio, extraer datos de sistemas privados, hacer un uso indebido de los formularios ni usar el contenido de forma engañosa." },
+        { "title": "Propiedad intelectual", "body": "Los recursos de marca, el contenido y los nombres de productos de MNSCloud pertenecen a MNSCloud, salvo que se indique lo contrario. Las marcas de terceros pertenecen a sus respectivos propietarios." },
+        { "title": "Sin respaldo implícito", "body": "Las referencias a tecnologías, proveedores o proyectos de código abierto indican compatibilidad, integración o contexto del ecosistema y no implican respaldo, salvo que se indique expresamente." },
+        { "title": "Cambios", "body": "MNSCloud puede actualizar el contenido público del sitio, el posicionamiento de los productos y los avisos legales a medida que la plataforma evoluciona." }
+      ]
+    },
+    "dataProcessing": {
+      "title": "Tratamiento de Datos - MNSCloud",
+      "description": "Roles en el tratamiento de datos, subencargados, expectativas de seguridad y preparación de privacidad empresarial para los clientes de MNSCloud.",
+      "eyebrow": "Protección de datos",
+      "heading": "Tratamiento de Datos",
+      "effectiveDate": "Fecha de vigencia: 2026-05-17",
+      "lead": "Esta página describe la estructura prevista de tratamiento de datos para clientes empresariales y socios. Los términos específicos de cada contrato deben gestionarse mediante acuerdos firmados.",
+      "sections": [
+        { "title": "Roles", "body": "Según el servicio y el contrato, MNSCloud puede actuar como responsable, encargado o proveedor de servicios. El rol final debe definirse en el acuerdo aplicable." },
+        { "title": "Instrucciones de tratamiento", "body": "Los datos de los clientes solo deben tratarse conforme al contrato, las instrucciones documentadas, las obligaciones legales, los requisitos de seguridad o las necesidades de operación de la plataforma." },
+        { "title": "Controles de seguridad", "body": "La plataforma está diseñada en torno al aislamiento entre entornos, API autenticadas, la separación de los límites público y privado, agentes en los hosts, registros, monitoreo y automatización de seguridad." },
+        { "title": "Gestión de incidentes", "body": "Los incidentes de seguridad o privacidad deben gestionarse mediante procedimientos de respuesta documentados, comunicación con el cliente y plazos legales, cuando corresponda." },
+        { "title": "Subencargados", "body": "Proveedores de infraestructura, entrega, seguridad, soporte y comunicaciones pueden apoyar la prestación del servicio. Deben figurar en el aviso de subencargados cuando se usen en producción." }
+      ]
+    },
+    "subprocessors": {
+      "title": "Subencargados - MNSCloud",
+      "description": "Categorías de proveedores externos que pueden apoyar la entrega del sitio o de la plataforma MNSCloud.",
+      "eyebrow": "Subencargados",
+      "heading": "Subencargados",
+      "effectiveDate": "Fecha de vigencia: 2026-05-17",
+      "lead": "Esta página ofrece una estructura pública para enumerar los proveedores que pueden apoyar las operaciones del sitio, de la plataforma, de seguridad, de comunicaciones o de infraestructura.",
+      "sections": [
+        { "title": "Situación actual", "body": "Los subencargados de producción deben confirmarse y revisarse antes de su publicación. Esta plantilla es intencionalmente conservadora hasta que se aprueben las listas oficiales de proveedores." },
+        { "title": "Categorías de proveedores", "body": "Las categorías posibles incluyen hosting, CDN, entrega de correo, inteligencia de seguridad, observabilidad, procesamiento de pagos, atención al cliente e infraestructura cloud." },
+        { "title": "Aviso de cambios", "body": "Los cambios relevantes en los subencargados deben comunicarse a través de esta página o de los canales con el cliente, según los términos del contrato." }
+      ]
+    }
+  }
+}

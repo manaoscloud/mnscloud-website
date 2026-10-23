@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { localeParams, localizePath, type Locale } from '../../i18n';
+import { getContent } from '../../lib/content';
+
+export function getStaticPaths() {
+  return localeParams();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const { legal } = getContent(locale);
+
+const page = legal.trust;
+const legalLinks = [
+  { page: legal.pages.privacy, href: '/legal/privacy' },
+  { page: legal.pages.cookies, href: '/legal/cookies' },
+  { page: legal.pages.terms, href: '/legal/terms' },
+  { page: legal.pages.dataProcessing, href: '/legal/data-processing' },
+  { page: legal.pages.subprocessors, href: '/legal/subprocessors' },
+].map((item) => ({ label: item.page.heading, href: localizePath(locale, item.href), text: item.page.description }));
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <Header />
+  <main>
+    <section class="section trust-hero">
+      <div class="container trust-grid">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">{page.lead}</p>
+        </div>
+        <div class="card review-card">
+          <strong>{page.reviewTitle}</strong>
+          <p>{page.legalReviewNote}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid three">
+          {page.cards.map((card) => (
+            <article class="card trust-card">
+              <h2>{card.title}</h2>
+              <p>{card.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section legal-links-section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{page.documentsEyebrow}</span>
+          <h2>{page.linksTitle}</h2>
+        </div>
+        <div class="legal-link-grid">
+          {legalLinks.map((link) => (
+            <a class="card legal-link-card" href={link.href}>
+              <strong>{link.label}</strong>
+              <span>{link.text}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .trust-hero {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .review-card,
+  .trust-card,
+  .legal-link-card {
+    padding: 22px;
+  }
+
+  .review-card strong,
+  .legal-link-card strong {
+    color: var(--accent);
+    font-size: 1.05rem;
+  }
+
+  .review-card p,
+  .trust-card p,
+  .legal-link-card span {
+    display: block;
+    margin: 10px 0 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .trust-card h2 {
+    margin: 0;
+    font-size: 1.45rem;
+  }
+
+  .legal-links-section {
+    border-top: 1px solid var(--line);
+  }
+
+  .legal-link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 16px;
+  }
+
+  .legal-link-card:hover {
+    border-color: rgba(245, 131, 46, 0.55);
+  }
+
+  @media (max-width: 860px) {
+    .trust-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

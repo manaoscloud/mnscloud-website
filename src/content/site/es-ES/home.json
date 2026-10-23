@@ -1,0 +1,72 @@
+{
+  "seoTitle": "MNSCloud - Plataforma de Cloud, Telecom, Seguridad y Automatización",
+  "seoDescription": "MNSCloud es una plataforma modular para telecom, hosting, monitoreo, ciberseguridad, soporte, CRM y automatización de infraestructura.",
+  "hero": {
+    "eyebrow": "Cloud, Telecom, Seguridad, Automatización",
+    "text": "Una plataforma modular para operadores, proveedores de servicios, socios y empresas que necesitan telecom, hosting, monitoreo, ciberseguridad, soporte y automatización de infraestructura desde un plano de control seguro basado en API.",
+    "primaryAction": { "label": "Conocer los módulos", "href": "#modules" },
+    "secondaryAction": { "label": "Ecosistema para desarrolladores", "href": "/developers" },
+    "panelRows": [
+      { "label": "Plano de control", "value": "API-first" },
+      { "label": "Implementaciones", "value": "Multientorno" },
+      { "label": "Postura de seguridad", "value": "CrowdSec + nftables" },
+      { "label": "Conectores públicos", "value": "Agente, VoIP, WebRTC" }
+    ]
+  },
+  "modulesSection": {
+    "eyebrow": "Módulos del producto",
+    "title": "Una plataforma, varios dominios operativos.",
+    "text": "MNSCloud está organizada en módulos para que los equipos operen voz, hosting, seguridad, monitoreo, soporte, CRM e integraciones públicas sin dispersar la lógica de negocio en herramientas desconectadas."
+  },
+  "architectureBand": {
+    "eyebrow": "Arquitectura",
+    "title": "Clientes públicos, autoridad privada.",
+    "text": "Las apps, los agentes, los instaladores y los conectores de borde pueden ser públicos y auditables. La autorización, el alcance del entorno, la facturación, la titularidad de rutas, las decisiones de política y la resolución de secretos permanecen dentro de la API/plano de control de MNSCloud."
+  },
+  "blogSection": {
+    "eyebrow": "Blog",
+    "title": "Contenido técnico para búsqueda, confianza y apoyo a ventas.",
+    "text": "Los artículos ayudan a los clientes a entender la arquitectura de MNSCloud, la seguridad VoIP, WebRTC, la automatización y las operaciones API-first antes de contactar al equipo.",
+    "allPostsEyebrow": "Centro de contenido",
+    "allPostsTitle": "Ver todos los artículos",
+    "allPostsText": "Explore el blog de MNSCloud y las próximas guías de producto."
+  },
+  "ecosystemSection": {
+    "eyebrow": "Ecosistema tecnológico",
+    "title": "Impulsada por un ecosistema probado.",
+    "text": "MNSCloud orquesta tecnologías de telecom, cloud, seguridad e infraestructura mediante un plano de control seguro basado en API.",
+    "disclaimer": "Los nombres y las marcas pertenecen a sus respectivos propietarios. La compatibilidad, el soporte o la integración no implican respaldo, salvo que se indique expresamente.",
+    "rows": [
+      {
+        "label": "Cloud e infraestructura",
+        "direction": "left",
+        "items": [
+          { "name": "AWS", "category": "Cloud" },
+          { "name": "Google Cloud", "category": "Cloud" },
+          { "name": "Microsoft Azure", "category": "Cloud" },
+          { "name": "DigitalOcean", "category": "Cloud" },
+          { "name": "Proxmox", "category": "Virtualización" },
+          { "name": "VMware vCenter", "category": "Virtualización" },
+          { "name": "Incus", "category": "Contenedores" },
+          { "name": "Docker", "category": "Contenedores" }
+        ]
+      },
+      {
+        "label": "Telecom, seguridad y plataforma",
+        "direction": "right",
+        "items": [
+          { "name": "Asterisk", "category": "VoIP" },
+          { "name": "FreeSWITCH", "category": "VoIP" },
+          { "name": "Kamailio", "category": "Enrutamiento SIP" },
+          { "name": "OpenSIPS", "category": "Enrutamiento SIP" },
+          { "name": "RTPengine", "category": "Medios" },
+          { "name": "CrowdSec", "category": "Seguridad" },
+          { "name": "nftables", "category": "Firewall" },
+          { "name": "Nginx", "category": "Borde" },
+          { "name": "MariaDB", "category": "Base de datos" },
+          { "name": "RabbitMQ", "category": "Mensajería" }
+        ]
+      }
+    ]
+  }
+}
