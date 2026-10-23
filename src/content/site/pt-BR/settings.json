@@ -1,0 +1,46 @@
+{
+  "site": {
+    "defaultTitle": "MNSCloud - Plataforma de Cloud, Telecom, Segurança e Automação",
+    "defaultDescription": "A MNSCloud é uma plataforma modular para telecom, hospedagem, monitoramento, cibersegurança, suporte, CRM e automação de infraestrutura."
+  },
+  "brand": {
+    "heroAlt": "MNSCloud"
+  },
+  "navigation": [
+    { "label": "Módulos", "href": "/#modules" },
+    { "label": "Arquitetura", "href": "/architecture" },
+    { "label": "Segurança", "href": "/security" },
+    { "label": "Desenvolvedores", "href": "/developers" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Contato", "href": "/contact" }
+  ],
+  "headerCta": {
+    "label": "Solicitar demo",
+    "href": "/contact"
+  },
+  "footer": {
+    "description": "Plataforma modular de cloud, telecom, segurança e automação construída em torno de um plano de controle seguro baseado em API.",
+    "copyright": "© 2026 MNSCloud. Todos os direitos reservados.",
+    "note": "Site público. Nenhuma lógica privada do plano de controle é publicada aqui.",
+    "legalLinks": [
+      { "label": "Central de Confiança", "href": "/trust" },
+      { "label": "Arquitetura", "href": "/architecture" },
+      { "label": "Empresa", "href": "/company" },
+      { "label": "Casos de uso", "href": "/use-cases" },
+      { "label": "Status", "href": "/status" },
+      { "label": "Novidades", "href": "/changelog" },
+      { "label": "Perguntas frequentes", "href": "/faq" },
+      { "label": "Privacidade", "href": "/legal/privacy" },
+      { "label": "Termos", "href": "/legal/terms" },
+      { "label": "Cookies", "href": "/legal/cookies" },
+      { "label": "Configurações de cookies", "href": "#cookie-settings" }
+    ]
+  },
+  "globalCta": {
+    "eyebrow": "Próximo passo",
+    "title": "Construa sobre uma plataforma feita para operadores.",
+    "text": "Fale com a MNSCloud sobre implantações, integrações, conectores públicos e requisitos de segurança corporativa.",
+    "buttonLabel": "Iniciar a conversa",
+    "buttonHref": "/contact"
+  }
+}

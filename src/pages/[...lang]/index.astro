@@ -1,0 +1,457 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ModuleCard from '../../components/ModuleCard.astro';
+import CTA from '../../components/CTA.astro';
+import { productModules } from '../../data/modules';
+import { formatPostDate, getBlogPosts } from '../../lib/blog';
+import { localeParams, localizePath, t, type Locale } from '../../i18n';
+import { getContent, siteShared } from '../../lib/content';
+
+export function getStaticPaths() {
+  return localeParams();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const { home, settings } = getContent(locale);
+
+const latestPosts = getBlogPosts(locale).slice(0, 2);
+---
+
+<BaseLayout title={home.seoTitle} description={home.seoDescription}>
+  <Header />
+  <main>
+    <section class="hero">
+      <img class="brand-watermark" src={siteShared.brand.watermark} alt="" />
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">{home.hero.eyebrow}</span>
+          <img class="hero-logo" src={siteShared.brand.logoLight} alt={settings.brand.heroAlt} />
+          <p>
+            {home.hero.text}
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href={localizePath(locale, home.hero.primaryAction.href)}>{home.hero.primaryAction.label}</a>
+            <a class="button" href={localizePath(locale, home.hero.secondaryAction.href)}>{home.hero.secondaryAction.label}</a>
+          </div>
+        </div>
+        <div class="hero-panel card" aria-label={t(locale, 'home.platformOverview')}>
+          {
+            home.hero.panelRows.map((row) => (
+              <div class="panel-row">
+                <span>{row.label}</span>
+                <strong>{row.value}</strong>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="modules" class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{home.modulesSection.eyebrow}</span>
+          <h2>{home.modulesSection.title}</h2>
+          <p>
+            {home.modulesSection.text}
+          </p>
+        </div>
+        <div class="grid three">
+          {productModules(locale).map((module) => <ModuleCard module={module} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section ecosystem-section" aria-labelledby="ecosystem-title">
+      <div class="container">
+        <div class="ecosystem-heading">
+          <div>
+            <span class="eyebrow">{home.ecosystemSection.eyebrow}</span>
+            <h2 id="ecosystem-title">{home.ecosystemSection.title}</h2>
+          </div>
+          <p>{home.ecosystemSection.text}</p>
+        </div>
+      </div>
+      <div class="container ecosystem-shell">
+        <div class="ecosystem-marquees" aria-label={t(locale, 'home.ecosystem')}>
+          {
+            home.ecosystemSection.rows.map((row) => (
+              <div class={`ecosystem-row ${row.direction === 'right' ? 'reverse' : ''}`} aria-label={row.label}>
+                <div class="ecosystem-track">
+                  {[...row.items, ...row.items].map((item) => (
+                    <span class="ecosystem-mark">
+                      <strong>{item.name}</strong>
+                      <small>{item.category}</small>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="container">
+        <p class="ecosystem-disclaimer">{home.ecosystemSection.disclaimer}</p>
+      </div>
+    </section>
+
+    <section class="section platform-band">
+      <div class="container band-grid">
+        <div>
+          <span class="eyebrow">{home.architectureBand.eyebrow}</span>
+          <h2>{home.architectureBand.title}</h2>
+        </div>
+        <p>
+          {home.architectureBand.text}
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{home.blogSection.eyebrow}</span>
+          <h2>{home.blogSection.title}</h2>
+          <p>
+            {home.blogSection.text}
+          </p>
+        </div>
+        <div class="grid three latest-posts">
+          {
+            latestPosts.map((post) => (
+              <article class="card latest-card">
+                <span>{formatPostDate(locale, post.frontmatter.date)}</span>
+                <h3>
+                  <a href={localizePath(locale, `/blog/${post.slug}`)}>{post.frontmatter.title}</a>
+                </h3>
+                <p>{post.frontmatter.description}</p>
+              </article>
+            ))
+          }
+          <a class="card latest-card all-posts" href={localizePath(locale, '/blog')}>
+            <span>{home.blogSection.allPostsEyebrow}</span>
+            <h3>{home.blogSection.allPostsTitle}</h3>
+            <p>{home.blogSection.allPostsText}</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 720px;
+    display: grid;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: 36px;
+    align-items: center;
+    padding: 80px 0;
+  }
+
+  .hero-logo {
+    width: min(620px, 100%);
+    height: auto;
+    margin: 18px 0 24px;
+  }
+
+  .hero-copy p {
+    max-width: 780px;
+    color: var(--muted);
+    font-size: clamp(1.08rem, 2vw, 1.35rem);
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .hero-panel {
+    padding: 16px;
+  }
+
+  .panel-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .panel-row:last-child {
+    border-bottom: 0;
+  }
+
+  .panel-row span {
+    color: var(--muted);
+  }
+
+  .panel-row strong {
+    text-align: right;
+  }
+
+  .platform-band {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(45, 245, 224, 0.04);
+  }
+
+  :global(.ecosystem-section) {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background:
+      linear-gradient(90deg, rgba(9, 16, 12, 0.96), rgba(9, 16, 12, 0.62), rgba(9, 16, 12, 0.96)),
+      radial-gradient(circle at 50% 0%, rgba(245, 131, 46, 0.1), transparent 28rem),
+      rgba(7, 16, 15, 0.92);
+  }
+
+  :global(.ecosystem-heading) {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 34px;
+    align-items: end;
+    margin-bottom: 34px;
+  }
+
+  :global(.ecosystem-heading h2) {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1;
+  }
+
+  :global(.ecosystem-heading p) {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  :global(.ecosystem-shell) {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  :global(.ecosystem-marquees) {
+    display: grid;
+    gap: 14px;
+    margin: 12px 0 24px;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  :global(.ecosystem-row) {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  :global(.ecosystem-track) {
+    display: flex;
+    flex: 0 0 max-content;
+    gap: 14px;
+    min-width: max-content;
+    animation: ecosystem-scroll 42s linear infinite;
+  }
+
+  :global(.ecosystem-row.reverse .ecosystem-track) {
+    animation-direction: reverse;
+    animation-duration: 48s;
+  }
+
+  :global(.ecosystem-row:hover .ecosystem-track) {
+    animation-play-state: paused;
+  }
+
+  :global(.ecosystem-mark) {
+    display: grid;
+    min-width: 178px;
+    gap: 5px;
+    padding: 16px 22px;
+    border: 1px solid rgba(236, 245, 242, 0.13);
+    border-radius: 8px;
+    background: rgba(236, 245, 242, 0.055);
+    color: var(--text);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  :global(.ecosystem-mark strong) {
+    font-family: Oswald, Montserrat, sans-serif;
+    font-size: 1.18rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  :global(.ecosystem-mark small) {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  :global(.ecosystem-disclaimer) {
+    max-width: 900px;
+    margin: 20px 0 0;
+    color: rgba(236, 245, 242, 0.56);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  @keyframes ecosystem-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 7px));
+    }
+  }
+
+  .band-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .band-grid h2 {
+    margin: 10px 0 0;
+    font-family: Oswald, Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1;
+  }
+
+  .band-grid p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.12rem;
+    line-height: 1.8;
+  }
+
+  .latest-posts {
+    align-items: stretch;
+  }
+
+  .latest-card {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    padding: 22px;
+  }
+
+  .latest-card span {
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 850;
+  }
+
+  .latest-card h3 {
+    margin: 0;
+    font-size: 1.55rem;
+    line-height: 1.12;
+  }
+
+  .latest-card h3 a:hover,
+  .all-posts:hover h3 {
+    color: var(--accent);
+  }
+
+  .latest-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-grid,
+    .band-grid,
+    :global(.ecosystem-heading) {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+      padding: 54px 0;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-grid {
+      gap: 24px;
+      padding: 42px 0;
+    }
+
+    .hero-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .hero-panel {
+      padding: 8px;
+    }
+
+    .panel-row {
+      display: grid;
+      gap: 6px;
+      padding: 14px;
+    }
+
+    .panel-row strong {
+      text-align: left;
+    }
+
+    .latest-card {
+      padding: 20px;
+    }
+
+    :global(.ecosystem-marquees) {
+      mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+
+    :global(.ecosystem-track) {
+      animation-duration: 34s;
+    }
+
+    :global(.ecosystem-mark) {
+      min-width: 148px;
+      padding: 14px 16px;
+    }
+
+    :global(.ecosystem-mark strong) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.ecosystem-row) {
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    :global(.ecosystem-track) {
+      animation: none;
+    }
+  }
+</style>

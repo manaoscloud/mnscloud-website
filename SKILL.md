@@ -36,12 +36,23 @@ Use this repository for the public MNSCloud website.
 - Keep `.github/workflows/build-artifact.yml` available for manual static package generation. It
   must build `dist/` and upload it as a GitHub artifact without requiring hosting credentials.
 - Future forms must submit only to public API endpoints with server-side validation.
-- Keep documentation and public text in English unless a localized route is explicitly being added.
+- Keep repository documentation in English. Public page text is localized in `pt-BR` (default,
+  `/`), `en-US` (`/en/`, fallback), and `es-ES` (`/es/`); see README "Languages (i18n)".
+- Every public page lives in `src/pages/[...lang]/` and is generated for all locales with
+  `localeParams()`; read copy with `getContent(locale)` and UI strings with `t(locale, key)` from
+  `src/i18n/index.ts`. Never hardcode visible text or `lang` in components.
+- Internal links in content are locale-neutral paths; wrap them with `localizePath(locale, href)`.
+- Keep the three locales in sync (same keys, same array lengths, no empty strings, same blog slugs)
+  and use the App glossary (`mnscloud-app/i18n-glossary.md`): one concept keeps one term per language.
+- The language switcher stores `mc_language`/`mc_language_mode` like the App; never redirect visitors
+  automatically based on the browser language.
 - Blog and marketing content should be stored as Markdown/frontmatter, not in a database.
-- Marketing-editable site copy must live in `src/content/site/*.json` or `src/content/blog/*.md`;
+- Marketing-editable site copy must live in `src/content/site/<locale>/*.json` or
+  `src/content/blog/<locale>/*.md`;
   avoid hardcoding editable business copy directly inside Astro pages.
 - Partner deployments must be able to set their own public domain with
-  `src/content/site/settings.json`; `PUBLIC_SITE_URL` is an optional deployment override.
+  `src/content/site/settings.json` (shared by every locale); `PUBLIC_SITE_URL` is an optional
+  deployment override.
 - Canonical and Open Graph URLs must use `PUBLIC_SITE_URL` when provided and fall back to
   `src/content/site/settings.json`.
 - Do not hardcode official Manaos domains in components, pages, admin config, navigation, or public
@@ -56,7 +67,7 @@ Use this repository for the public MNSCloud website.
 - Keep Decap `site_url` and `display_url` relative as `/` by default so admin navigation returns to
   the current deployed domain instead of the official Manaos domain.
 - When a new page or section is meant for partners to customize, add the source fields under
-  `src/content/site/*.json` or `src/content/blog/*.md` and expose them in
+  `src/content/site/<locale>/*.json` or `src/content/blog/<locale>/*.md` and expose them in
   `public/admin/config.yml`; do not hardcode partner-editable copy in Astro pages.
 - The admin surface is git-based Decap CMS under `/admin`; do not introduce permanent secrets or
   private infrastructure data into CMS-managed content.
@@ -64,9 +75,9 @@ Use this repository for the public MNSCloud website.
   distribution.
 - New blog posts must define SEO-ready `title`, `description`, `date`, `author`, `tags`, and
   `status` frontmatter.
-- Trust/legal pages live in `src/content/site/legal.json` and must remain editable through Decap CMS.
+- Trust/legal pages live in `src/content/site/<locale>/legal.json` and must remain editable through Decap CMS.
 - Public proof pages such as architecture, company, use cases, status, changelog, and FAQ live in
-  `src/content/site/pages.json` and must remain editable through Decap CMS.
+  `src/content/site/<locale>/pages.json` and must remain editable through Decap CMS.
 - Cookie consent must default to necessary-only behavior. Do not load analytics, marketing,
   tracking, chat, embedded widgets, or other non-essential scripts until the relevant consent
   category has been accepted.
@@ -76,6 +87,7 @@ Use this repository for the public MNSCloud website.
 ## Validation
 
 ```bash
+npm run check:i18n
 npm run build
 npm run check:domains
 npm run check:responsive

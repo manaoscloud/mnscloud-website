@@ -1,28 +1,31 @@
 ---
-import settings from '../content/site/settings.json';
+import { localeFromUrl, localizePath } from '../i18n';
+import { getContent } from '../lib/content';
 
 type Props = {
   title?: string;
   text?: string;
 };
 
+const locale = localeFromUrl(Astro.url);
+const { globalCta } = getContent(locale).settings;
+
 const {
-  title = settings.globalCta.title,
-  text = settings.globalCta.text,
+  title = globalCta.title,
+  text = globalCta.text,
 } = Astro.props;
 ---
 
 <section class="cta-section">
   <div class="container cta card">
     <div>
-      <span class="eyebrow">{settings.globalCta.eyebrow}</span>
+      <span class="eyebrow">{globalCta.eyebrow}</span>
       <h2>{title}</h2>
       <p>{text}</p>
     </div>
-    <a class="button primary" href={settings.globalCta.buttonHref}>{settings.globalCta.buttonLabel}</a>
+    <a class="button primary" href={localizePath(locale, globalCta.buttonHref)}>{globalCta.buttonLabel}</a>
   </div>
 </section>
-
 <style>
   .cta-section {
     padding: 40px 0 90px;

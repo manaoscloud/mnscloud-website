@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTA from '../../components/CTA.astro';
+import { localeParams, type Locale } from '../../i18n';
+import { getContent } from '../../lib/content';
+
+export function getStaticPaths() {
+  return localeParams();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const { pages } = getContent(locale);
+
+const page = pages.developers;
+---
+
+<BaseLayout title={page.title}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container dev-grid">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">
+            {page.lead}
+          </p>
+        </div>
+        <div class="card repo-list">
+          {page.repositories.map((repo) => (
+            <a href={repo.url}>
+              <strong>{repo.name}</strong>
+              <span>{repo.description}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="section governance">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{page.governanceEyebrow}</span>
+          <h2>{page.governanceTitle}</h2>
+          <p>
+            {page.governanceText}
+          </p>
+        </div>
+        <div class="card boundary-card">
+          <h3>{page.boundaryTitle}</h3>
+          <p>
+            {page.boundaryText}
+          </p>
+        </div>
+      </div>
+    </section>
+    <CTA title={page.ctaTitle} />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .dev-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .repo-list {
+    display: grid;
+    padding: 20px;
+  }
+
+  .repo-list a {
+    display: grid;
+    gap: 6px;
+    padding: 15px 12px;
+    border-bottom: 1px solid var(--line);
+    color: var(--accent);
+    font-weight: 850;
+  }
+
+  .repo-list span {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
+  .repo-list a:last-child {
+    border-bottom: 0;
+  }
+
+  .governance {
+    border-top: 1px solid var(--line);
+  }
+
+  .boundary-card {
+    max-width: 820px;
+    padding: 22px;
+  }
+
+  .boundary-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.55rem;
+  }
+
+  .boundary-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 860px) {
+    .dev-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

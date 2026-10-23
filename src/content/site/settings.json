@@ -2,103 +2,12 @@
   "site": {
     "name": "MNSCloud",
     "url": "https://manaos.cloud",
-    "defaultTitle": "MNSCloud - Cloud, Telecom, Security, And Automation Platform",
-    "defaultDescription": "MNSCloud is a modular platform for telecom, hosting, monitoring, cyber security, support, CRM, and infrastructure automation.",
     "ogImage": "/brand/mnscloud-logo.png"
   },
   "brand": {
     "logoLight": "/brand/mnscloud-logo-light.png",
     "logoDefault": "/brand/mnscloud-logo.png",
     "favicon": "/brand/favicon.png",
-    "watermark": "/brand/mnscloud-watermark.png",
-    "heroAlt": "MNSCloud"
-  },
-  "navigation": [
-    {
-      "label": "Modules",
-      "href": "/#modules"
-    },
-    {
-      "label": "Architecture",
-      "href": "/architecture"
-    },
-    {
-      "label": "Security",
-      "href": "/security"
-    },
-    {
-      "label": "Developers",
-      "href": "/developers"
-    },
-    {
-      "label": "Blog",
-      "href": "/blog"
-    },
-    {
-      "label": "Contact",
-      "href": "/contact"
-    }
-  ],
-  "headerCta": {
-    "label": "Request demo",
-    "href": "/contact"
-  },
-  "footer": {
-    "description": "Modular cloud, telecom, security, and automation platform built around a secure API control plane.",
-    "copyright": "© 2026 MNSCloud. All rights reserved.",
-    "note": "Public website. No private control-plane logic is shipped here.",
-    "legalLinks": [
-      {
-        "label": "Trust Center",
-        "href": "/trust"
-      },
-      {
-        "label": "Architecture",
-        "href": "/architecture"
-      },
-      {
-        "label": "Company",
-        "href": "/company"
-      },
-      {
-        "label": "Use Cases",
-        "href": "/use-cases"
-      },
-      {
-        "label": "Status",
-        "href": "/status"
-      },
-      {
-        "label": "Changelog",
-        "href": "/changelog"
-      },
-      {
-        "label": "FAQ",
-        "href": "/faq"
-      },
-      {
-        "label": "Privacy",
-        "href": "/legal/privacy"
-      },
-      {
-        "label": "Terms",
-        "href": "/legal/terms"
-      },
-      {
-        "label": "Cookies",
-        "href": "/legal/cookies"
-      },
-      {
-        "label": "Cookie Settings",
-        "href": "#cookie-settings"
-      }
-    ]
-  },
-  "globalCta": {
-    "eyebrow": "Next Step",
-    "title": "Build on a platform designed for operators.",
-    "text": "Talk to MNSCloud about deployments, integrations, public connectors, and enterprise security requirements.",
-    "buttonLabel": "Start the conversation",
-    "buttonHref": "/contact"
+    "watermark": "/brand/mnscloud-watermark.png"
   }
 }

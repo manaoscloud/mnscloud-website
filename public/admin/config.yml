@@ -13,12 +13,21 @@ site_url: "/"
 display_url: "/"
 logo_url: "/brand/mnscloud-logo.png"
 
+# Languages: pt-BR (default, served at /), en-US (/en/), es-ES (/es/). See README "Languages (i18n)".
+# Blog posts use Decap i18n (multiple_folders -> src/content/blog/<locale>/<slug>.md). Decap file
+# collections only support the single_file structure, so the per-locale site JSON files are edited
+# through one "Site Content" collection per language that shares the same field definitions.
+i18n:
+  structure: multiple_folders
+  locales: [pt-BR, en-US, es-ES]
+  default_locale: pt-BR
+
 collections:
-  - name: "site"
-    label: "Site Settings"
+  - name: "identity"
+    label: "Site Identity (all languages)"
     files:
-      - label: "Global Settings"
-        name: "settings"
+      - label: "Identity And Brand"
+        name: "identity"
         file: "src/content/site/settings.json"
         fields:
           - label: "Site"
@@ -27,8 +36,6 @@ collections:
             fields:
               - { label: "Site name", name: "name", widget: "string" }
               - { label: "Site URL", name: "url", widget: "string" }
-              - { label: "Default title", name: "defaultTitle", widget: "string" }
-              - { label: "Default description", name: "defaultDescription", widget: "text" }
               - { label: "Open Graph image", name: "ogImage", widget: "image", required: false }
           - label: "Brand"
             name: "brand"
@@ -38,6 +45,23 @@ collections:
               - { label: "Default logo", name: "logoDefault", widget: "image" }
               - { label: "Favicon", name: "favicon", widget: "image" }
               - { label: "Watermark", name: "watermark", widget: "image", required: false }
+  - name: "site_pt_br"
+    label: "Site Content - Português (pt-BR)"
+    files:
+      - label: "Global Settings"
+        name: "settings"
+        file: "src/content/site/pt-BR/settings.json"
+        fields: &settings_fields
+          - label: "Site"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "Default title", name: "defaultTitle", widget: "string" }
+              - { label: "Default description", name: "defaultDescription", widget: "text" }
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            fields:
               - { label: "Hero image alt", name: "heroAlt", widget: "string" }
           - label: "Navigation"
             name: "navigation"
@@ -75,8 +99,8 @@ collections:
               - { label: "Button URL", name: "buttonHref", widget: "string" }
       - label: "Home Page"
         name: "home"
-        file: "src/content/site/home.json"
-        fields:
+        file: "src/content/site/pt-BR/home.json"
+        fields: &home_fields
           - { label: "SEO title", name: "seoTitle", widget: "string" }
           - { label: "SEO description", name: "seoDescription", widget: "text" }
           - label: "Hero"
@@ -147,12 +171,13 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
+              - { label: "All posts eyebrow", name: "allPostsEyebrow", widget: "string" }
               - { label: "All posts title", name: "allPostsTitle", widget: "string" }
               - { label: "All posts text", name: "allPostsText", widget: "text" }
       - label: "Product Modules"
         name: "modules"
-        file: "src/content/site/modules.json"
-        fields:
+        file: "src/content/site/pt-BR/modules.json"
+        fields: &modules_fields
           - label: "Modules"
             name: "modules"
             widget: "list"
@@ -170,8 +195,8 @@ collections:
                   - { label: "Description", name: "description", widget: "text" }
       - label: "Core Pages"
         name: "pages"
-        file: "src/content/site/pages.json"
-        fields:
+        file: "src/content/site/pt-BR/pages.json"
+        fields: &pages_fields
           - label: "Blog"
             name: "blog"
             widget: "object"
@@ -184,6 +209,7 @@ collections:
               - { label: "Back label", name: "backLabel", widget: "string" }
               - { label: "Article eyebrow", name: "articleEyebrow", widget: "string" }
               - { label: "Article CTA title", name: "articleCtaTitle", widget: "string" }
+              - { label: "Blog index CTA title", name: "indexCtaTitle", widget: "string" }
           - label: "API Docs"
             name: "docs"
             widget: "object"
@@ -310,6 +336,7 @@ collections:
                 fields:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Text", name: "text", widget: "text" }
+              - { label: "Operating model eyebrow", name: "operatingModelEyebrow", widget: "string" }
               - { label: "Operating model title", name: "operatingModelTitle", widget: "string" }
               - label: "Operating model"
                 name: "operatingModel"
@@ -327,6 +354,8 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Challenge label", name: "challengeLabel", widget: "string" }
+              - { label: "Platform answer label", name: "solutionLabel", widget: "string" }
               - label: "Cases"
                 name: "cases"
                 widget: "list"
@@ -349,6 +378,7 @@ collections:
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Lead", name: "lead", widget: "text" }
               - { label: "Updated label", name: "updatedLabel", widget: "string" }
+              - { label: "Summary title", name: "summaryTitle", widget: "string" }
               - label: "Services"
                 name: "services"
                 widget: "list"
@@ -413,8 +443,8 @@ collections:
                   - { label: "Submit label", name: "submitLabel", widget: "string" }
       - label: "Module Detail Pages"
         name: "modulePages"
-        file: "src/content/site/modulePages.json"
-        fields:
+        file: "src/content/site/pt-BR/modulePages.json"
+        fields: &modulePages_fields
           - label: "VoIP"
             name: "voip"
             widget: "object"
@@ -435,8 +465,8 @@ collections:
           - { label: "Support", name: "support", widget: "object", fields: *module_page_fields }
       - label: "Legal And Trust"
         name: "legal"
-        file: "src/content/site/legal.json"
-        fields:
+        file: "src/content/site/pt-BR/legal.json"
+        fields: &legal_fields
           - label: "Trust Center"
             name: "trust"
             widget: "object"
@@ -452,12 +482,15 @@ collections:
                 fields:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Text", name: "text", widget: "text" }
+              - { label: "Documents eyebrow", name: "documentsEyebrow", widget: "string" }
               - { label: "Links title", name: "linksTitle", widget: "string" }
+              - { label: "Legal review title", name: "reviewTitle", widget: "string" }
               - { label: "Legal review note", name: "legalReviewNote", widget: "text" }
           - label: "Cookie Consent"
             name: "cookieConsent"
             widget: "object"
             fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
               - { label: "Accept all label", name: "acceptAllLabel", widget: "string" }
@@ -498,9 +531,64 @@ collections:
               - { label: "Terms", name: "terms", widget: "object", fields: *legal_page_fields }
               - { label: "Data Processing", name: "dataProcessing", widget: "object", fields: *legal_page_fields }
               - { label: "Subprocessors", name: "subprocessors", widget: "object", fields: *legal_page_fields }
+  - name: "site_en_us"
+    label: "Site Content - English (en-US)"
+    files:
+      - label: "Global Settings"
+        name: "settings"
+        file: "src/content/site/en-US/settings.json"
+        fields: *settings_fields
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/site/en-US/home.json"
+        fields: *home_fields
+      - label: "Product Modules"
+        name: "modules"
+        file: "src/content/site/en-US/modules.json"
+        fields: *modules_fields
+      - label: "Core Pages"
+        name: "pages"
+        file: "src/content/site/en-US/pages.json"
+        fields: *pages_fields
+      - label: "Module Detail Pages"
+        name: "modulePages"
+        file: "src/content/site/en-US/modulePages.json"
+        fields: *modulePages_fields
+      - label: "Legal And Trust"
+        name: "legal"
+        file: "src/content/site/en-US/legal.json"
+        fields: *legal_fields
+  - name: "site_es_es"
+    label: "Site Content - Español (es-ES)"
+    files:
+      - label: "Global Settings"
+        name: "settings"
+        file: "src/content/site/es-ES/settings.json"
+        fields: *settings_fields
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/site/es-ES/home.json"
+        fields: *home_fields
+      - label: "Product Modules"
+        name: "modules"
+        file: "src/content/site/es-ES/modules.json"
+        fields: *modules_fields
+      - label: "Core Pages"
+        name: "pages"
+        file: "src/content/site/es-ES/pages.json"
+        fields: *pages_fields
+      - label: "Module Detail Pages"
+        name: "modulePages"
+        file: "src/content/site/es-ES/modulePages.json"
+        fields: *modulePages_fields
+      - label: "Legal And Trust"
+        name: "legal"
+        file: "src/content/site/es-ES/legal.json"
+        fields: *legal_fields
   - name: "blog"
     label: "Blog"
     label_singular: "Blog Post"
+    i18n: true
     folder: "src/content/blog"
     create: true
     delete: true
@@ -510,22 +598,24 @@ collections:
     preview_path: "blog/{{slug}}"
     summary: "{{title}} - {{date}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Publish date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "Author", name: "author", widget: "string", default: "MNSCloud" }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description", name: "description", widget: "text", i18n: true }
+      - { label: "Publish date", name: "date", widget: "datetime", format: "YYYY-MM-DD", i18n: duplicate }
+      - { label: "Author", name: "author", widget: "string", default: "MNSCloud", i18n: duplicate }
       - label: "Tags"
         name: "tags"
         widget: "list"
+        i18n: true
         required: false
         field: { label: "Tag", name: "tag", widget: "string" }
       - label: "Status"
         name: "status"
         widget: "select"
+        i18n: duplicate
         default: "draft"
         options:
           - { label: "Draft", value: "draft" }
           - { label: "Published", value: "published" }
-      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
-      - { label: "Cover image", name: "image", widget: "image", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false, i18n: duplicate }
+      - { label: "Cover image", name: "image", widget: "image", required: false, i18n: duplicate }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }

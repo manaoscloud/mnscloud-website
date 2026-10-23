@@ -1,0 +1,72 @@
+{
+  "voip": {
+    "title": "Plataforma VoIP - MNSCloud",
+    "eyebrow": "Núcleo de telecom",
+    "heading": "Plataforma VoIP",
+    "lead": "Gestione PABX, Softswitch, inventario de DID, enrutamiento, grabaciones, archivos de medios y preparación para WebRTC con una arquitectura multientorno y API-first.",
+    "cardTitle": "Áreas principales",
+    "items": [
+      "Servidores PABX, cuentas, troncales, enrutamiento, colas, IVR y archivos de medios.",
+      "Proveedores, recursos, suscriptores, DID y enrutamiento del Softswitch.",
+      "Arquitectura de borde SBC y WebRTC para un registro seguro.",
+      "Grabaciones en almacenamiento e integraciones con clientes públicos."
+    ],
+    "ctaTitle": "Habilite operaciones de voz sin exponer la lógica privada del plano de control."
+  },
+  "hosting": {
+    "title": "Automatización de Hosting - MNSCloud",
+    "eyebrow": "Infraestructura",
+    "heading": "Automatización de Hosting",
+    "lead": "Aprovisione y gestione VPS, VPS Container, DNS, almacenamiento, SMTP y hosting web con catálogos de proveedores y flujos operativos conscientes del entorno.",
+    "cardTitle": "Cobertura",
+    "items": [
+      "Proveedores, planes, imágenes, regiones e instancias de VPS.",
+      "Proveedores, planes e instancias de VPS Container, con Incus como prioridad.",
+      "DNS, cuentas de almacenamiento, proveedores SMTP, rutas y hosting web.",
+      "Las API de los proveedores permanecen en el servidor; los clientes públicos solo consumen contratos de API seguros."
+    ],
+    "ctaTitle": "Automatice la infraestructura sin filtrar la autoridad de los proveedores."
+  },
+  "monitoring": {
+    "title": "Monitoreo y Agentes - MNSCloud",
+    "eyebrow": "Operaciones",
+    "heading": "Monitoreo y Agentes",
+    "lead": "Supervise la salud de los servidores, el heartbeat de los agentes, las capacidades, las asignaciones, el historial de tareas y la actividad operativa con agentes Linux que solo realizan conexiones salientes.",
+    "cardTitle": "Modelo de agente",
+    "items": [
+      "La comunicación se inicia desde el servidor hacia la API.",
+      "De forma predeterminada, el agente no requiere ningún puerto externo de entrada.",
+      "Las capacidades declaran lo que el servidor puede hacer; la API decide lo que se le permite hacer.",
+      "La ejecución y el estado de las tareas son auditables en el plano de control."
+    ],
+    "ctaTitle": "Opere servidores remotos mediante tareas controladas y auditables."
+  },
+  "cyberSecurity": {
+    "title": "Ciberseguridad - MNSCloud",
+    "eyebrow": "Operaciones de seguridad",
+    "heading": "Ciberseguridad",
+    "lead": "Perfiles de protección basados en servicios, inteligencia de CrowdSec, aplicación con nftables, alertas, decisiones, listas de permitidos y de bloqueo, e instalación conducida por agentes.",
+    "cardTitle": "Principios de seguridad",
+    "items": [
+      "Los perfiles se basan en servicios como SSH, Nginx, Asterisk, Kamailio y MariaDB.",
+      "El firewall se aplica con nftables a partir de las decisiones de CrowdSec.",
+      "Los agentes reportan el estado y el historial de tareas a la plataforma.",
+      "Los instaladores públicos no guardan secretos de clientes ni autoridad privada sobre las políticas."
+    ],
+    "ctaTitle": "Construya la postura de seguridad a partir de los servicios, no de etiquetas frágiles de servidor."
+  },
+  "support": {
+    "title": "Soporte y CRM - MNSCloud",
+    "eyebrow": "Atención al cliente",
+    "heading": "Soporte y CRM",
+    "lead": "Conecte soporte, CRM, ventas y contexto del cliente para que los equipos operativos pasen de la atención de tickets al seguimiento comercial sin perder visibilidad.",
+    "cardTitle": "Flujos de negocio",
+    "items": [
+      "Tickets, canales, equipos y colas de servicio.",
+      "Leads, oportunidades y seguimiento del pipeline en el CRM.",
+      "Catálogo de ventas, productos, marcas, inventario, cotizaciones y categorías.",
+      "Datos de clientes por entorno, controlados por la API."
+    ],
+    "ctaTitle": "Mantenga la operación del cliente cerca de la infraestructura que lo atiende."
+  }
+}

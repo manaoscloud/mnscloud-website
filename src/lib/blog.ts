@@ -1,3 +1,5 @@
+import { fallbackLocale, formatDate, type Locale } from '../i18n';
+
 export type BlogPostFrontmatter = {
   title: string;
   description: string;
@@ -11,6 +13,7 @@ export type BlogPostFrontmatter = {
 
 export type BlogPost = {
   slug: string;
+  locale: Locale;
   frontmatter: BlogPostFrontmatter;
   Content: unknown;
 };
@@ -20,29 +23,32 @@ type BlogModule = {
   default: unknown;
 };
 
-const modules = import.meta.glob<BlogModule>('../content/blog/*.md', { eager: true });
+// Posts live in src/content/blog/<locale>/<slug>.md (same slug in every locale).
+const modules = import.meta.glob<BlogModule>('../content/blog/*/*.md', { eager: true });
 
-function slugFromPath(path: string): string {
-  return path.split('/').pop()?.replace(/\.md$/, '') ?? path;
+function parsePath(path: string): { locale: string; slug: string } {
+  const [locale = '', file = ''] = path.split('/').slice(-2);
+  return { locale, slug: file.replace(/\.md$/, '') };
 }
 
-export function getBlogPosts(options: { includeDrafts?: boolean } = {}): BlogPost[] {
+function postsOf(locale: Locale): BlogPost[] {
   return Object.entries(modules)
-    .map(([path, module]) => ({
-      slug: slugFromPath(path),
-      frontmatter: module.frontmatter,
-      Content: module.default,
-    }))
-    .filter((post) => options.includeDrafts || post.frontmatter.status !== 'draft')
-    .sort((a, b) => {
-      return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
-    });
+    .map(([path, module]) => ({ ...parsePath(path), module }))
+    .filter((entry) => entry.locale === locale)
+    .map(({ slug, module }) => ({ slug, locale, frontmatter: module.frontmatter, Content: module.default }));
 }
 
-export function formatPostDate(value: string): string {
-  return new Intl.DateTimeFormat('en', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-  }).format(new Date(value));
+/** Posts of a locale; a slug missing in that locale falls back to its en-US post. */
+export function getBlogPosts(locale: Locale, options: { includeDrafts?: boolean } = {}): BlogPost[] {
+  const own = postsOf(locale);
+  const ownSlugs = new Set(own.map((post) => post.slug));
+  const fallback = locale === fallbackLocale ? [] : postsOf(fallbackLocale).filter((post) => !ownSlugs.has(post.slug));
+
+  return [...own, ...fallback]
+    .filter((post) => options.includeDrafts || post.frontmatter.status !== 'draft')
+    .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+}
+
+export function formatPostDate(locale: Locale, value: string): string {
+  return formatDate(locale, value);
 }

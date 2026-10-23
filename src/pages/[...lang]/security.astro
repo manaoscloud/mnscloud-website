@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTA from '../../components/CTA.astro';
+import { localeParams, type Locale } from '../../i18n';
+import { getContent } from '../../lib/content';
+
+export function getStaticPaths() {
+  return localeParams();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const { pages } = getContent(locale);
+
+const page = pages.security;
+---
+
+<BaseLayout title={page.title}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p>
+            {page.lead}
+          </p>
+        </div>
+        <div class="grid three">
+          {page.cards.map((card) => (
+            <article class="card trust-card">
+              <h2>{card.title}</h2>
+              <p>{card.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <CTA title={page.ctaTitle} />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 0.95;
+  }
+
+  .trust-card {
+    padding: 26px;
+  }
+
+  .trust-card p {
+    color: var(--muted);
+    line-height: 1.7;
+  }
+</style>

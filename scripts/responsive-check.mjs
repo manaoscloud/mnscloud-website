@@ -27,6 +27,14 @@ const paths = [
   '/legal/data-processing/',
   '/legal/subprocessors/',
   '/404.html',
+  '/en/',
+  '/en/architecture/',
+  '/en/blog/secure-voip-infrastructure/',
+  '/en/404.html',
+  '/es/',
+  '/es/modules/voip/',
+  '/es/legal/privacy/',
+  '/es/404.html',
 ];
 
 const viewports = [
@@ -36,7 +44,9 @@ const viewports = [
   { name: 'desktop-1440', width: 1440, height: 900 },
 ];
 
-const browser = await chromium.launch({ headless: true });
+// Optional override for a locally cached browser build (e.g. CHROMIUM_EXECUTABLE_PATH=~/.cache/ms-playwright/...).
+const executablePath = process.env.CHROMIUM_EXECUTABLE_PATH || undefined;
+const browser = await chromium.launch({ headless: true, executablePath });
 const problems = [];
 
 for (const viewport of viewports) {
@@ -84,7 +94,7 @@ for (const viewport of viewports) {
     if (
       result.overflow > 2 ||
       result.overflowElements.length > 0 ||
-      (path === '/' &&
+      (['/', '/en/', '/es/'].includes(path) &&
         (result.ecosystemTrackDisplay !== 'flex' || result.ecosystemMarkDisplay !== 'grid'))
     ) {
       problems.push({ viewport: viewport.name, path, ...result });

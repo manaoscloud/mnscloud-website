@@ -1,0 +1,76 @@
+{
+  "modules": [
+    {
+      "slug": "voip",
+      "eyebrow": "Núcleo de telecom",
+      "title": "Plataforma VoIP",
+      "summary": "PABX, Softswitch, SBC, DID, enrutamiento, grabaciones, preparación para WebRTC y operación de voz multientorno.",
+      "href": "/modules/voip",
+      "features": [
+        { "title": "PABX", "description": "Orquestación de FreeSWITCH y Asterisk mediante la API." },
+        { "title": "Softswitch", "description": "Control de proveedores, recursos, DID, suscriptores y enrutamiento." },
+        { "title": "WebRTC", "description": "Arquitectura de borde segura para el registro SIP desde navegador y móvil." }
+      ]
+    },
+    {
+      "slug": "hosting",
+      "eyebrow": "Infraestructura",
+      "title": "Automatización de Hosting",
+      "summary": "VPS, VPS Container, DNS, almacenamiento, SMTP, hosting web, catálogos de proveedores y flujos de aprovisionamiento.",
+      "href": "/modules/hosting",
+      "features": [
+        { "title": "VPS", "description": "Automatización del ciclo de vida de proveedores, planes, imágenes e instancias." },
+        { "title": "Contenedores", "description": "Modelo de proveedor de contenedores con Incus como prioridad para cargas de clientes." },
+        { "title": "Almacenamiento", "description": "Cuentas de almacenamiento reutilizables para grabaciones, medios y archivos." }
+      ]
+    },
+    {
+      "slug": "monitoring",
+      "eyebrow": "Operaciones",
+      "title": "Monitoreo y Agentes",
+      "summary": "Agentes salientes, inventario de servidores, ejecución de tareas, verificaciones de salud, registros de actividad y visibilidad operativa.",
+      "href": "/modules/monitoring",
+      "features": [
+        { "title": "Agente saliente", "description": "No requiere ningún puerto de entrada en el servidor para las tareas de gestión." },
+        { "title": "Registros de actividad", "description": "Historial de ejecución trazable para operaciones críticas." },
+        { "title": "Capacidades", "description": "Funciones específicas por recurso entregadas mediante agentes genéricos." }
+      ]
+    },
+    {
+      "slug": "cyber-security",
+      "eyebrow": "Seguridad",
+      "title": "Ciberseguridad",
+      "summary": "CrowdSec, nftables, perfiles, servicios protegidos, decisiones, alertas y políticas de seguridad basadas en servicios.",
+      "href": "/modules/cyber-security",
+      "features": [
+        { "title": "Perfiles", "description": "Perfiles de seguridad reutilizables por servicio, no por nombre de producto." },
+        { "title": "Firewall", "description": "Aplicación con nftables e inteligencia de CrowdSec." },
+        { "title": "Alertas", "description": "Eventos de seguridad reportados al plano de control de MNSCloud." }
+      ]
+    },
+    {
+      "slug": "support",
+      "eyebrow": "Atención al cliente",
+      "title": "Soporte y CRM",
+      "summary": "Tickets, canales, equipos, pipelines de CRM, leads, oportunidades y flujos de relación con el cliente.",
+      "href": "/modules/support",
+      "features": [
+        { "title": "Tickets", "description": "Colas de soporte, canales, equipos y contexto del cliente." },
+        { "title": "CRM", "description": "Leads, oportunidades, etapas del pipeline y visibilidad comercial." },
+        { "title": "Ventas", "description": "Catálogo, cotizaciones, inventario, marcas, categorías y unidades." }
+      ]
+    },
+    {
+      "slug": "developers",
+      "eyebrow": "Ecosistema",
+      "title": "Desarrolladores y Conectores Públicos",
+      "summary": "Clientes públicos, agentes, instaladores, contratos de API, gobernanza de contribuciones y conectores de borde.",
+      "href": "/developers",
+      "features": [
+        { "title": "Repositorios públicos", "description": "Clientes e instaladores auditables, sin lógica privada del plano de control." },
+        { "title": "API First", "description": "La API sigue siendo la fuente de verdad para la autorización y las políticas." },
+        { "title": "Contribuidores", "description": "Gobernanza mediante Pull Requests, con vías de trabajo remunerado y contratación." }
+      ]
+    }
+  ]
+}

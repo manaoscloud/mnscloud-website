@@ -1,0 +1,34 @@
+{
+  "header": {
+    "homeLabel": "{{site}} home",
+    "openNavigation": "Open navigation",
+    "mainNavigation": "Main navigation"
+  },
+  "language": {
+    "label": "Language",
+    "switchTo": "View this page in {{language}}",
+    "names": {
+      "pt-BR": "Português",
+      "en-US": "English",
+      "es-ES": "Español"
+    },
+    "short": {
+      "pt-BR": "PT",
+      "en-US": "EN",
+      "es-ES": "ES"
+    }
+  },
+  "module": {
+    "explore": "Explore module"
+  },
+  "home": {
+    "platformOverview": "Platform overview",
+    "ecosystem": "Technology ecosystem"
+  },
+  "notFound": {
+    "suggested": "Suggested pages"
+  },
+  "useCases": {
+    "modules": "{{title}} modules"
+  }
+}

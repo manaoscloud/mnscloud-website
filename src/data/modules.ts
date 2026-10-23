@@ -1,4 +1,5 @@
-import modulesData from '../content/site/modules.json';
+import { getContent } from '../lib/content';
+import type { Locale } from '../i18n';
 
 export type ModuleFeature = {
   title: string;
@@ -14,8 +15,10 @@ export type ProductModule = {
   features: ModuleFeature[];
 };
 
-export const productModules: ProductModule[] = modulesData.modules;
+export function productModules(locale: Locale): ProductModule[] {
+  return getContent(locale).modules.modules;
+}
 
-export function findModule(slug: string): ProductModule | undefined {
-  return productModules.find((item) => item.slug === slug);
+export function findModule(locale: Locale, slug: string): ProductModule | undefined {
+  return productModules(locale).find((item) => item.slug === slug);
 }

@@ -1,0 +1,76 @@
+{
+  "modules": [
+    {
+      "slug": "voip",
+      "eyebrow": "Núcleo de telecom",
+      "title": "Plataforma VoIP",
+      "summary": "PABX, Softswitch, SBC, DID, roteamento, gravações, preparo para WebRTC e operação de voz multiambiente.",
+      "href": "/modules/voip",
+      "features": [
+        { "title": "PABX", "description": "Orquestração de FreeSWITCH e Asterisk pela API." },
+        { "title": "Softswitch", "description": "Controle de provedores, recursos, DIDs, assinantes e roteamento." },
+        { "title": "WebRTC", "description": "Arquitetura de borda segura para registro SIP em navegador e celular." }
+      ]
+    },
+    {
+      "slug": "hosting",
+      "eyebrow": "Infraestrutura",
+      "title": "Automação de Hospedagem",
+      "summary": "VPS, VPS Container, DNS, armazenamento, SMTP, hospedagem de sites, catálogos de provedores e fluxos de provisionamento.",
+      "href": "/modules/hosting",
+      "features": [
+        { "title": "VPS", "description": "Automação do ciclo de vida de provedores, planos, imagens e instâncias." },
+        { "title": "Contêineres", "description": "Modelo de provedor de contêineres com Incus como prioridade para cargas de clientes." },
+        { "title": "Armazenamento", "description": "Contas de armazenamento reutilizáveis para gravações, mídias e arquivos." }
+      ]
+    },
+    {
+      "slug": "monitoring",
+      "eyebrow": "Operações",
+      "title": "Monitoramento e Agentes",
+      "summary": "Agentes de saída, inventário de servidores, execução de tarefas, verificações de saúde, logs de atividade e visibilidade operacional.",
+      "href": "/modules/monitoring",
+      "features": [
+        { "title": "Agente de saída", "description": "Nenhuma porta de entrada no servidor é necessária para tarefas de gestão." },
+        { "title": "Logs de atividade", "description": "Histórico rastreável de execução para operações críticas." },
+        { "title": "Capacidades", "description": "Recursos específicos entregues por agentes genéricos." }
+      ]
+    },
+    {
+      "slug": "cyber-security",
+      "eyebrow": "Segurança",
+      "title": "Cibersegurança",
+      "summary": "CrowdSec, nftables, perfis, serviços protegidos, decisões, alertas e políticas de segurança baseadas em serviços.",
+      "href": "/modules/cyber-security",
+      "features": [
+        { "title": "Perfis", "description": "Perfis de segurança reutilizáveis por serviço, não por nome de produto." },
+        { "title": "Firewall", "description": "Aplicação com nftables e inteligência do CrowdSec." },
+        { "title": "Alertas", "description": "Eventos de segurança reportados ao plano de controle da MNSCloud." }
+      ]
+    },
+    {
+      "slug": "support",
+      "eyebrow": "Atendimento ao cliente",
+      "title": "Suporte e CRM",
+      "summary": "Chamados, canais, equipes, pipelines de CRM, leads, oportunidades e fluxos de relacionamento com o cliente.",
+      "href": "/modules/support",
+      "features": [
+        { "title": "Chamados", "description": "Filas de suporte, canais, equipes e contexto do cliente." },
+        { "title": "CRM", "description": "Leads, oportunidades, etapas do pipeline e visibilidade comercial." },
+        { "title": "Vendas", "description": "Catálogo, orçamentos, estoque, marcas, categorias e unidades." }
+      ]
+    },
+    {
+      "slug": "developers",
+      "eyebrow": "Ecossistema",
+      "title": "Desenvolvedores e Conectores Públicos",
+      "summary": "Clientes públicos, agentes, instaladores, contratos de API, governança de contribuições e conectores de borda.",
+      "href": "/developers",
+      "features": [
+        { "title": "Repositórios públicos", "description": "Clientes e instaladores auditáveis, sem lógica privada do plano de controle." },
+        { "title": "API First", "description": "A API continua sendo a fonte da verdade para autorização e políticas." },
+        { "title": "Contribuidores", "description": "Governança por Pull Request, com caminhos para trabalho remunerado e contratação." }
+      ]
+    }
+  ]
+}

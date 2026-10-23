@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTA from '../../components/CTA.astro';
+import { localeParams, localizePath, type Locale } from '../../i18n';
+import { getContent } from '../../lib/content';
+
+export function getStaticPaths() {
+  return localeParams();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const { pages } = getContent(locale);
+
+const page = pages.docs;
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+>
+  <Header />
+  <main>
+    <section class="section docs-hero">
+      <div class="container docs-grid">
+        <div>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1>{page.heading}</h1>
+          <p class="lead">
+            {page.lead}
+          </p>
+          <div class="actions">
+            <a class="button primary" href={localizePath(locale, page.primaryAction.href)}>{page.primaryAction.label}</a>
+            <a class="button" href={localizePath(locale, page.secondaryAction.href)}>{page.secondaryAction.label}</a>
+          </div>
+        </div>
+        <div class="card contract-card">
+          <h2>{page.surfacesTitle}</h2>
+          <ul>
+            {page.surfaces.map((item) => <li><strong>{item.title}</strong><span>{item.text}</span></li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">{page.sectionEyebrow}</span>
+          <h2>{page.sectionTitle}</h2>
+          <p>
+            {page.sectionText}
+          </p>
+        </div>
+        <div class="grid three">
+          {page.cards.map((card) => (
+            <article class="card info-card">
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <CTA title={page.ctaTitle} />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+  }
+
+  .docs-hero {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0.78fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .contract-card,
+  .info-card {
+    padding: 22px;
+  }
+
+  .contract-card h2,
+  .info-card h3 {
+    margin: 0 0 16px;
+    font-size: 1.55rem;
+  }
+
+  .contract-card ul {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contract-card li {
+    display: grid;
+    gap: 5px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contract-card li:last-child {
+    border-bottom: 0;
+  }
+
+  .contract-card span,
+  .info-card p {
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .info-card p {
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .docs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contract-card,
+    .info-card {
+      padding: 20px;
+    }
+  }
+</style>
