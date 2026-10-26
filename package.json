@@ -16,8 +16,8 @@
     "check:cookies": "node scripts/cookie-consent-check.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.3.3"
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.8"
   },
   "devDependencies": {
     "playwright": "^1.60.0",
