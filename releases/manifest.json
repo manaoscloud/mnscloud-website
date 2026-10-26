@@ -3,14 +3,14 @@
   "repository": "manaoscloud/mnscloud-website",
   "channels": {
     "stable": {
-      "version": "0.1.7",
-      "ref": "v0.1.7",
-      "releasedAt": "2026-10-24T19:48:21Z",
+      "version": "0.1.8",
+      "ref": "v0.1.8",
+      "releasedAt": "2026-10-26T04:49:27Z",
       "minimumVersion": "0.1.0",
       "artifact": {
-        "name": "mnscloud-website-web-v0.1.7.tar.gz",
-        "sha256": "cae2660bab8db03d5652ee37b5ffa2e4d8062b0562a61f83fface30a77192ba1",
-        "sizeBytes": 263823,
+        "name": "mnscloud-website-web-v0.1.8.tar.gz",
+        "sha256": "9f5b30fd25b553224a2a48f398108c34d41ae95157b68db95f0d72283bb2468d",
+        "sizeBytes": 263814,
         "contentType": "application/gzip"
       }
     }
