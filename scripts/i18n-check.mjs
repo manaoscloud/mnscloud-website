@@ -83,7 +83,7 @@ const contentFiles = new Set(
     return existsSync(dir) ? readdirSync(dir).filter((name) => name.endsWith('.json')) : [];
   }),
 );
-for (const name of [...contentFiles].sort()) {
+for (const name of [...contentFiles].sort((a, b) => Number(a > b) - Number(a < b))) {
   compareFiles(
     `src/content/site/<locale>/${name}`,
     Object.fromEntries(locales.map((locale) => [locale, join(contentRoot, locale, name)])),
@@ -107,7 +107,7 @@ const slugsByLocale = Object.fromEntries(
   }),
 );
 const allSlugs = new Set(Object.values(slugsByLocale).flatMap((slugs) => [...slugs]));
-for (const slug of [...allSlugs].sort()) {
+for (const slug of [...allSlugs].sort((a, b) => Number(a > b) - Number(a < b))) {
   for (const locale of locales) {
     const file = join(blogRoot, locale, `${slug}.md`);
     if (!slugsByLocale[locale].has(slug)) {
@@ -142,8 +142,8 @@ console.log(
       ok: true,
       locales,
       uiFiles: locales.length,
-      contentFiles: [...contentFiles].sort(),
-      blogSlugs: [...allSlugs].sort(),
+      contentFiles: [...contentFiles].sort((a, b) => Number(a > b) - Number(a < b)),
+      blogSlugs: [...allSlugs].sort((a, b) => Number(a > b) - Number(a < b)),
     },
     null,
     2,
