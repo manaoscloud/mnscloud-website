@@ -20,6 +20,8 @@ This repository contains the standalone public MNSCloud website.
 - Preview: `npm run preview`
 - Translation check: `npm run check:i18n`
 - Full validation: `npm run check`
+  (i18n, build, domain boundary, responsive and cookie checks; the PR CI runs `check:i18n` and
+  `build`, the release artifact adds `check:domains`; run the full `npm run check` before pushing)
 
 ## Languages
 
@@ -34,12 +36,23 @@ This repository contains the standalone public MNSCloud website.
 
 - The repository is intentionally public so third parties can fork it and self-host the static
   build without MNSCloud infrastructure. Keep it buildable with Node.js/npm alone and servable by any
-  static file server; do not add dependencies on the MNSCloud API, Agent, runtime kit, or private
-  networks.
+  static file server; do not add required dependencies on the MNSCloud API, Agent, runtime kit, or
+  private networks. Optional calls to safe public API endpoints (contact/demo requests,
+  `docs/public-api-clients.md`) must be configurable and degrade gracefully when absent.
 - This website is public and must not contain secrets, customer data, private domains/IPs, provider
   credentials, database credentials, master keys, or private business rules.
 - API-side authorization, tenant scope, billing, routing ownership, policy, and secret resolution
   must stay in the MNSCloud API/control plane.
+
+## Content editing (Decap CMS)
+
+- `public/admin/config.yml` publishes through the GitHub editorial workflow: each publish is a PR
+  on `main` (head `cms/...`) that the CMS merges after the `main-guard` ruleset's CI check
+  (`Website build`) passes. Those PRs carry content only, so they have no `<type>/<task-slug>` head
+  and no `## Release note` block; a code, layout or dependency change never goes through the CMS:
+  it uses the normal task branch, PR and `scripts/ops/merge.sh`.
+- A merged CMS PR triggers Auto Release like any merge; DEV auto-syncs it, PROD changes only by the
+  explicit single-app rollout (workspace `docs/webapps.md`).
 
 ## Brand Assets
 
