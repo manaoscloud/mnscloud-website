@@ -1,4 +1,14 @@
 ---
+// Fonts are served from this site (no third-party request before the visitor's consent).
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/montserrat/900.css';
+import '@fontsource/oswald/500.css';
+import '@fontsource/oswald/600.css';
+import '@fontsource/oswald/700.css';
 import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
 import { alternates, defaultLocale, localeFromUrl, locales, ogLocales } from '../i18n';
@@ -51,12 +61,6 @@ const defaultAlternate = alternateLinks.find((item) => item.hreflang === default
     {alternateLinks.map((item) => <link rel="alternate" hreflang={item.hreflang} href={item.href} />)}
     {defaultAlternate && <link rel="alternate" hreflang="x-default" href={defaultAlternate.href} />}
     <link rel="icon" type="image/png" href={siteShared.brand.favicon} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <title>{title}</title>
   </head>
   <body>
