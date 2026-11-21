@@ -9,5 +9,8 @@
     "logoDefault": "/brand/mnscloud-logo.png",
     "favicon": "/brand/favicon.png",
     "watermark": "/brand/mnscloud-watermark.png"
+  },
+  "integrations": {
+    "webchatLoader": "/api/v1/public/website/institutional-chat.js"
   }
 }

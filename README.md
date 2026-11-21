@@ -152,6 +152,14 @@ Example:
 PUBLIC_SITE_URL=https://partner.example.com npm run build
 ```
 
+### Web chat
+
+Every page loads `integrations.webchatLoader` of `src/content/site/settings.json` (default
+`/api/v1/public/website/institutional-chat.js`, same origin) after the content. On the MNSCloud edge
+the API answers it with the Conversations chat configured in Website › Parameters (Institutional
+website chat), or an empty script. `PUBLIC_WEBCHAT_LOADER` overrides it at build time; empty disables
+it. A self-hosted copy without the MNSCloud API only gets a 404 for that script and no chat.
+
 For partner white-label deployments, update the CMS-controlled site settings first:
 
 ```json

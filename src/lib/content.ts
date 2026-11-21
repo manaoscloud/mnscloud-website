@@ -45,6 +45,20 @@ export function getContent(locale: Locale): SiteContent {
 /** Locale-neutral identity values (site URL, brand assets) shared by every locale. */
 export const siteShared = shared;
 
+/**
+ * Same-origin path of the web chat loader (the MNSCloud API serves the chat configured for this
+ * website's domain, or an empty script). `PUBLIC_WEBCHAT_LOADER` overrides it; empty disables it,
+ * and a self-hosted copy without the API only gets a harmless 404 for the script.
+ */
+export function webchatLoader(): string | null {
+  const configured =
+    import.meta.env.PUBLIC_WEBCHAT_LOADER ??
+    (shared as { integrations?: { webchatLoader?: string } }).integrations?.webchatLoader ??
+    '';
+  const path = String(configured).trim();
+  return /^\/(?!\/)[A-Za-z0-9._~\/-]+\.js$/.test(path) ? path : null;
+}
+
 export function siteUrl(): string {
   return import.meta.env.PUBLIC_SITE_URL ?? shared.site.url;
 }

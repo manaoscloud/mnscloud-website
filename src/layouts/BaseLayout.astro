@@ -12,7 +12,7 @@ import '@fontsource/oswald/700.css';
 import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
 import { alternates, defaultLocale, localeFromUrl, locales, ogLocales } from '../i18n';
-import { getContent, siteShared, siteUrl } from '../lib/content';
+import { getContent, siteShared, siteUrl, webchatLoader } from '../lib/content';
 
 type Props = {
   title?: string;
@@ -37,6 +37,7 @@ const alternateLinks = alternates(Astro.url.pathname).map((item) => ({
   href: new URL(item.href, baseUrl).toString(),
 }));
 const defaultAlternate = alternateLinks.find((item) => item.hreflang === defaultLocale);
+const chatLoader = webchatLoader();
 ---
 
 <!doctype html>
@@ -66,5 +67,6 @@ const defaultAlternate = alternateLinks.find((item) => item.hreflang === default
   <body>
     <slot />
     <CookieConsent />
+    {chatLoader && <script is:inline async src={chatLoader}></script>}
   </body>
 </html>
