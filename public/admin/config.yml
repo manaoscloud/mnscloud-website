@@ -45,6 +45,12 @@ collections:
               - { label: "Default logo", name: "logoDefault", widget: "image" }
               - { label: "Favicon", name: "favicon", widget: "image" }
               - { label: "Watermark", name: "watermark", widget: "image", required: false }
+          - label: "Integrations"
+            name: "integrations"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Web chat loader (same-origin path; empty disables)", name: "webchatLoader", widget: "string", required: false }
   - name: "site_pt_br"
     label: "Site Content - Português (pt-BR)"
     files:
